@@ -7,10 +7,12 @@ import { FOUNDED, GEAR } from '../data/business';
 
 <Page title="About" description="Meet Reliable Kev Media, a video production studio in North Jersey.">
   <h1>About Reliable Kev Media<BrandMark /></h1>
-  {/* TODO (Kev): add a photo of Vinny (One Brick Media) beside this quote once Kev sends one. */}
   <figure class="pull">
-    <blockquote>Kev is at his best with just a camera and a chair.</blockquote>
-    <figcaption>Vinny, owner of One Brick Media</figcaption>
+    <img src="/images/vinny.jpg" alt="Vinny, owner of One Brick Media, at work in his shop" class="pull-photo" />
+    <div class="pull-text">
+      <blockquote>Kev is at his best with just a camera and a chair.</blockquote>
+      <figcaption>Vinny, owner of One Brick Media</figcaption>
+    </div>
   </figure>
   <p>
     Reliable Kev Media is a video production studio filming across{' '}
@@ -82,7 +84,10 @@ import { FOUNDED, GEAR } from '../data/business';
   .clip video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--line); }
   .clip figcaption { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; }
   .motto { font-family: var(--font-display); font-size: clamp(1.3rem, 2.6vw, 1.8rem); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text) !important; margin: 28px 0 !important; }
-  .pull { margin: 0 0 36px; padding: 4px 0 4px 24px; border-left: 3px solid var(--text); }
+  .pull { margin: 0 0 36px; display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: center; }
+  .pull-photo { width: 150px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 60% 30%; border: 1px solid var(--line); }
+  .pull-text { padding: 4px 0 4px 24px; border-left: 3px solid var(--text); }
+  @media (max-width: 520px) { .pull { grid-template-columns: 110px 1fr; gap: 16px; } .pull-photo { width: 110px; } .pull-text { padding-left: 16px; } }
   .pull blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.3rem, 2.6vw, 1.75rem); line-height: 1.35; letter-spacing: 0.01em; }
   .pull blockquote::before { content: '\201C'; }
   .pull blockquote::after { content: '\201D'; }

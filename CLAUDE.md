@@ -28,10 +28,6 @@ The video behind the homepage headline is a montage. Its shots are listed in `we
 new footage comes in, add a shot or two there and run `website/scripts/build-hero-reel.sh`. Keep it about 30s
 and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's request).
 
-## Waiting on Kev
-
-- **Photo of Vinny** (One Brick Media) to sit beside his quote on the About page (`src/pages/about.astro`, marked TODO).
-
 ## Business card QR code (do not break)
 
 Printed business cards point at `/card/` (the project intake, `src/pages/card.astro`). Never rename,
