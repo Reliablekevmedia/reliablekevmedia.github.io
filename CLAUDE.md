@@ -28,6 +28,11 @@ The video behind the homepage headline is a montage. Its shots are listed in `we
 new footage comes in, add a shot or two there and run `website/scripts/build-hero-reel.sh`. Keep it about 30s
 and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's request).
 
+## Waiting on Kev
+
+- **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the
+  homepage value points (`reasons` in `src/pages/index.astro`, already drafted in a comment there).
+
 ## Business card QR code (do not break)
 
 Printed business cards point at `/card/` (the project intake, `src/pages/card.astro`). Never rename,
