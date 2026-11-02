@@ -93,9 +93,9 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
         </ul>
 
         <a href="/about" class="meet">
-          <div class="meet-photo"><img src="/images/kev.jpg" alt="Kev, the filmmaker behind Reliable Kev Media" loading="lazy" /></div>
+          <div class="meet-photo"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to film with his camera at an outdoor event" loading="lazy" /></div>
           <div>
-            <h3>Meet the studio</h3>
+            <h3>Meet Kev</h3>
             <p>
               Founded by Kev. The team that plans your project is the team that films and edits it, so your story
               stays in the same hands from start to finish. <span class="more">Continue reading</span>
@@ -191,8 +191,8 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
   }
   .meet h3 { margin-top: 0; text-transform: none; }
   .meet p { font-size: 0.9rem; margin: 0; }
-  .meet-photo { aspect-ratio: 4 / 3; background: #1a1a1a; display: grid; place-items: center; overflow: hidden; }
-  .meet-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .meet-photo { position: relative; aspect-ratio: 4 / 3; background: #1a1a1a; overflow: hidden; }
+  .meet-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 48% 62%; }
   .more { text-decoration: underline; }
   .more-work { margin-top: 14px; }
   .service-photo { margin: 6px 0 18px; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--line); }

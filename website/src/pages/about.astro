@@ -37,6 +37,14 @@ import { FOUNDED, GEAR } from '../data/business';
     work it took and where you are going.
   </p>
 
+  <h2>Behind the camera</h2>
+  <div class="bts">
+    <figure class="bts-wide"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to frame a shot at an outdoor event" loading="lazy" /><figcaption>Getting low for the shot at a community event we sponsored.</figcaption></figure>
+    <figure><img src="/images/kev-filming-event.jpg" alt="Kev filming dogs and their owners at an outdoor event" loading="lazy" /><figcaption>Filming the crowd at the same event.</figcaption></figure>
+    <figure><img src="/images/kev-fitness-shoot.jpg" alt="Kev with a client on set at a fitness shoot" loading="lazy" /><figcaption>On set with a client at a fitness shoot.</figcaption></figure>
+    <figure><img src="/images/kev-camera-screen.jpg" alt="A camera screen mid-recording, framing a detail shot" loading="lazy" /><figcaption>Rolling on a detail shot.</figcaption></figure>
+  </div>
+
   <h2>Full context storytelling</h2>
   <p>
     We invest the time, care and thought to understand your story, then direct and shape it on camera. Trust is the
@@ -95,4 +103,16 @@ import { FOUNDED, GEAR } from '../data/business';
   .pull blockquote::after { content: '\201D'; }
   .pull figcaption { margin-top: 12px; font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); opacity: 0.85; }
   .photo { aspect-ratio: 16 / 9; background: var(--bg-raised); border: 1px solid var(--line); display: grid; place-items: center; margin: 28px 0; }
+  /* Behind-the-scenes photos: one wide shot, then three tall ones in a row. */
+  .bts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+  .bts figure { margin: 0; }
+  .bts img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border: 1px solid var(--line); }
+  .bts .bts-wide { grid-column: 1 / -1; }
+  .bts .bts-wide img { aspect-ratio: 16 / 9; object-position: 50% 60%; }
+  .bts figcaption { font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; }
+  @media (max-width: 560px) {
+    .bts { grid-template-columns: 1fr 1fr; }
+    .bts figure:last-child { grid-column: 1 / -1; }
+    .bts figure:last-child img { aspect-ratio: 16 / 9; }
+  }
 </style>
