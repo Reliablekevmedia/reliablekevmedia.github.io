@@ -8,7 +8,7 @@ import { FOUNDED, GEAR } from '../data/business';
 <Page title="About" description="Meet Reliable Kev Media, a video production studio in North Jersey.">
   <h1>About Reliable Kev Media<BrandMark /></h1>
   <figure class="pull">
-    <img src="/images/vinny.jpg" alt="Vinny, owner of One Brick Media, at work in his shop" class="pull-photo" />
+    <img src="/images/vinny.jpg" alt="Vinny, owner of One Brick Media, at work in his shop" class="pull-photo" loading="lazy" />
     <div class="pull-text">
       <blockquote>Kev is at his best with just a camera and a chair.</blockquote>
       <figcaption>Vinny, owner of One Brick Media</figcaption>
@@ -84,13 +84,15 @@ import { FOUNDED, GEAR } from '../data/business';
   .clip video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--line); }
   .clip figcaption { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; }
   .motto { font-family: var(--font-display); font-size: clamp(1.3rem, 2.6vw, 1.8rem); text-transform: uppercase; letter-spacing: 0.06em; color: var(--text) !important; margin: 28px 0 !important; }
-  .pull { margin: 0 0 36px; display: grid; grid-template-columns: 150px 1fr; gap: 24px; align-items: center; }
-  .pull-photo { width: 150px; aspect-ratio: 4 / 5; object-fit: cover; object-position: 60% 30%; border: 1px solid var(--line); }
-  .pull-text { padding: 4px 0 4px 24px; border-left: 3px solid var(--text); }
-  @media (max-width: 520px) { .pull { grid-template-columns: 110px 1fr; gap: 16px; } .pull-photo { width: 110px; } .pull-text { padding-left: 16px; } }
-  .pull blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.3rem, 2.6vw, 1.75rem); line-height: 1.35; letter-spacing: 0.01em; }
+  /* Vinny's quote over his photo: full width, darkened toward the left so the words read. */
+  .pull { position: relative; margin: 0 0 40px; min-height: clamp(340px, 46vw, 500px); display: flex; align-items: flex-end; overflow: hidden; border: 1px solid var(--line); }
+  .pull-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 6%; }
+  .pull::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0.55) 50%, rgb(0 0 0 / 0.1)), linear-gradient(to top, rgb(0 0 0 / 0.6), transparent 60%); }
+  .pull-text { position: relative; z-index: 2; padding: clamp(22px, 4vw, 40px); max-width: 36ch; }
+  @media (max-width: 520px) { .pull::before { background: linear-gradient(to top, rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.35) 75%); } .pull-text { max-width: none; } }
+  .pull blockquote { margin: 0; font-family: var(--font-display); font-size: clamp(1.5rem, 3.2vw, 2.2rem); text-shadow: 0 2px 14px rgb(0 0 0 / 0.5); line-height: 1.35; letter-spacing: 0.01em; }
   .pull blockquote::before { content: '\201C'; }
   .pull blockquote::after { content: '\201D'; }
-  .pull figcaption { margin-top: 10px; font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); }
+  .pull figcaption { margin-top: 12px; font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); opacity: 0.85; }
   .photo { aspect-ratio: 16 / 9; background: var(--bg-raised); border: 1px solid var(--line); display: grid; place-items: center; margin: 28px 0; }
 </style>
