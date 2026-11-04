@@ -1,4 +1,5 @@
 ---
+import ClientLogos from '../components/ClientLogos.astro';
 import BrandMark from '../components/BrandMark.astro';
 import { getCollection } from 'astro:content';
 import Page from '../layouts/Page.astro';
@@ -14,6 +15,8 @@ const work = (await getCollection('work', (w) => !w.data.draft)).sort(
 <Page title="Work" description="Video work across North Jersey.">
   <h1>Our work<BrandMark /></h1>
   <p>Real businesses, real towns. Every project here was filmed on location in North Jersey.</p>
+  <h2>Trusted by</h2>
+  <div class="work-clients"><ClientLogos heading={false} /></div>
   {FEATURED.map((f) => <FeaturedVideo item={f} />)}
   <div class="gallery">
     {work.length
@@ -42,4 +45,6 @@ const work = (await getCollection('work', (w) => !w.data.draft)).sort(
   .thumb img { width: 100%; height: 100%; object-fit: cover; }
   .item h3 { margin: 12px 0 2px !important; font-size: 1rem; }
   .item p { font-size: 0.9rem; color: var(--text-muted) !important; }
+  .work-clients :global(.clients) { padding: 8px 0 24px; }
+  .work-clients :global(.container) { padding: 0; max-width: none; }
 </style>
