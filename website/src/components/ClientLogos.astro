@@ -1,7 +1,6 @@
 ---
-// "Trusted by": the client logos, in full color, in two rows that drift slowly from left to right across a
-// lit backdrop (like a studio seamless) trimmed with a bead above and below. Each row holds the list twice
-// and slides by exactly one copy, so the loop is seamless.
+// "Trusted by": the client logos, in their own colors, in two rows that drift slowly from left to right
+// right on the page. Each row holds the list twice and slides by exactly one copy, so the loop is seamless.
 import { CLIENTS } from '../data/clients';
 import { SITE } from '../site';
 
@@ -27,7 +26,6 @@ const fill = (row: typeof CLIENTS) => {
       </header>
     )}
     <ul class="sr-only">{CLIENTS.map((c) => <li>{c.name}</li>)}</ul>
-    <div class="backdrop">
     <div class="rows" aria-hidden="true">
       {rows.map((row, r) => {
         const run = fill(row);
@@ -46,7 +44,6 @@ const fill = (row: typeof CLIENTS) => {
         );
       })}
     </div>
-    </div>
   </section>
 )}
 
@@ -61,25 +58,7 @@ const fill = (row: typeof CLIENTS) => {
   .lede { color: #d9d2c4; margin: 0; }
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
-  /* Studio backdrop: warm gray paper, lit from the front by a soft spotlight, darker toward the edges,
-     with a rounded bead trim along the top and bottom. */
-  .backdrop {
-    position: relative; padding: clamp(22px, 3.5vw, 36px) 0;
-    background:
-      radial-gradient(ellipse 55% 95% at 50% 42%, rgb(255 250 238 / 0.75), rgb(255 250 238 / 0) 70%),
-      radial-gradient(ellipse 90% 140% at 50% 50%, transparent 45%, rgb(20 19 17 / 0.55) 100%),
-      linear-gradient(to bottom, #a8a296, #c7c0b2 45%, #9a948a);
-    box-shadow: inset 0 14px 22px -12px rgb(0 0 0 / 0.55), inset 0 -14px 22px -12px rgb(0 0 0 / 0.55);
-  }
-  .backdrop::before, .backdrop::after {
-    content: ''; position: absolute; left: 0; right: 0; height: 5px; z-index: 1;
-    background: linear-gradient(to bottom, #4a4741, #f6f0e2 45%, #b9b2a3 65%, #3e3b36);
-    box-shadow: 0 2px 6px rgb(0 0 0 / 0.45);
-  }
-  .backdrop::before { top: 0; }
-  .backdrop::after { bottom: 0; }
   .rows {
-    position: relative; z-index: 2;
     display: grid; gap: clamp(20px, 3vw, 32px);
     /* Logos fade in and out at the edges instead of being cut off. */
     -webkit-mask-image: linear-gradient(to right, transparent, #000 10%, #000 90%, transparent);
@@ -93,9 +72,8 @@ const fill = (row: typeof CLIENTS) => {
   img {
     --s: 1;
     width: calc(var(--w) * var(--s) * 1px); height: calc(var(--h) * var(--s) * 1px);
-    display: block; filter: drop-shadow(0 3px 6px rgb(0 0 0 / 0.28)); transition: transform 0.2s;
+    display: block;
   }
-  li:hover img { transform: scale(1.06); }
   /* Left to right: start one copy to the left and slide back to the start. */
   @keyframes drift { from { transform: translateX(-50%); } to { transform: translateX(0); } }
 
