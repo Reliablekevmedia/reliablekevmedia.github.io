@@ -16,4 +16,7 @@ export const CLIENTS: Client[] = [
   { name: 'The New Norm', logo: 'the-new-norm.png' },
   { name: 'Fair Lawn Main Street Inc.', logo: 'fair-lawn-main-street.png' },
   { name: 'Latin Heritage Celebration Fair Lawn', logo: 'celebration-fair-lawn.png' },
+  { name: 'Retro Fitness', logo: 'retro-fitness.png' },
+  { name: 'M&A Auto Spa', logo: 'ma-auto-spa.png' },
+  { name: 'Haus Coffee', logo: 'haus-coffee.png' },
 ];
