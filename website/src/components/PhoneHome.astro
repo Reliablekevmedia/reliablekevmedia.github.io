@@ -1,0 +1,204 @@
+---
+// The homepage on a phone: no menu, just one continuous scroll. It opens on the client logos, then the
+// motto video, then every tab's content in menu order (Services, Drone, Work, DIY, About, Contact).
+// It shows only when <html> has data-phone-scroll (set in Base.astro) on a phone-width screen; desktop
+// never sees it. Everything here pulls from the same data as the full pages, so edits show up in both.
+import { SITE, SERVICES } from '../site';
+import { SHOOT_RATES, RATE_INCLUDES } from '../data/pricing';
+import { DRONE_CLIPS } from '../data/drone';
+import { FEATURED } from '../data/featured';
+import { PHONE } from '../data/diy';
+import { VALUE_POINTS } from '../data/home';
+import { REVIEWS } from '../data/reviews';
+import { FOUNDED } from '../data/business';
+import FeaturedVideo from './FeaturedVideo.astro';
+import BrandMark from './BrandMark.astro';
+
+// A few drone clips to swipe through: homes, the city and an event.
+const CLIP_PICKS = ['tenafly', 'fair-lawn-roof', 'jc-skyline', 'event-rise-up', 'woodcliff-lake'];
+const clips = CLIP_PICKS.map((n) => DRONE_CLIPS.find((c) => c.name === n)).filter((c) => c !== undefined);
+const stars = (n: number) => '★'.repeat(Math.round(n));
+---
+
+<div class="phone-home">
+  <section class="ph-section" id="services">
+    <p class="ph-kicker">Services</p>
+    <h2>What we make<BrandMark /></h2>
+    <div class="ph-cards">
+      {SERVICES.map((s) => (
+        <article class="ph-card reveal">
+          <h3>{s.title}</h3>
+          <p>{s.short}</p>
+        </article>
+      ))}
+    </div>
+
+    <h3 class="ph-sub">Pricing</h3>
+    <div class="ph-rates">
+      {SHOOT_RATES.map((r) => (
+        <div class="ph-rate reveal">
+          <p class="ph-rate-name">{r.name}</p>
+          <p class="ph-rate-price">{r.price}</p>
+          <p class="ph-rate-time">{r.time}</p>
+        </div>
+      ))}
+    </div>
+    <ul class="checks ph-list">{RATE_INCLUDES.map((i) => <li>{i}</li>)}</ul>
+  </section>
+
+  <section class="ph-section" id="drone">
+    <p class="ph-kicker">Drone</p>
+    <h2>From above<BrandMark /></h2>
+    <p>Homes, job sites, downtowns and events across New Jersey. Swipe through a few flights.</p>
+    <div class="ph-swipe">
+      {clips.map((c) => (
+        <figure>
+          <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline preload="none" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
+          <figcaption>{c.title}<span> · {c.town}</span></figcaption>
+        </figure>
+      ))}
+    </div>
+  </section>
+
+  {FEATURED.length > 0 && (
+    <section class="ph-section" id="work">
+      <p class="ph-kicker">Work</p>
+      <h2>Featured work<BrandMark /></h2>
+      <FeaturedVideo item={FEATURED[0]} heading="h3" />
+    </section>
+  )}
+
+  <section class="ph-section" id="diy">
+    <p class="ph-kicker">DIY</p>
+    <h2>Film your own content today<BrandMark /></h2>
+    <p class="ph-big">Just aim and press record.</p>
+    <ul class="checks ph-list">{PHONE.map((t) => <li>{t}</li>)}</ul>
+    <a href="/diy" class="ph-link">Open the free guide</a>
+  </section>
+
+  {REVIEWS.length > 0 && (
+    <section class="ph-section" id="reviews">
+      <p class="ph-kicker">Reviews</p>
+      <h2>What clients say<BrandMark /></h2>
+      {REVIEWS.slice(0, 3).map((r) => (
+        <blockquote class="ph-review reveal">
+          <span class="ph-stars" aria-label={`${r.rating} out of 5 stars`}>{stars(r.rating)}</span>
+          <p>{r.text}</p>
+          <cite>{r.name}{r.business && <>, {r.business}</>}</cite>
+        </blockquote>
+      ))}
+    </section>
+  )}
+
+  <section class="ph-section" id="about">
+    <p class="ph-kicker">About</p>
+    <h2>Meet Kev<BrandMark /></h2>
+    <figure class="ph-photo">
+      <img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to film with his camera at an outdoor event" loading="lazy" />
+    </figure>
+    <p>
+      {SITE.name} has been filming across New Jersey since {FOUNDED}. We did not come out of film school or an
+      agency. What we bring is the ability to sit with someone, understand what matters to them and tell that story
+      clearly: the business, the people behind it and the town around it.
+    </p>
+    <ul class="checks ph-list">{VALUE_POINTS.map((v) => <li>{v}</li>)}</ul>
+    <figure class="ph-quote">
+      <img src="/images/vinny.jpg" alt="Vinny, owner of One Brick Media, at work in his shop" loading="lazy" />
+      <blockquote>Kev is at his best with just a camera and a chair.</blockquote>
+      <figcaption>Vinny, owner of One Brick Media</figcaption>
+    </figure>
+    <a href="/meet-kev" class="ph-link">Read Kev's story</a>
+  </section>
+
+  <section class="ph-section ph-contact" id="contact">
+    <p class="ph-kicker">Contact</p>
+    <h2>Let's tell your story<BrandMark /></h2>
+    <p>Every project starts with a free, no-pressure call. {SITE.hours}</p>
+    <div class="ph-actions">
+      <a href="/start" class="btn btn-primary">Start a project</a>
+      {SITE.phone && <a href={`tel:${SITE.phone}`} class="btn">Call {SITE.phone}</a>}
+      <a href={`mailto:${SITE.email}`} class="btn">Email us</a>
+    </div>
+  </section>
+</div>
+
+<style is:global>
+  /* Off everywhere unless the phone scroll is switched on and the screen is phone-width. */
+  .phone-home { display: none; }
+  @media (max-width: 860px) {
+    html[data-phone-scroll] .phone-home { display: block; }
+    html[data-phone-scroll] .desktop-only { display: none !important; }
+    /* No menu: logo only up top, no phone bar, no town ticker, no quick links in the footer. */
+    html[data-phone-scroll] .topbar,
+    html[data-phone-scroll] #site-nav,
+    html[data-phone-scroll] .ticker,
+    html[data-phone-scroll] .footer .links-col { display: none !important; }
+    html[data-phone-scroll] .header .bar { padding-bottom: 14px; }
+    /* Logos first, then the motto video, then the scroll. */
+    html[data-phone-scroll] main { display: flex; flex-direction: column; }
+    html[data-phone-scroll] main > .clients { order: -1; padding-top: 28px; }
+  }
+</style>
+
+<style>
+  .phone-home { padding: 8px var(--gutter) 40px; }
+  .ph-section { padding: 44px 0 8px; border-top: 1px solid var(--line); scroll-margin-top: 90px; }
+  .ph-section:first-child { border-top: 0; }
+  .ph-kicker {
+    font-family: var(--font-label); font-size: 0.74rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 8px;
+  }
+  h2 { font-size: 1.6rem; text-transform: uppercase; font-weight: 600; margin: 0 0 16px; }
+  h3 { font-size: 1.05rem; text-transform: uppercase; font-weight: 600; margin: 0 0 6px; }
+  p { color: #d9d2c4; }
+
+  .ph-cards { display: grid; gap: 10px; }
+  .ph-card { padding: 16px 18px; border: 1px solid var(--line); background: var(--bg-raised); }
+  .ph-card p { margin: 0; font-size: 0.95rem; }
+
+  .ph-sub { margin-top: 28px; }
+  .ph-rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
+  .ph-rate { padding: 14px 10px; border: 1px solid var(--line); text-align: center; }
+  .ph-rate p { margin: 0; }
+  .ph-rate-name { font-family: var(--font-label); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted) !important; }
+  .ph-rate-price { font-family: var(--font-display); font-size: 1.45rem; color: var(--text) !important; margin: 4px 0 !important; }
+  .ph-rate-time { font-size: 0.78rem; line-height: 1.35; }
+  .ph-list { margin-top: 18px; }
+
+  /* Drone clips: swipe sideways, each one snaps into place. */
+  .ph-swipe {
+    display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+    margin: 0 calc(var(--gutter) * -1); padding: 4px var(--gutter) 10px; scrollbar-width: none;
+  }
+  .ph-swipe::-webkit-scrollbar { display: none; }
+  .ph-swipe figure { flex: 0 0 82%; margin: 0; scroll-snap-align: center; }
+  .ph-swipe video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--line); }
+  .ph-swipe figcaption { font-size: 0.85rem; margin-top: 6px; }
+  .ph-swipe figcaption span { color: var(--text-muted); }
+
+  .ph-big { font-family: var(--font-display); font-size: 1.45rem; color: var(--text) !important; margin: 0 0 4px; }
+  .ph-link {
+    display: inline-block; margin-top: 18px; padding: 12px 0; text-decoration: none;
+    font-family: var(--font-label); font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase;
+    border-bottom: 1px solid var(--text);
+  }
+  .ph-link::after { content: ' →'; }
+
+  .ph-review { margin: 0 0 14px; padding: 16px; border: 1px solid var(--line); }
+  .ph-stars { color: #f5b301; letter-spacing: 0.1em; }
+  .ph-review cite { font-style: normal; font-size: 0.85rem; color: var(--text-muted); }
+
+  .ph-photo { margin: 0 0 18px; }
+  .ph-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 48% 62%; display: block; border: 1px solid var(--line); }
+  .ph-quote { position: relative; margin: 24px 0 0; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; overflow: hidden; border: 1px solid var(--line); }
+  .ph-quote img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 10%; }
+  .ph-quote::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.3) 70%); }
+  .ph-quote blockquote, .ph-quote figcaption { position: relative; z-index: 2; margin: 0; }
+  .ph-quote blockquote { font-family: var(--font-display); font-size: 1.4rem; line-height: 1.3; }
+  .ph-quote blockquote::before { content: '\201C'; }
+  .ph-quote blockquote::after { content: '\201D'; }
+  .ph-quote figcaption { margin-top: 10px; font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.16em; text-transform: uppercase; opacity: 0.85; }
+
+  .ph-actions { display: grid; gap: 10px; margin-top: 18px; }
+  .ph-actions .btn { text-align: center; }
+</style>

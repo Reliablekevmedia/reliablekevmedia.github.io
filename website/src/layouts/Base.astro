@@ -15,9 +15,11 @@ interface Props {
   bare?: boolean;
   /** Keep the page out of Google. */
   noindex?: boolean;
+  /** The homepage (on phones it can become one continuous scroll; see PhoneHome.astro). */
+  home?: boolean;
 }
 
-const { title, description = SITE.description, bare = false, noindex = false } = Astro.props;
+const { title, description = SITE.description, bare = false, noindex = false, home: isHome = false } = Astro.props;
 const fullTitle = title ? `${title} | ${SITE.name}` : `${SITE.name} | ${SITE.tagline}`;
 const canonical = new URL('.' + Astro.url.pathname, Astro.site);
 const home = new URL('./', Astro.site).href;
@@ -38,7 +40,7 @@ const business = {
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-home={isHome ? '' : undefined}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -70,6 +72,20 @@ const business = {
           var look = sessionStorage.getItem('look');
           if (look && look !== 'gray') document.documentElement.dataset.look = look;
         } catch (e) {}
+      })();
+      // Phone scroll for the homepage (PhoneHome.astro). While PHONE_SCROLL_LIVE is false it only shows on a
+      // phone that opened the site with ?phone=1 once (Kev's preview); ?phone=0 turns it back off.
+      // Set it to true to give every phone visitor the scroll.
+      (function () {
+        var PHONE_SCROLL_LIVE = false;
+        var on = PHONE_SCROLL_LIVE;
+        try {
+          var q = new URLSearchParams(location.search).get('phone');
+          if (q === '1') localStorage.setItem('phone-scroll', '1');
+          if (q === '0') localStorage.removeItem('phone-scroll');
+          on = on || localStorage.getItem('phone-scroll') === '1';
+        } catch (e) {}
+        if (on && document.documentElement.hasAttribute('data-home')) document.documentElement.dataset.phoneScroll = '';
       })();
     </script>
   </head>

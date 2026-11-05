@@ -31,7 +31,10 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
 ## Waiting on Kev
 
 - **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the
-  homepage value points (`reasons` in `src/pages/index.astro`, already drafted in a comment there).
+  value points (`VALUE_POINTS` in `src/data/home.ts`, already drafted in a comment there).
+- **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).
+  It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
+  `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.
 
 ## Business card QR code (do not break)
 
