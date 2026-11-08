@@ -55,14 +55,15 @@ export const ADD_ONS = [
 export const RATE_INCLUDES = [
   'Professional cameras, lenses, lighting and mics',
   'Licensed music in every edit',
+  'Captions on short vertical clips',
   'One round of revisions',
-  'Raw footage available on request',
   'Delivery in 2–3 weeks',
 ];
 
 export const NOT_INCLUDED = [
   'Scripts, storyboards or multi-day shoots',
-  'Voiceover, captions or motion graphics',
+  'Voiceover or motion graphics',
+  'Raw footage (available as an add-on)',
   'More than one location, or more videos than listed',
   'Extra revision rounds or time beyond your booked hours',
 ];

@@ -95,7 +95,7 @@ const uses = [
   <p>
     {towns.map((t, i) => (
       <>{i ? (i === towns.length - 1 ? ' and ' : ', ') : ''}<a href={`/where-i-work/${t.data.county.id}/${t.id}`}>{t.data.name}</a></>
-    ))}, plus the towns around them. Every flight follows FAA rules and local airspace limits.
+    ))}, plus the towns around them.
   </p>
   <a href="/start" class="btn btn-primary">Get a drone quote</a>
 </Page>

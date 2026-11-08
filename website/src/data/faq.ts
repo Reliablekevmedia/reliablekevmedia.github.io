@@ -24,7 +24,7 @@ export const FAQ = [
   },
   {
     q: 'Do I get the raw footage?',
-    a: 'Yes, on request. Your rate includes the edited videos listed, and the raw footage is yours if you ask for it.',
+    a: 'Your price includes the edited videos listed. Raw footage is not included, but it can be added to any project. Just ask and we will include it in your quote.',
   },
   {
     q: 'Can I get my video faster?',
