@@ -1,7 +1,8 @@
 import { FOUNDED, GEAR, TURNAROUND } from './business';
-import { SHOOT_RATES } from './pricing';
+import { ADD_ONS, PACKAGES } from './pricing';
 
-const [half, full, drone] = SHOOT_RATES;
+const [single, half, full] = PACKAGES;
+const [drone] = ADD_ONS;
 
 // Questions people ask before booking. Shown on the Services page (/services#faq).
 export const FAQ = [
@@ -15,11 +16,11 @@ export const FAQ = [
   },
   {
     q: 'How much does it cost?',
-    a: `A half day (up to 4 hours) is ${half.price} and includes your choice of one long-form YouTube video or three short clips. A full day (up to 8 hours) is ${full.price} and includes a planning call, a sit-down Q&A with you, one long-form video and three short clips. Adding drone footage is ${drone.price.replace('+', '')} more. Brand films, the podcast and monthly content get a custom quote.`,
+    a: `A single short video is ${single.price}, filmed and edited, ready to post. A half day (up to 4 hours) starts at ${half.price} and includes your choice of one long-form YouTube video or three short clips. A full day story (up to 8 hours) starts at ${full.price} and includes a planning call, a sit-down Q&A with you, one long-form video and three short clips. Drone footage can be added from ${drone.price}. Every project gets a clear quote after a free planning call, before anything is filmed. Brand films, the podcast and monthly content are quoted by the project.`,
   },
   {
-    q: "What's the difference between a set rate and a custom quote?",
-    a: 'A set rate is for when you want us to come film: an event, a property, or your business and a few questions with you. A custom quote is for full storytelling projects like brand films, the podcast and monthly content, which take more planning, directing and editing.',
+    q: "What's the difference between a package and a custom quote?",
+    a: 'A package (a single video, a half day or a full day story) is for when you want us to come film: an event, a property, or your business and a few questions with you. A custom quote is for full storytelling projects like brand films, the podcast and monthly content, which take more planning, directing and editing.',
   },
   {
     q: 'Do I get the raw footage?',

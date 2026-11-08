@@ -32,6 +32,8 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
 
 - **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the
   value points (`VALUE_POINTS` in `src/data/home.ts`, already drafted in a comment there).
+- **$150 single video details**: the Good tier in `src/data/pricing.ts` assumes about an hour on site and one
+  short vertical video (up to 60 seconds). Confirm with Kev and adjust.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.

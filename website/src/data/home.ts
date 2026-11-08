@@ -28,5 +28,5 @@ export const ONE_ON_ONE_STEPS = [
 export const VALUE_POINTS = [
   'An assigned creative director for every project',
   'Over 10 years of video production experience',
-  'Set rates, so you know the price before we film',
+  'A clear quote before anything is filmed',
 ];

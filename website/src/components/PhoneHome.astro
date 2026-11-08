@@ -4,7 +4,7 @@
 // It shows only when <html> has data-phone-scroll (set in Base.astro) on a phone-width screen; desktop
 // never sees it. Everything here pulls from the same data as the full pages, so edits show up in both.
 import { SITE, SERVICES } from '../site';
-import { SHOOT_RATES, RATE_INCLUDES } from '../data/pricing';
+import { ADD_ONS, PACKAGES, RATE_INCLUDES } from '../data/pricing';
 import { DRONE_CLIPS } from '../data/drone';
 import { FEATURED } from '../data/featured';
 import { PHONE } from '../data/diy';
@@ -35,14 +35,16 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
     <h3 class="ph-sub">Pricing</h3>
     <div class="ph-rates">
-      {SHOOT_RATES.map((r) => (
+      {PACKAGES.map((r) => (
         <div class="ph-rate reveal">
+          <p class="ph-rate-tier">{r.tier}</p>
           <p class="ph-rate-name">{r.name}</p>
-          <p class="ph-rate-price">{r.price}</p>
+          <p class="ph-rate-price">{r.from && <span>from </span>}{r.price}</p>
           <p class="ph-rate-time">{r.time}</p>
         </div>
       ))}
     </div>
+    <p class="ph-addon">{ADD_ONS.map((a) => <>Add {a.name.toLowerCase()} {a.from && 'from '}{a.price}.</>)} Every project gets a clear quote after a free planning call.</p>
     <ul class="checks ph-list">{RATE_INCLUDES.map((i) => <li>{i}</li>)}</ul>
   </section>
 
@@ -160,9 +162,13 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
   .ph-rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
   .ph-rate { padding: 14px 10px; text-align: center; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); border-radius: 16px; }
   .ph-rate p { margin: 0; }
-  .ph-rate-name { font-family: var(--font-label); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted) !important; }
+  .ph-rate-name { font-family: var(--font-label); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted) !important; min-height: 3.3em; display: flex; align-items: center; justify-content: center; }
   .ph-rate-price { font-family: var(--font-display); font-size: 1.45rem; color: var(--text) !important; margin: 4px 0 !important; }
   .ph-rate-time { font-size: 0.78rem; line-height: 1.35; }
+  .ph-rate-tier { font-family: var(--font-label); font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text) !important; margin-bottom: 4px !important; }
+  .ph-rate-price span { display: block; font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.08em; color: var(--text-muted); }
+  .ph-rate-price:not(:has(span))::before { content: '\00a0'; display: block; font-size: 0.66rem; } /* keeps prices level with the "from" ones */
+  .ph-addon { font-size: 0.9rem; margin: 14px 0 0; }
   .ph-list { margin-top: 18px; }
 
   /* Drone clips: swipe sideways, each one snaps into place. */
