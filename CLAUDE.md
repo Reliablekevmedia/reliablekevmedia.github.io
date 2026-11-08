@@ -38,6 +38,14 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.
 
+## Business back end (never shown on the site)
+
+Kev's contracts and templates live in his Google Drive folder "Reliable Kev Media — Business System" (Business
+Playbook, Video Proposal v3, Monthly Content Proposal, Collaboration Agreement v3, Appearance Release, Lead
+Tracker). Keep website promises in line with the Playbook's house rules: 1 revision round, captions included on short
+vertical clips, raw footage is an add-on, delivery 2–3 weeks. Do not put deposits, rate card or contract terms on the
+site. Do not claim FAA compliance or Part 107 until Kev is certified.
+
 ## Look: Liquid Glass
 
 The site follows Apple's Liquid Glass style (iOS 26). The recipe lives in `src/styles/global.css` (`--glass-*`
