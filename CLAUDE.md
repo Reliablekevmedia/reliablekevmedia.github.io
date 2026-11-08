@@ -36,6 +36,13 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.
 
+## Look: Liquid Glass
+
+The site follows Apple's Liquid Glass style (iOS 26). The recipe lives in `src/styles/global.css` (`--glass-*`
+tokens, `.glass`, `.btn`): glass with blur, a light-catching rim and pill/rounded shapes on the navigation layer
+(menu capsule, dropdown, buttons, phone bar, forms); a lighter sheen without blur on content cards (`--card-*`).
+Reuse those tokens for anything new instead of square boxes or solid fills.
+
 ## Business card QR code (do not break)
 
 Printed business cards point at `/card/` (the project intake, `src/pages/card.astro`). Never rename,

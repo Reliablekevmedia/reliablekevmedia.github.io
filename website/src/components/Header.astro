@@ -19,7 +19,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
 </div>
 
 <header class="header">
-  <div class="container bar">
+  <div class="container bar glass">
     <a href="/" class="logo" aria-label={`${SITE.name} home`}>
       <BrandMark size="38px" class="logo-mark" />
       <span class="logo-text">
@@ -36,7 +36,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
               {item.label}{item.children && <span class="caret" aria-hidden="true">▾</span>}
             </a>
             {item.children && (
-              <ul class="dropdown">
+              <ul class="dropdown glass">
                 {item.children.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
               </ul>
             )}
@@ -59,7 +59,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
 <TownTicker />
 
 <!-- Sticky call/quote bar on phones -->
-<div class="mobile-cta">
+<div class="mobile-cta glass">
   {SITE.phone ? <a href={`tel:${SITE.phone}`}>Call now</a> : <a href={`mailto:${SITE.email}`}>Email</a>}
   <a href="/start" class="primary">Free quote</a>
 </div>
@@ -96,18 +96,20 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
 
 <style>
   /* Top bar, header and town ticker share one black so the top of the page reads as one piece. */
-  .topbar { background: var(--bg); color: var(--text-muted); font-size: 0.8rem; }
+  .topbar { background: transparent; color: var(--text-muted); font-size: 0.8rem; }
   .topbar .contact { color: var(--text); }
   .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 38px; }
   .topbar-left { display: flex; align-items: center; gap: 20px; }
   .area { font-family: var(--font-label); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; }
   .contact { text-decoration: none; font-weight: 600; white-space: nowrap; }
 
-  .header {
-    position: sticky; top: 0; z-index: 10;
-    background: var(--bg);
+  /* The menu floats as a Liquid Glass capsule; the page scrolls underneath it, blurred. */
+  .header { position: sticky; top: 0; z-index: 10; padding: 10px 0; }
+  .bar {
+    display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 84px;
+    border-radius: 28px; padding: 0 26px 6px;
+    background: var(--glass-fill-bar);
   }
-  .bar { display: flex; align-items: center; justify-content: space-between; gap: 24px; min-height: 84px; }
   .logo { text-decoration: none; display: grid; gap: 4px; }
   .logo-name { font-size: 1.15rem; letter-spacing: 0.14em; text-transform: uppercase; line-height: 1; white-space: nowrap; }
   @media (max-width: 420px) { .logo-name { font-size: 1rem; letter-spacing: 0.1em; } }
@@ -183,29 +185,32 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
   .nav > ul { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 4px; }
   .nav li { position: relative; }
   .nav > ul > li > a {
-    display: block; padding: 8px 11px; border-radius: 2px; text-decoration: none;
+    display: block; padding: 8px 13px; border-radius: 999px; text-decoration: none; transition: background 0.2s, box-shadow 0.2s;
     font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .nav > ul > li > a:hover, .nav a[aria-current='page'] { background: var(--text); color: var(--bg); }
+  .nav > ul > li > a:hover { background: rgb(255 255 255 / 0.12); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.25); }
+  .nav a[aria-current='page'] { background: var(--glass-cream); color: #151514; box-shadow: inset 0 1px 0 #fff, 0 3px 10px rgb(0 0 0 / 0.3); }
   .caret { margin-left: 4px; font-size: 0.7em; }
-  .nav > ul > li > a.nav-cta { border: 1px solid var(--text); margin-left: 8px; white-space: nowrap; }
+  .nav > ul > li > a.nav-cta { border: 1px solid rgb(255 255 255 / 0.35); background: rgb(255 255 255 / 0.06); margin-left: 8px; white-space: nowrap; }
   @media (max-width: 1300px) { .nav > ul > li > a { padding: 8px 8px; letter-spacing: 0.06em; } .bar { gap: 16px; } }
-  .nav > ul > li > a.nav-cta:hover, .nav > ul > li > a.nav-cta[aria-current='page'] { background: var(--text); color: var(--bg); }
+  .nav > ul > li > a.nav-cta:hover, .nav > ul > li > a.nav-cta[aria-current='page'] { background: var(--glass-cream); color: #151514; border-color: transparent; }
   /* Phones already have the pinned Free quote button (same page), so skip the extra menu row. */
   @media (max-width: 860px) { .nav > ul > li:has(> .nav-cta) { display: none; } }
 
   .dropdown {
-    list-style: none; margin: 0; padding: 6px 0; min-width: 240px;
-    position: absolute; top: 100%; left: 0;
-    background: var(--bg); border: 1px solid var(--line); box-shadow: 0 8px 24px rgb(0 0 0 / 0.4);
+    list-style: none; margin: 34px 0 0; padding: 8px; min-width: 250px; border-radius: 20px;
+    position: absolute; top: 100%; left: 0; z-index: 3;
+    background: var(--glass-fill-strong);
     opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity 0.15s, transform 0.15s;
   }
   .has-menu:hover .dropdown, .has-menu:focus-within .dropdown { opacity: 1; visibility: visible; transform: none; }
+  /* Invisible bridge over the gap (where the zoom lens sits) so the menu stays open on the way down. */
+  .has-menu::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 36px; }
   .dropdown a {
-    display: block; padding: 10px 16px; text-decoration: none;
+    display: block; padding: 10px 14px; text-decoration: none; border-radius: 12px;
     font-family: var(--font-label); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .dropdown a:hover { background: var(--text); color: var(--bg); }
+  .dropdown a:hover { background: rgb(255 255 255 / 0.12); }
 
   .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
 
@@ -213,7 +218,8 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
 
   /* Smaller screens: no burger. The menu moves under the logo and wraps, so every option stays visible. */
   @media (max-width: 1120px) {
-    .bar { flex-wrap: wrap; row-gap: 0; min-height: 0; padding-top: 14px; }
+    .header { padding: 8px 10px; }
+    .bar { flex-wrap: wrap; row-gap: 0; min-height: 0; padding: 14px 18px 4px; border-radius: 24px; }
     .nav { order: 2; width: 100%; margin-top: 10px; }
     .nav > ul { flex-wrap: wrap; gap: 2px; padding-bottom: 10px; }
     .nav > ul > li > a { padding: 8px 10px; font-size: 0.74rem; white-space: nowrap; }
@@ -222,18 +228,19 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
   }
 
   @media (max-width: 860px) {
+    /* Floating glass pill, like the iOS tab bar. */
     .mobile-cta {
-      display: grid; grid-template-columns: 1fr 1fr;
-      position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
-      border-top: 1px solid var(--line); background: var(--bg);
-      padding-bottom: env(safe-area-inset-bottom);
+      background: var(--glass-fill-bar);
+      display: grid; grid-template-columns: 1fr 1fr; gap: 6px;
+      position: fixed; left: 12px; right: 12px; bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 20;
+      padding: 6px; border-radius: 999px;
     }
     .mobile-cta a {
-      text-align: center; padding: 16px; text-decoration: none;
+      text-align: center; padding: 13px 10px; text-decoration: none; border-radius: 999px;
       font-family: var(--font-label); font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase;
     }
-    .mobile-cta .primary { background: var(--text); color: var(--bg); }
-    :global(body) { padding-bottom: 56px; }
+    .mobile-cta .primary { background: var(--glass-cream); color: #151514; box-shadow: inset 0 1px 0 #fff; }
+    :global(body) { padding-bottom: calc(80px + env(safe-area-inset-bottom)); }
   }
   .logo { display: flex !important; align-items: center; gap: 12px; }
   .logo-text { display: grid; gap: 4px; }

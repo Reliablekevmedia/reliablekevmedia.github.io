@@ -129,14 +129,15 @@ const faqSchema = {
   .clip figcaption { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; }
   .jump { list-style: none; padding: 0; margin: 24px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
   .jump a {
-    display: block; padding: 8px 12px; border: 1px solid var(--line); text-decoration: none;
+    display: block; padding: 9px 16px; border: 1px solid var(--glass-line); border-radius: 999px; text-decoration: none;
+    background: var(--card-fill); box-shadow: var(--card-shadow); transition: background 0.2s;
     font-family: var(--font-label); font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .jump a:hover { background: var(--text); color: var(--bg); }
+  .jump a:hover { background: var(--glass-cream); color: #151514; }
   .service, .faq, .pricing { scroll-margin-top: 110px; }
   .pricing { margin-top: 56px; }
   .rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 24px 0 28px; align-items: start; }
-  .rate { border: 1px solid var(--line); background: var(--bg-raised); padding: 20px; }
+  .rate { padding: 20px; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }
   .rate p { margin: 0; }
   .rate-name { font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted) !important; }
   .rate-price { font-size: 2rem; color: var(--text) !important; margin: 6px 0 4px !important; font-variant-numeric: tabular-nums; }
@@ -147,7 +148,7 @@ const faqSchema = {
   .rate li em { font-style: normal; color: var(--text-muted); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.12em; margin-right: 4px; }
   .rate-choice { font-weight: 600; color: var(--text) !important; font-size: 0.88rem; margin-top: 12px !important; padding-bottom: 4px; }
   .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
-  .compare > div { border: 1px solid var(--line); padding: 18px 20px; }
+  .compare > div { padding: 18px 20px; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }
   .compare p { margin: 0 0 6px; font-size: 0.94rem; }
   @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
   .terms { margin: 18px 0 0; padding-left: 1.1em; color: var(--text-muted); font-size: 0.92rem; }

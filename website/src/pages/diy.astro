@@ -169,7 +169,7 @@ const sections = [
   .big { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); color: var(--text) !important; margin: 4px 0 14px; }
   .toc { display: flex; flex-wrap: wrap; gap: 8px; margin: 28px 0 8px; }
   .toc a {
-    padding: 8px 12px; border: 1px solid var(--line); text-decoration: none;
+    padding: 9px 14px; border: 1px solid var(--glass-line); border-radius: 999px; background: var(--card-fill); text-decoration: none;
     font-family: var(--font-label); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
   }
   .toc a:hover { border-color: var(--text); }
@@ -182,7 +182,7 @@ const sections = [
   .ideas { columns: 2; column-gap: 32px; }
   .ideas li { break-inside: avoid; }
   .boxes { list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 8px; }
-  .boxes li { border: 1px solid var(--line); transition: background 0.25s ease, border-color 0.25s ease; }
+  .boxes li { border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); border-radius: 14px; transition: background 0.25s ease, border-color 0.25s ease; }
   .boxes label { display: flex; gap: 12px; align-items: center; padding: 12px 14px; cursor: pointer; user-select: none; }
   .boxes input { position: absolute; opacity: 0; pointer-events: none; }
   .box { width: 20px; height: 20px; border: 2px solid var(--text); flex: none; display: grid; place-items: center; transition: background 0.2s ease, transform 0.2s ease; }
@@ -196,7 +196,7 @@ const sections = [
   .ready-text { font-family: var(--font-display); font-size: clamp(1.3rem, 3vw, 1.7rem); color: var(--text) !important; margin: 0 0 14px; }
   @keyframes pop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }
 
-  .picker { margin: 18px 0 22px; padding: 22px; border: 1px solid var(--line); background: rgb(255 255 255 / 0.03); }
+  .picker { margin: 18px 0 22px; padding: 22px; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }
   .picked { margin: 0 0 16px; font-size: clamp(1.15rem, 2.6vw, 1.45rem); color: var(--text) !important; min-height: 2.6em; }
   .picked-label { display: block; font-family: var(--font-label); font-size: 0.74rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 6px; }
   .picked-idea { display: inline-block; font-family: var(--font-display); }

@@ -52,7 +52,7 @@ const hasSocials = Object.values(SITE.socials).some(Boolean);
   </div>
 </footer>
 
-<a href="#top" class="to-top" aria-label="Back to top">↑</a>
+<a href="#top" class="to-top glass" aria-label="Back to top">↑</a>
 
 <style>
   .footer {
@@ -85,9 +85,9 @@ const hasSocials = Object.values(SITE.socials).some(Boolean);
   .legal { color: var(--text-muted); border-top: 1px solid rgb(241 234 218 / 0.08); text-align: center; padding: 14px 0; font-size: 0.82rem; }
 
   .to-top {
-    position: fixed; right: 16px; bottom: 76px; z-index: 15;
-    width: 40px; height: 40px; display: grid; place-items: center;
-    background: var(--text); color: var(--bg); text-decoration: none; border-radius: 3px; font-size: 1.1rem;
+    position: fixed; right: 16px; bottom: calc(84px + env(safe-area-inset-bottom)); z-index: 15;
+    width: 44px; height: 44px; display: grid; place-items: center;
+    color: var(--text); text-decoration: none; border-radius: 50%; font-size: 1.1rem;
   }
 
   @media (max-width: 860px) {
