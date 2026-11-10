@@ -4,6 +4,6 @@ import guardQrPage from './integrations/guard-qr-page.mjs';
 
 export default defineConfig({
   // The live address. If a custom domain is added, also add public/CNAME containing it.
-  site: 'https://sixthsensestudiosllc.github.io/Kevin-Moreno/',
+  site: 'https://reliablekevmedia.github.io/',
   integrations: [relativeLinks(), guardQrPage()],
 });

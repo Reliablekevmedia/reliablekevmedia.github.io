@@ -1,8 +1,16 @@
 # Reliable Kev Media (formerly Sixth Sense Studios)
 
-The business is Reliable Kev Media (renamed from Sixth Sense Studios; the Gmail and repo URL keep the old name).
-The business website lives in `website/` (Astro). It is live at https://sixthsensestudiosllc.github.io/Kevin-Moreno/,
-served by GitHub Pages from the `docs/` folder on the `main` branch.
+The business is Reliable Kev Media (renamed from Sixth Sense Studios; the Gmail still has the old name).
+The business website lives in `website/` (Astro). It is live at https://reliablekevmedia.github.io/,
+served by GitHub Pages from the `docs/` folder on the `main` branch of `reliablekevmedia/reliablekevmedia.github.io`
+(the GitHub account was renamed from sixthsensestudiosllc in November 2026).
+
+## Old address forwarding (do not break)
+
+The old address https://sixthsensestudiosllc.github.io/Kevin-Moreno/ is printed on business cards (QR code to
+`/Kevin-Moreno/card/`). Kev reclaimed the old `sixthsensestudiosllc` GitHub account; its `Kevin-Moreno` repo serves
+only `index.html` + `404.html` from `brand/forwarding/index.html`, which forward every old path to the same page on
+the new site. That account and repo must never be deleted.
 
 ## Updating the live site
 
@@ -62,4 +70,5 @@ Reuse those tokens for anything new instead of square boxes or solid fills.
 Printed business cards point at `/card/` (the project intake, `src/pages/card.astro`). Never rename,
 move or remove that page. `/card/` and the website's `/start/` share one form, `src/components/IntakeForm.astro`.
 The build fails on purpose (`integrations/guard-qr-page.mjs`) if `/card/` or its form is missing.
-QR artwork lives in `brand/business-card/`.
+QR artwork lives in `brand/business-card/` (new address); the codes printed on the first cards (old address,
+still working through the forwarder) are in `brand/business-card/old-sixthsense-address/`.
