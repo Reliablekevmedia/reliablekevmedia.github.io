@@ -7,10 +7,12 @@ served by GitHub Pages from the `docs/` folder on the `main` branch of `reliable
 
 ## Old address forwarding (do not break)
 
-The old address https://sixthsensestudiosllc.github.io/Kevin-Moreno/ is printed on business cards (QR code to
-`/Kevin-Moreno/card/`). Kev reclaimed the old `sixthsensestudiosllc` GitHub account; its `Kevin-Moreno` repo serves
-only `index.html` + `404.html` from `brand/forwarding/index.html`, which forward every old path to the same page on
-the new site. That account and repo must never be deleted.
+The old address https://sixthsensestudiosllc.github.io/Kevin-Moreno/ is printed on the first business cards (QR
+code to `/Kevin-Moreno/card/`). Plan (NOT DONE YET as of Nov 10, 2026; Kev may reprint instead): reclaim the old
+`sixthsensestudiosllc` GitHub account and give its `Kevin-Moreno` repo `index.html` + `404.html` copied from
+`brand/forwarding/index.html`, which forward every old path to the same page on the new site. Once set up, that
+account and repo must never be deleted. Until the project is renamed to `reliablekevmedia.github.io`, the site is at
+reliablekevmedia.github.io/Reliablekevmedia/.
 
 ## Updating the live site
 
@@ -44,6 +46,9 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
 
 - **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the
   value points (`VALUE_POINTS` in `src/data/home.ts`, already drafted in a comment there).
+- **Free first video terms**: `FIRST_VIDEO_FREE` in `src/data/pricing.ts` (homepage pill, pricing box, FAQ,
+  phone scroll, intake form choice). Terms are a draft: one short vertical video up to 60 s, one per business,
+  North Jersey. Confirm with Kev; `on: false` turns the offer off everywhere.
 - **$150 single video details**: the Good tier in `src/data/pricing.ts` assumes about an hour on site and one
   short vertical video (up to 60 seconds). Confirm with Kev and adjust.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).

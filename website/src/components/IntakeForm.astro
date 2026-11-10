@@ -1,4 +1,5 @@
 ---
+import { FIRST_VIDEO_FREE } from '../data/pricing';
 // The project intake form, shared by the business card QR page (/card) and the website (/start)
 // so both always ask the same questions. Emails arrive with the given subject and a hidden "page" label.
 import { SITE, SERVICES } from '../site';
@@ -9,7 +10,11 @@ interface Props {
 }
 const { subject, page } = Astro.props;
 // The form offers Website Content where the site lists Brand Films & Projects.
-const interests = [...SERVICES.map((s) => (s.id === 'projects' ? 'Website Content' : s.title)), 'Drone & Aerial'];
+const interests = [
+  ...(FIRST_VIDEO_FREE.on ? ['My free first video'] : []),
+  ...SERVICES.map((s) => (s.id === 'projects' ? 'Website Content' : s.title)),
+  'Drone & Aerial',
+];
 const foundUs = ['Business card', 'Instagram', 'Google', 'Facebook', 'LinkedIn', 'Referral', 'Other'];
 ---
 

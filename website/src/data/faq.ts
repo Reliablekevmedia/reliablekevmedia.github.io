@@ -1,11 +1,14 @@
 import { FOUNDED, GEAR, TURNAROUND } from './business';
-import { ADD_ONS, PACKAGES } from './pricing';
+import { ADD_ONS, FIRST_VIDEO_FREE, PACKAGES } from './pricing';
 
 const [single, half, full] = PACKAGES;
 const [drone] = ADD_ONS;
 
 // Questions people ask before booking. Shown on the Services page (/services#faq).
 export const FAQ = [
+  ...(FIRST_VIDEO_FREE.on
+    ? [{ q: 'Is my first video really free?', a: `Yes. ${FIRST_VIDEO_FREE.terms} No contract and no catch. It is the easiest way to see how we work.` }]
+    : []),
   {
     q: 'How long have you been doing this?',
     a: `Since ${FOUNDED}. Reliable Kev Media has spent the last few years filming towns, local businesses and trade companies across North Jersey.`,

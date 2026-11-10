@@ -4,7 +4,7 @@
 // It shows only when <html> has data-phone-scroll (set in Base.astro) on a phone-width screen; desktop
 // never sees it. Everything here pulls from the same data as the full pages, so edits show up in both.
 import { SITE, SERVICES } from '../site';
-import { ADD_ONS, PACKAGES, RATE_INCLUDES } from '../data/pricing';
+import { ADD_ONS, FIRST_VIDEO_FREE, PACKAGES, RATE_INCLUDES } from '../data/pricing';
 import { DRONE_CLIPS } from '../data/drone';
 import { FEATURED } from '../data/featured';
 import { PHONE } from '../data/diy';
@@ -34,6 +34,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
     </div>
 
     <h3 class="ph-sub">Pricing</h3>
+    {FIRST_VIDEO_FREE.on && <p class="ph-free">{FIRST_VIDEO_FREE.short}</p>}
     <div class="ph-rates">
       {PACKAGES.map((r) => (
         <div class="ph-rate reveal">
@@ -169,6 +170,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
   .ph-rate-price span { display: block; font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.08em; color: var(--text-muted); }
   .ph-rate-price:not(:has(span))::before { content: '\00a0'; display: block; font-size: 0.66rem; } /* keeps prices level with the "from" ones */
   .ph-addon { font-size: 0.9rem; margin: 14px 0 0; }
+  .ph-free { display: inline-block; margin: 6px 0 4px; padding: 8px 14px; border-radius: 999px; background: var(--glass-cream); color: #151514 !important; font-weight: 600; font-size: 0.9rem; }
   .ph-list { margin-top: 18px; }
 
   /* Drone clips: swipe sideways, each one snaps into place. */

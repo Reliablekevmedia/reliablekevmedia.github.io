@@ -1,5 +1,6 @@
 ---
 import BrandMark from './BrandMark.astro';
+import { FIRST_VIDEO_FREE } from '../data/pricing';
 // Homepage opener: the headline over the hero reel, a montage built from scripts/hero-reel.txt
 // by scripts/build-hero-reel.sh (opens on the bar crew carrying the bar to the patio).
 const VIDEO = '/videos/hero-reel';
@@ -8,6 +9,9 @@ const VIDEO = '/videos/hero-reel';
 <section class="hero">
   <video class="bg" src={`${VIDEO}.mp4`} poster={`${VIDEO}.jpg`} muted loop playsinline autoplay preload="auto" data-autoplay aria-hidden="true"></video>
   <div class="container hero-inner">
+    {FIRST_VIDEO_FREE.on && (
+      <a href="/services#pricing" class="free-pill"><span class="free-dot" aria-hidden="true"></span>{FIRST_VIDEO_FREE.short}<span aria-hidden="true">→</span></a>
+    )}
     <p class="kicker">Proudly serving New Jersey</p>
     <p class="headline">It's not reimagining.<br />It's evolution.<BrandMark size="0.28em" /></p>
     <p class="sub">
@@ -48,4 +52,11 @@ const VIDEO = '/videos/hero-reel';
   .sub { max-width: 52ch; font-size: clamp(1rem, 1.6vw, 1.15rem); color: #d9d2c4; margin-bottom: 28px; }
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
+  /* New-client offer: a cream glass pill above the kicker. */
+  .free-pill {
+    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 9px 16px; border-radius: 999px;
+    background: var(--glass-cream); color: #151514; text-decoration: none; font-weight: 600; font-size: 0.92rem;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 0.35), inset 0 1px 0 #fff;
+  }
+  .free-dot { width: 8px; height: 8px; border-radius: 50%; background: #2f9e5b; box-shadow: 0 0 0 4px rgb(47 158 91 / 0.2); }
 </style>

@@ -73,3 +73,13 @@ export const RATE_TERMS = [
   'Anything beyond what is listed is quoted before work begins.',
   'Rush delivery is not offered.',
 ];
+
+// New-client offer, shown on the homepage, pricing, FAQ, phone scroll and intake form.
+// Set `on: false` to switch it off everywhere at once.
+export const FIRST_VIDEO_FREE = {
+  on: true,
+  headline: 'Your first video is free',
+  short: 'New clients: your first video is free.',
+  // TODO (Kev): confirm the terms.
+  terms: 'One short vertical video (up to 60 seconds) for a new client, filmed at your business in North Jersey and edited with music and captions, ready to post. One per business.',
+};
