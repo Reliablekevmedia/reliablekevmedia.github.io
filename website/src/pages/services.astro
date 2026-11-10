@@ -4,6 +4,26 @@ import Page from '../layouts/Page.astro';
 import { SERVICES, SITE } from '../site';
 import { FAQ } from '../data/faq';
 import { ADD_ONS, NOT_INCLUDED, PACKAGES, RATE_INCLUDES, RATE_TERMS } from '../data/pricing';
+import { DRONE_BANNER, DRONE_CLIPS } from '../data/drone';
+import { GEAR } from '../data/business';
+import { FEATURED } from '../data/featured';
+import FeaturedVideo from '../components/FeaturedVideo.astro';
+import ClientLogos from '../components/ClientLogos.astro';
+
+// Drone & aerial and Our work used to be their own pages (/drone, /work); they live here now.
+// Every clip listed in data/drone.ts shows up in the drone section, grouped by its `section`.
+const droneGroups = [
+  { title: 'Homes and properties', clips: DRONE_CLIPS.filter((c) => c.section === 'homes') },
+  { title: 'Cities and downtowns', clips: DRONE_CLIPS.filter((c) => c.section === 'city') },
+  { title: 'On the job', clips: DRONE_CLIPS.filter((c) => c.section === 'job') },
+  { title: 'Events', clips: DRONE_CLIPS.filter((c) => c.section === 'event') },
+].filter((g) => g.clips.length);
+const droneUses = [
+  'Towns and public projects: parks, downtowns, road work and new buildings',
+  'Contractors and trades: roofs, siding, hardscapes and job-site progress, before and after',
+  'Businesses and real estate: your building, your lot and the neighborhood around it',
+  'Events: festivals, parades, openings and fundraisers, where the size of the crowd tells the story',
+];
 
 // Example clips shown under a service (public/videos/<name>.mp4 + .jpg).
 const clips: Record<string, { name: string; caption: string }> = {
@@ -28,6 +48,8 @@ const faqSchema = {
   </p>
   <ul class="jump">
     {SERVICES.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}
+    <li><a href="#drone">Drone &amp; Aerial</a></li>
+    <li><a href="#work">Our Work</a></li>
     <li><a href="#pricing">Pricing</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
@@ -48,6 +70,41 @@ const faqSchema = {
       )}
     </section>
   ))}
+
+  <section id="drone" class="service drone">
+    <h2>Drone &amp; Aerial</h2>
+    <p>
+      Some stories only make sense from above. Drone footage shows the full picture: the project, the property, the
+      street and the community around it. Add it to any shoot, or make it its own piece.
+    </p>
+    <p>We fly a {GEAR.drone}: small enough to get in close, steady enough for smooth, cinematic shots.</p>
+    <figure class="dclip-hero">
+      <video src={`/videos/${DRONE_BANNER}.mp4`} poster={`/videos/${DRONE_BANNER}.jpg`} muted loop playsinline preload="none" data-autoplay aria-label="Drone montage of finished homes across North Jersey"></video>
+    </figure>
+    {droneGroups.map((g) => (
+      <>
+        <h3>{g.title}</h3>
+        <div class="dclips">
+          {g.clips.map((c) => (
+            <figure class:list={[{ tall: c.shape === 'tall' }]}>
+              <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline preload="none" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
+              <figcaption>{c.title}<span> · {c.town}</span></figcaption>
+            </figure>
+          ))}
+        </div>
+      </>
+    ))}
+    <p class="label">What drone footage is good for:</p>
+    <ul class="checks">{droneUses.map((u) => <li>{u}</li>)}</ul>
+  </section>
+
+  <section id="work" class="service work">
+    <h2>Our Work</h2>
+    <p>Real businesses, real towns. Every project here was filmed on location in North Jersey.</p>
+    {FEATURED.map((f) => <FeaturedVideo item={f} heading="h3" />)}
+    <h3>Trusted by</h3>
+    <div class="work-clients"><ClientLogos heading={false} /></div>
+  </section>
 
   <section id="pricing" class="pricing">
     <h2>Pricing</h2>
@@ -143,6 +200,18 @@ const faqSchema = {
   }
   .jump a:hover { background: var(--glass-cream); color: #151514; }
   .service, .faq, .pricing { scroll-margin-top: 110px; }
+  .drone, .work { margin-top: 56px; }
+  .dclip-hero { margin: 20px 0 8px; }
+  .dclip-hero video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--glass-line); }
+  .dclips { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 12px; }
+  .dclips figure { margin: 0; min-width: 0; }
+  .dclips video { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--glass-line); }
+  .dclips .tall video { aspect-ratio: 9 / 16; }
+  .dclips figcaption { font-size: 0.88rem; margin-top: 6px; }
+  .dclips figcaption span { color: var(--text-muted); }
+  @media (max-width: 600px) { .dclips { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; } .dclips figcaption { font-size: 0.78rem; } }
+  .work-clients :global(.clients) { padding: 8px 0 8px; }
+  .work-clients :global(.container) { padding: 0; max-width: none; }
   .pricing { margin-top: 56px; }
   .rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 24px 0 28px; align-items: start; }
   .rate { padding: 20px; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }

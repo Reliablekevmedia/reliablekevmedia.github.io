@@ -1,5 +1,5 @@
 ---
-// Drone clips as a portfolio grid that plays as you scroll; each card opens the Drone page.
+// Drone clips as a portfolio grid that plays as you scroll; each card opens the drone section of Services.
 import { DRONE_CLIPS } from '../data/drone';
 
 interface Props {
@@ -12,7 +12,7 @@ const clips = DRONE_CLIPS.filter((c) => c.shape === 'wide' && (town ? c.town ===
 {clips.length > 0 && (
   <div class="cards">
     {clips.map((c) => (
-      <a href="/drone" class="clip-card">
+      <a href="/services#drone" class="clip-card">
         <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline autoplay preload="metadata" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
         <span class="cap">{c.title}<span> · {c.town}</span></span>
       </a>

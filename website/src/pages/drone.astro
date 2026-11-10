@@ -1,115 +1,20 @@
 ---
-import { getCollection } from 'astro:content';
-import Page from '../layouts/Page.astro';
-import { SITE } from '../site';
-import { DRONE_BANNER, DRONE_CLIPS } from '../data/drone';
-import { GEAR } from '../data/business';
-
-const towns = (await getCollection('towns')).sort((a, b) => a.data.name.localeCompare(b.data.name));
-const uses = [
-  { title: 'Towns and public projects', text: 'Parks, downtowns, road work and new buildings, shown from above so residents see the whole picture.' },
-  { title: 'Contractors and trades', text: 'Roofs, driveways, hardscapes and job-site progress. Before and after from the angle customers never get to see.' },
-  { title: 'Businesses and real estate', text: 'Your building, your lot and the neighborhood around it, so people know exactly where to find you.' },
-  { title: 'Events', text: 'Festivals, parades, openings and fundraisers. The size of the crowd tells the story.' },
-];
+// Old address: forwards to /services#drone so saved links, Google results and the Google Business Profile still work.
+const target = new URL('services/', Astro.site).href + '#drone';
 ---
 
-<Page
-  image={`/videos/${DRONE_BANNER}.jpg`}
-  video={`/videos/${DRONE_BANNER}.mp4`}
-  title="Drone Video"
-  heading="Drone and aerial video in the Garden State"
-  kicker="Drone & aerial · New Jersey"
-  description="Drone and aerial video across North Jersey: towns, contractors, businesses and events."
->
-  <p>
-    Some stories only make sense from above. We fly over the towns of North Jersey to show the full picture: the
-    project, the property, the street and the community around it. Every drone shoot can be its own piece or folded
-    into your monthly content, a brand film or event coverage.
-  </p>
-  <p>We fly a {GEAR.drone}: small enough to get in close, steady enough for smooth, cinematic shots.</p>
-
-  <h2>Recent flights</h2>
-  <div class="clips wide">
-    {DRONE_CLIPS.filter((c) => c.section === 'homes').map((c) => (
-      <figure>
-        <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline autoplay preload="metadata" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
-        <figcaption>{c.title}<span> · {c.town}</span></figcaption>
-      </figure>
-    ))}
-  </div>
-
-  <h2>Cities and downtowns</h2>
-  <p>Streets, skylines and neighborhoods. The kind of footage towns, downtowns and developers use to show where it all happens.</p>
-  <div class="clips wide">
-    {DRONE_CLIPS.filter((c) => c.section === 'city' && c.shape === 'wide').map((c) => (
-      <figure>
-        <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline autoplay preload="metadata" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
-        <figcaption>{c.title}<span> · {c.town}</span></figcaption>
-      </figure>
-    ))}
-  </div>
-  <div class="clips tall pair">
-    {DRONE_CLIPS.filter((c) => c.section === 'city' && c.shape === 'tall').map((c) => (
-      <figure>
-        <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline autoplay preload="metadata" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
-        <figcaption>{c.title}<span> · {c.town}</span></figcaption>
-      </figure>
-    ))}
-  </div>
-
-  <h2>On the job</h2>
-  <p>The drone also covers the work while it happens: crews, materials and progress, from angles nobody else gets.</p>
-  <div class="clips tall">
-    {DRONE_CLIPS.filter((c) => c.section === 'job').map((c) => (
-      <figure>
-        <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline autoplay preload="metadata" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
-        <figcaption>{c.title}<span> · {c.town}</span></figcaption>
-      </figure>
-    ))}
-  </div>
-
-  <h2>Events</h2>
-  <p>
-    A Kentucky Derby garden party, covered from setup to the last guest. The drone shows the size of the crowd, the
-    layout of the day and the vendors who made it happen.
-  </p>
-  <div class="clips wide">
-    {DRONE_CLIPS.filter((c) => c.section === 'event').map((c) => (
-      <figure>
-        <video src={`/videos/${c.name}.mp4`} poster={`/videos/${c.name}.jpg`} muted loop playsinline autoplay preload="metadata" data-autoplay aria-label={`${c.title}, ${c.town}`}></video>
-        <figcaption>{c.title}<span> · {c.town}</span></figcaption>
-      </figure>
-    ))}
-  </div>
-
-  <h2>What drone footage is good for</h2>
-  {uses.map((u) => (
-    <>
-      <h3>{u.title}</h3>
-      <p>{u.text}</p>
-    </>
-  ))}
-
-  <h2>Where we fly</h2>
-  <p>
-    {towns.map((t, i) => (
-      <>{i ? (i === towns.length - 1 ? ' and ' : ', ') : ''}<a href={`/where-i-work/${t.data.county.id}/${t.id}`}>{t.data.name}</a></>
-    ))}, plus the towns around them.
-  </p>
-  <a href="/start" class="btn btn-primary">Get a drone quote</a>
-</Page>
-
-
-<style>
-  .clips { display: grid; gap: 16px; margin-top: 16px; }
-  .clips.wide { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); }
-  .clips.tall { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); }
-  .clips.pair { grid-template-columns: repeat(2, minmax(0, 1fr)); max-width: 420px; }
-  figure { margin: 0; min-width: 0; }
-  video { width: 100%; object-fit: cover; background: var(--bg-raised); border: 1px solid var(--line); display: block; }
-  .wide video { aspect-ratio: 4 / 3; }
-  .tall video { aspect-ratio: 9 / 16; }
-  figcaption { font-size: 0.9rem; margin-top: 8px; }
-  figcaption span { color: var(--text-muted); }
-</style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=../services/#drone" />
+    <link rel="canonical" href={target} />
+    <title>Drone &amp; Aerial · Reliable Kev Media</title>
+    <script is:inline>location.replace('../services/#drone');</script>
+  </head>
+  <body style="background:#1b1b1a;color:#f1eada;font-family:sans-serif;padding:24px">
+    <p>Drone &amp; Aerial now lives on the Services page. <a href="/services#drone" style="color:inherit">Continue</a></p>
+  </body>
+</html>

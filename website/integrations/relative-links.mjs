@@ -45,7 +45,8 @@ export default function relativeLinks() {
             rel === '404.html' ? `url(${base}${target})` : `url(${path.posix.relative(from, target)})`,
           );
           await writeFile(file, html);
-          if (rel !== '404.html' && !rel.startsWith('card/')) pages.push(rel.replace(/index\.html$/, ''));
+          // Forwarding pages (old addresses) stay out of the sitemap.
+          if (rel !== '404.html' && !rel.startsWith('card/') && !/http-equiv="refresh"/.test(html)) pages.push(rel.replace(/index\.html$/, ''));
         }
         const urls = pages.sort().map((p) => `  <url><loc>${new URL(p, site)}</loc></url>`).join('\n');
         await writeFile(
