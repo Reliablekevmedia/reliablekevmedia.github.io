@@ -4,9 +4,8 @@
 import Page from '../layouts/Page.astro';
 ---
 
-<Page title="Meet Kev" description="Kev's story: self-doubt, trust and why Reliable Kev Media tells real stories, in his own words." quote={false}>
+<Page title="Meet Kev" description="Kev's story: self-doubt, trust and why Reliable Kev Media tells real stories." quote={false}>
   <article class="story">
-    <p class="kicker">In my own words</p>
     <h1>Meet Kev</h1>
 
     <p class="lead">
@@ -50,10 +49,6 @@ import Page from '../layouts/Page.astro';
 
 <style>
   .story { max-width: 680px; }
-  .kicker {
-    font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.22em; text-transform: uppercase;
-    color: var(--text-muted) !important; margin: 0 0 10px;
-  }
   .story p { font-size: 1.08rem; line-height: 1.75; }
   .lead { font-size: clamp(1.2rem, 2.4vw, 1.4rem) !important; color: var(--text) !important; }
   .single img { width: 100%; display: block; border: 1px solid var(--line); }
