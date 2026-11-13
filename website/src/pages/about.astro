@@ -19,6 +19,36 @@ import { FOUNDED, GEAR } from '../data/business';
     towns, downtowns, local businesses and trade companies.
   </p>
 
+  {/* Kev's own story (lightly cleaned up from his voice note). First person on purpose: this part is personal,
+      unlike the rest of the site, which speaks as the studio ("we"). It used to be its own page (/meet-kev/,
+      which now forwards here). */}
+  <section id="meet-kev" class="meet-kev">
+    <h2>Meet Kev</h2>
+    <p class="lead">
+      I have never been someone who's comfortable in front of the camera. Even recording myself, I've carried a sense
+      of insecurity and self-doubt that I have always struggled with.
+    </p>
+    <figure class="single before">
+      <img src="/images/kev-before-front.jpg" alt="Kev four years ago, flexing in his bedroom" loading="lazy" />
+    </figure>
+    <p>
+      Through my own effort, I've learned what it means to put yourself in a place where you have to trust yourself,
+      and trust someone else to capture you.
+    </p>
+    <blockquote class="kev-pull">Trust yourself, and trust someone to capture you.</blockquote>
+    <figure class="single">
+      <img src="/images/kev-before-after.jpg" alt="Kev four years ago and today, side by side" loading="lazy" />
+    </figure>
+    <p>
+      That's where this is going, and it's why I tell other people's stories. I've never been someone who connects
+      easily with groups. I connect with people one on one. That's why so much of my work is filming one-on-one with
+      business owners, letting them tell their story.
+    </p>
+    <p>
+      A lot of people just want help with their business. To me, that's not the right place to start. The approach I
+      bring is the full context: how you started, and why you're doing this in the first place. Documentary style.
+    </p>
+  </section>
 
   <h2>The foundation</h2>
   <p>
@@ -35,7 +65,6 @@ import { FOUNDED, GEAR } from '../data/business';
   </p>
 
   <h2>Behind the camera</h2>
-  <p>Want the personal side? <a href="/meet-kev">Read Kev's story</a>.</p>
   <div class="bts">
     <figure class="bts-wide"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to frame a shot at an outdoor event" loading="lazy" /></figure>
     <figure><img src="/images/kev-filming-event.jpg" alt="Kev filming dogs and their owners at an outdoor event" loading="lazy" /></figure>
@@ -85,6 +114,17 @@ import { FOUNDED, GEAR } from '../data/business';
 </Page>
 
 <style>
+  /* Meet Kev: Kev's story, told in the first person. */
+  .meet-kev { max-width: 680px; scroll-margin-top: 110px; }
+  .meet-kev p { font-size: 1.08rem; line-height: 1.75; }
+  .meet-kev .lead { font-size: clamp(1.2rem, 2.4vw, 1.4rem); color: var(--text) !important; }
+  .single { margin: 32px 0; }
+  .single img { width: 100%; display: block; border: 1px solid var(--line); }
+  .before { max-width: 340px; }
+  .kev-pull {
+    margin: 32px 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--red);
+    font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.3;
+  }
   .clip { margin: 20px 0 0; max-width: 640px; }
   .clip video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--line); }
   /* Vinny's quote over his photo: full width, darkened toward the left so the words read. */

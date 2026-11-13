@@ -1,63 +1,21 @@
 ---
-// Kev's own story, in his words (lightly cleaned up from his voice note). First person on purpose:
-// this page is personal, unlike the rest of the site, which speaks as the studio ("we").
-import Page from '../layouts/Page.astro';
+// Old address: Kev's story now lives on the About page (/about#meet-kev). This page only forwards there, so saved
+// links still work.
+const target = new URL('about/', Astro.site).href + '#meet-kev';
 ---
 
-<Page title="Meet Kev" description="Kev's story: self-doubt, trust and why Reliable Kev Media tells real stories." quote={false}>
-  <article class="story">
-    <h1>Meet Kev</h1>
-
-    <p class="lead">
-      I have never been someone who's comfortable in front of the camera. Even recording myself, I've carried a sense
-      of insecurity and self-doubt that I have always struggled with.
-    </p>
-
-    <figure class="single before">
-      <img src="/images/kev-before-front.jpg" alt="Kev four years ago, flexing in his bedroom" loading="lazy" />
-      <figcaption>Four years ago.</figcaption>
-    </figure>
-
-    <p>
-      Through my own effort, I've learned what it means to put yourself in a place where you have to trust yourself,
-      and trust someone else to capture you.
-    </p>
-
-    <blockquote class="pull">Trust yourself, and trust someone to capture you.</blockquote>
-
-    <figure class="single">
-      <img src="/images/kev-before-after.jpg" alt="Kev before and after, side by side" loading="lazy" />
-      <figcaption>Then and now.</figcaption>
-    </figure>
-
-    <p>
-      That's where this is going, and it's why I tell other people's stories. I've never been someone who connects
-      easily with groups. I connect with people one on one. That's why so much of my work is filming one-on-one with
-      business owners, letting them tell their story.
-    </p>
-    <p>
-      A lot of people just want help with their business. To me, that's not the right place to start. The approach I
-      bring is the full context: how you started, and why you're doing this in the first place. Documentary style.
-    </p>
-
-    <div class="actions">
-      <a href="/start" class="btn btn-primary">Tell your story</a>
-      <a href="/about" class="btn">About the studio</a>
-    </div>
-  </article>
-</Page>
-
-<style>
-  .story { max-width: 680px; }
-  .story p { font-size: 1.08rem; line-height: 1.75; }
-  .lead { font-size: clamp(1.2rem, 2.4vw, 1.4rem) !important; color: var(--text) !important; }
-  .single img { width: 100%; display: block; border: 1px solid var(--line); }
-  .before { max-width: 340px; }
-  .single { margin: 32px 0; }
-  figcaption { font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; }
-  .pull {
-    margin: 32px 0; padding: 4px 0 4px 22px; border-left: 3px solid var(--text);
-    font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); line-height: 1.3;
-  }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
-</style>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=../about/#meet-kev" />
+    <link rel="canonical" href={target} />
+    <title>Meet Kev · Reliable Kev Media</title>
+    <script is:inline>location.replace('../about/#meet-kev');</script>
+  </head>
+  <body style="background:#0b0b0a;color:#f1eada;font-family:sans-serif;padding:24px">
+    <p>Kev's story now lives on the About page. <a href="/about#meet-kev" style="color:inherit">Continue</a></p>
+  </body>
+</html>

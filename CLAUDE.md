@@ -34,6 +34,8 @@ to write a small 1080p `public/videos/<name>.mp4` plus a `<name>.jpg` poster sti
 
 There is no separate Drone or Work page any more: both are sections of `/services` (`#drone`, `#work`).
 `src/pages/drone.astro` and `work.astro` only forward old links there; keep them so saved links don't break.
+Likewise Meet Kev is a section of the About page (`/about#meet-kev`, Kev's first-person story); `src/pages/meet-kev.astro`
+only forwards the old `/meet-kev/` link there.
 
 ## Clean, simple, professional (Kev's direction, Nov 13, 2026)
 
