@@ -5,14 +5,16 @@
 interface Props {
   size?: string;
   class?: string;
+  /** Draw the circle around the letters (default). Without it, the letters fill the whole size. */
+  ring?: boolean;
 }
-const { size = '0.32em', class: cls } = Astro.props;
+const { size = '0.32em', class: cls, ring = true } = Astro.props;
 const id = `rk-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
-<svg class:list={['brand-mark', cls]} viewBox="0 0 40 40" style={`width:${size};height:${size}`} aria-hidden="true">
+<svg class:list={['brand-mark', cls]} viewBox={ring ? '0 0 40 40' : '7.5 7.5 25 25'} style={`width:${size};height:${size}`} aria-hidden="true">
   <mask id={id} style="mask-type: alpha"><image href="/images/rk-monogram.png" x="7.5" y="7.5" width="25" height="25" /></mask>
-  <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="2" />
+  {ring && <circle cx="20" cy="20" r="18.5" fill="none" stroke="currentColor" stroke-width="2" />}
   <rect x="7.5" y="7.5" width="25" height="25" fill="currentColor" mask={`url(#${id})`} />
 </svg>
 
