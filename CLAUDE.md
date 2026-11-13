@@ -66,9 +66,10 @@ and simple (written so anyone can follow it).
 
 - **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the
   value points (`VALUE_POINTS` in `src/data/home.ts`, already drafted in a comment there).
-- **Free first video terms**: `FIRST_VIDEO_FREE` in `src/data/pricing.ts` (homepage pill, pricing box, FAQ,
-  phone scroll, intake form choice). Terms are a draft: one short vertical video up to 60 s, one per business,
-  North Jersey. Confirm with Kev; `on: false` turns the offer off everywhere.
+- **Free first video terms** (updated with Kev, Nov 13, 2026): `FIRST_VIDEO_FREE` in `src/data/pricing.ts` (homepage
+  hero, pricing box, FAQ, phone scroll, intake form choice). One short vertical video up to 60 s, open to anyone new
+  (not only businesses), one per client, North Jersey. No planning session is included; say it as a plus ("nothing
+  to plan or prepare"), never as a limitation. `on: false` turns the offer off everywhere.
 - **Event packages (decided Nov 13, 2026)**: the half and full day are shoot rates for general events, priced as before
   (from $500 / from $1,100). Half day: 5 short vertical clips. Full day: a 2–3 minute highlight video + 6 clips. No
   planning call and no sit-down Q&A built in; those and everything else (brand films, podcasts, monthly content) are a

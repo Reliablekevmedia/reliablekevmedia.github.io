@@ -102,6 +102,7 @@ export const FIRST_VIDEO_FREE = {
   on: true,
   headline: 'Your first video is free',
   short: 'New clients: your first video is free.',
-  // TODO (Kev): confirm the terms.
-  terms: 'One short vertical video (up to 60 seconds) for a new client, filmed at your business in North Jersey and edited with music and captions, ready to publish. Limited to one per business.',
+  // Kev (Nov 13, 2026): open to anyone, not only businesses. No planning session is included, which is worded as a
+  // plus (nothing to prepare) so it never reads as a catch.
+  terms: 'One short vertical video (up to 60 seconds), open to anyone new to Reliable Kev Media. It is simple by design, with nothing to plan or prepare: we arrive, film on location in North Jersey and deliver the edit with music and captions, ready to publish. One per client.',
 };
