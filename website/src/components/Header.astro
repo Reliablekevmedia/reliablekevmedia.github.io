@@ -7,17 +7,6 @@ const path = Astro.url.pathname;
 const isActive = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/'));
 ---
 
-<div class="topbar">
-  <div class="container topbar-inner">
-    <div class="topbar-left">
-      <span class="area">{SITE.area}</span>
-    </div>
-    {SITE.phone
-      ? <a href={`tel:${SITE.phone}`} class="contact">☎ {SITE.phone}</a>
-      : <a href={`mailto:${SITE.email}`} class="contact">✉ {SITE.email}</a>}
-  </div>
-</div>
-
 <header class="header">
   <div class="container bar glass">
     <a href="/" class="logo" aria-label={`${SITE.name} home`}>
@@ -96,12 +85,6 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
 
 <style>
   /* Top bar, header and town ticker share one black so the top of the page reads as one piece. */
-  .topbar { background: transparent; color: var(--text-muted); font-size: 0.8rem; }
-  .topbar .contact { color: var(--text); }
-  .topbar-inner { display: flex; justify-content: space-between; align-items: center; gap: 16px; min-height: 38px; }
-  .topbar-left { display: flex; align-items: center; gap: 20px; }
-  .area { font-family: var(--font-label); letter-spacing: 0.12em; text-transform: uppercase; font-size: 0.72rem; }
-  .contact { text-decoration: none; font-weight: 600; white-space: nowrap; }
 
   /* The menu floats as a Liquid Glass capsule; the page scrolls underneath it, blurred. */
   .header { position: sticky; top: 0; z-index: 10; padding: 10px 0; }
@@ -224,7 +207,6 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
     .nav > ul { flex-wrap: wrap; gap: 2px; padding-bottom: 10px; }
     .nav > ul > li > a { padding: 8px 10px; font-size: 0.74rem; white-space: nowrap; }
     .caret, .dropdown, .nav-lens { display: none; }
-    .area { display: none; }
   }
 
   @media (max-width: 860px) {

@@ -35,12 +35,14 @@ to write a small 1080p `public/videos/<name>.mp4` plus a `<name>.jpg` poster sti
 There is no separate Drone or Work page any more: both are sections of `/services` (`#drone`, `#work`).
 `src/pages/drone.astro` and `work.astro` only forward old links there; keep them so saved links don't break.
 
-## Homepage hero reel
+## Clean, simple, professional (Kev's direction, Nov 13, 2026)
 
-The video behind the homepage headline is a montage. Its shots are listed in `website/scripts/hero-reel.txt`
-(file, start, length; raw footage paths give the best quality). Kev wants it to mix his latest content, so when
-new footage comes in, add a shot or two there and run `website/scripts/build-hero-reel.sh`. Keep it about 30s
-and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's request).
+No background videos anywhere: no drone video behind the pages and no video behind the homepage headline (Kev
+found them corny). The homepage hero is text only on the near-black page. The page is near black (`--bg`
+#0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
+free first video). The RK mark appears only on the logo, the homepage headline, the footer and the card page.
+Drone clips still belong in the Services page (`#drone`) as work samples. The old hero montage can be rebuilt with
+`website/scripts/build-hero-reel.sh` (shots in `hero-reel.txt`) only if Kev asks for it back.
 
 ## Waiting on Kev
 
@@ -51,9 +53,6 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
   North Jersey. Confirm with Kev; `on: false` turns the offer off everywhere.
 - **$150 single video details**: the Good tier in `src/data/pricing.ts` assumes about an hour on site and one
   short vertical video (up to 60 seconds). Confirm with Kev and adjust.
-- **Clean homepage go-ahead**: a calmer homepage is preview-only (`?clean=1` on a device, `?clean=0` off; set in
-  `src/layouts/Base.astro`, rules at the end of `src/styles/global.css`, `.clean-out`/`.clean-in` in `src/pages/index.astro`).
-  If Kev approves, make it permanent by deleting the `.clean-out` parts and the switch.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.

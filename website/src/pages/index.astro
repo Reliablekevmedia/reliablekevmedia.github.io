@@ -3,23 +3,15 @@ import { FIRST_VIDEO_FREE } from '../data/pricing';
 import { VALUE_POINTS } from '../data/home';
 import PhoneHome from '../components/PhoneHome.astro';
 import ClientLogos from '../components/ClientLogos.astro';
-import BrandDivider from '../components/BrandDivider.astro';
-import BrandMark from '../components/BrandMark.astro';
-import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import HomeHero from '../components/HomeHero.astro';
 import QuoteForm from '../components/QuoteForm.astro';
-import AreaMap from '../components/AreaMap.astro';
 import FeaturedVideo from '../components/FeaturedVideo.astro';
 import { FEATURED } from '../data/featured';
-import { SERVICE_PHOTOS } from '../data/photos';
 import { SERVICES, SITE } from '../site';
 
-// Layout follows gardenstatehomeexteriors.com: hero slider → intro → why choose →
-// a section per service with a checklist → service grid → platforms strip → map → footer.
-
-const counties = (await getCollection('counties')).sort((a, b) => a.data.order - b.data.order);
-const towns = (await getCollection('towns')).sort((a, b) => a.data.name.localeCompare(b.data.name));
+// Kept deliberately simple: hero → client logos → intro, featured work, why choose (quote form alongside)
+// → services → free first video. Phones get their own scroll (PhoneHome).
 
 const why = [
   {
@@ -42,37 +34,21 @@ const icons: Record<string, string> = {
   events: 'M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z',
   projects: 'M3 6h14v12H3zM17 10l4-2.5v9L17 14',
 };
-
-const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Your Website'];
 ---
 
 <Base home>
   <HomeHero />
   <ClientLogos />
 
-
   <div class="container home desktop-only">
     <div class="content">
       <section>
-        <h1>Serving all of New Jersey<BrandMark /></h1>
-        <p class="clean-in">
+        <h1>Serving all of New Jersey</h1>
+        <p>
           Reliable Kev Media is a New Jersey video production studio. We tell the full story of your business: the
           work, the people behind it and the community it belongs to, so people trust you before they ever call.
         </p>
-        <p class="clean-out">
-          Reliable Kev Media is a North Jersey video production studio. We produce
-          {SERVICES.map((s, i) => <>{i === SERVICES.length - 1 ? ' and ' : i ? ', ' : ' '}<a href={`/services#${s.id}`}>{s.inline ?? s.title.toLowerCase()}</a></>)}{' '}
-          for towns, downtowns, local businesses and trade companies throughout
-          {counties.map((c, i) => <>{i === counties.length - 1 ? ' and ' : i ? ', ' : ' '}<a href={`/where-i-work/${c.id}`}>{c.data.name}</a></>)}.
-        </p>
-        <p class="clean-out">
-          Our approach is full context storytelling. We invest the time, care and thought to understand your story, then
-          direct and shape it on camera: the work, the people behind it and the community it belongs to. The result is
-          video that earns trust before the first phone call.
-        </p>
       </section>
-
-      <BrandDivider />
 
       {FEATURED.length > 0 && (
         <section>
@@ -105,34 +81,6 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
           </div>
         </a>
       </section>
-
-      {SERVICES.map((s) => (
-        <section id={s.id} class="clean-out">
-          <h2>{s.title}</h2>
-          {SERVICE_PHOTOS[s.id] && (
-            <figure class="service-photo">
-              <img src={SERVICE_PHOTOS[s.id].src} alt={SERVICE_PHOTOS[s.id].alt} loading="lazy" />
-            </figure>
-          )}
-          <p>{s.short}</p>
-          <p class="label">What's included:</p>
-          <ul class="checks">
-            {s.points.map((p) => <li>{p}</li>)}
-            <li><a href={`/services#${s.id}`}>{s.title} service page</a></li>
-          </ul>
-        </section>
-      ))}
-
-      <BrandDivider />
-
-      <section class="clean-out">
-        <h2>Serving North Jersey</h2>
-        <p>
-          Every piece of work is tied to the town it was made in. We currently work in
-          {towns.map((t, i) => <>{i === towns.length - 1 ? ' and ' : i ? ', ' : ' '}<a href={`/where-i-work/${t.data.county.id}/${t.id}`}>{t.data.name}</a></>)},
-          with more towns coming. Nearby? <a href="/start">Reach out anyway.</a>
-        </p>
-      </section>
     </div>
 
     <aside class="side">
@@ -159,7 +107,7 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
   </section>
 
   {FIRST_VIDEO_FREE.on && (
-    <section class="free-band clean-in desktop-only">
+    <section class="free-band desktop-only">
       <div class="container">
         <div class="free-card">
           <p class="free-badge">New clients</p>
@@ -171,16 +119,6 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
     </section>
   )}
 
-  <section class="platforms desktop-only clean-out" aria-label="Where your videos go">
-    <div class="container">
-      <p class="eyebrow">Made for</p>
-      <ul>
-        {platforms.map((p) => <li>{p}</li>)}
-      </ul>
-    </div>
-  </section>
-
-  <div class="desktop-only clean-out"><AreaMap /></div>
   <PhoneHome />
 </Base>
 
@@ -191,14 +129,13 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
   }
   .side { position: sticky; top: 108px; }
 
-  .content section + section { margin-top: 48px; scroll-margin-top: 110px; }
+  .content section + section { margin-top: 56px; scroll-margin-top: 110px; }
   .content section { scroll-margin-top: 110px; }
   .content h1 { font-size: clamp(1.8rem, 3.6vw, 2.5rem); text-transform: uppercase; font-weight: 600; letter-spacing: 0.02em; }
   .content h2 { font-size: clamp(1.35rem, 2.6vw, 1.8rem); text-transform: uppercase; font-weight: 600; }
   .content h3 { text-transform: uppercase; font-weight: 600; margin: 1.4em 0 0.4em; }
   .content p { color: #d9d2c4; }
   .content p a, .checks a { text-decoration: underline; }
-  .label { font-weight: 600; color: var(--text) !important; margin-bottom: 0.4em; }
 
   .meet {
     display: grid; grid-template-columns: 140px 1fr; gap: 20px; align-items: start;
@@ -211,8 +148,6 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
   .meet-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 48% 62%; }
   .more { text-decoration: underline; }
   .more-work { margin-top: 14px; }
-  .service-photo { margin: 6px 0 18px; aspect-ratio: 16 / 9; overflow: hidden; border: 1px solid var(--glass-line); border-radius: var(--media-radius); }
-  .service-photo img { width: 100%; height: 100%; object-fit: cover; }
 
   .services-band { padding: clamp(56px, 8vw, 96px) 0; }
   .band-title { text-align: center; text-transform: uppercase; font-weight: 600; margin-bottom: 48px; }
@@ -226,10 +161,6 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
     font-family: var(--font-label); font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
   }
   .sbtn:hover { opacity: 0.8; }
-
-  .platforms { padding: 40px 0; text-align: center; }
-  .platforms ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 16px 48px; }
-  .platforms li { font-size: 1.15rem; font-weight: 600; letter-spacing: 0.06em; color: var(--text-muted); }
 
   @media (max-width: 900px) {
     .home { grid-template-columns: 1fr; }
@@ -251,5 +182,4 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
   }
   .free-card .btn-primary { background: #151514; color: var(--cream); }
   .free-card .btn-primary::before { opacity: 0.25; }
-  :global(html[data-clean]) .content > section:not(:first-child) { margin-top: 56px; }
 </style>

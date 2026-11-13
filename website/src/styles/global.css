@@ -1,8 +1,8 @@
 /* Design tokens, from the business card: black and colonial cream (no pure white). Montserrat headings, DM Sans body, Monda labels. */
 :root {
-  --bg: #1b1b1a; /* dark gray: the top of the page gradient */
+  --bg: #0b0b0a; /* near black: the top of the page gradient */
   --bg-raised: rgb(255 255 255 / 0.045); /* cards and panels: a touch lighter than the page */
-  --charcoal: #3a3936; /* warm charcoal the page fades to, toward the bottom */
+  --charcoal: #1c1b19; /* the deep charcoal the page fades to, toward the bottom */
   --line: rgb(241 234 218 / 0.12);
   --cream: #f1eada; /* colonial white: every "white" surface and the main text */
   --field: #faf7f0; /* form inputs on cream */
@@ -189,7 +189,7 @@ main figure :is(img, video) { border-radius: var(--media-radius); }
 
 body::before {
   content: ''; position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  background: linear-gradient(to bottom, var(--bg) 0%, #252524 40%, var(--charcoal) 100%);
+  background: linear-gradient(to bottom, var(--bg) 0%, #121211 45%, var(--charcoal) 100%);
 }
 
 /* Soft film-grain texture over the gradient (fine noise, no visible pattern). */
@@ -206,25 +206,9 @@ html[data-look="black"] {
   --line: rgb(241 234 218 / 0.55);
 }
 html[data-look="black"] body::before { background: #000; }
-html[data-look="black"] body::after, html[data-look="black"] .bg-photos { display: none; }
+html[data-look="black"] body::after { display: none; }
 html[data-look="black"] .header { border-bottom: 1px solid var(--cream); }
 html[data-look="black"] .ticker { border-bottom: 1px solid var(--cream); }
 html[data-look="black"] .footer { border-top-color: var(--cream); }
 html[data-look="black"] .content h2 { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 
-/* Cleaner homepage preview (?clean=1, see Base.astro). `.clean-out` hides in the preview, `.clean-in` shows only there. */
-.clean-in { display: none !important; }
-html[data-clean] .clean-in { display: revert !important; }
-html[data-clean] .clean-out { display: none !important; }
-html[data-clean] .topbar,
-html[data-clean] .bg-photos,
-html[data-clean] .brand-divider { display: none !important; }
-/* RK mark only on the logo, the homepage headline and the footer. */
-html[data-clean] main .brand-mark { display: none !important; }
-html[data-clean] main .hero .brand-mark, html[data-clean] main .lockup-mark { display: inline-block !important; }
-.preview-bar { text-align: center; padding: 10px 0 0; }
-.preview-badge {
-  display: inline-block; white-space: nowrap; padding: 8px 14px; border-radius: 999px;
-  font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-  background: var(--glass-cream); color: #151514; box-shadow: 0 6px 18px rgb(0 0 0 / 0.35);
-}

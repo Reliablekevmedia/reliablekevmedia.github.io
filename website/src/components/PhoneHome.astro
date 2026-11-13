@@ -12,7 +12,6 @@ import { VALUE_POINTS } from '../data/home';
 import { REVIEWS } from '../data/reviews';
 import { FOUNDED } from '../data/business';
 import FeaturedVideo from './FeaturedVideo.astro';
-import BrandMark from './BrandMark.astro';
 
 // A few drone clips to swipe through: homes, the city and an event.
 const CLIP_PICKS = ['tenafly', 'fair-lawn-roof', 'jc-skyline', 'event-rise-up', 'woodcliff-lake'];
@@ -23,7 +22,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 <div class="phone-home">
   <section class="ph-section" id="services">
     <p class="ph-kicker">Services</p>
-    <h2>What we make<BrandMark /></h2>
+    <h2>What we make</h2>
     <div class="ph-cards">
       {SERVICES.map((s) => (
         <article class="ph-card reveal">
@@ -51,7 +50,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
   <section class="ph-section" id="drone">
     <p class="ph-kicker">Drone</p>
-    <h2>From above<BrandMark /></h2>
+    <h2>From above</h2>
     <p>Homes, job sites, downtowns and events across New Jersey. Swipe through a few flights.</p>
     <div class="ph-swipe">
       {clips.map((c) => (
@@ -66,14 +65,14 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
   {FEATURED.length > 0 && (
     <section class="ph-section" id="work">
       <p class="ph-kicker">Work</p>
-      <h2>Featured work<BrandMark /></h2>
+      <h2>Featured work</h2>
       <FeaturedVideo item={FEATURED[0]} heading="h3" />
     </section>
   )}
 
   <section class="ph-section" id="diy">
     <p class="ph-kicker">DIY</p>
-    <h2>Film your own content today<BrandMark /></h2>
+    <h2>Film your own content today</h2>
     <p class="ph-big">Just aim and press record.</p>
     <ul class="checks ph-list">{PHONE.map((t) => <li>{t}</li>)}</ul>
     <a href="/diy" class="ph-link">Open the free guide</a>
@@ -82,7 +81,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
   {REVIEWS.length > 0 && (
     <section class="ph-section" id="reviews">
       <p class="ph-kicker">Reviews</p>
-      <h2>What clients say<BrandMark /></h2>
+      <h2>What clients say</h2>
       {REVIEWS.slice(0, 3).map((r) => (
         <blockquote class="ph-review reveal">
           <span class="ph-stars" aria-label={`${r.rating} out of 5 stars`}>{stars(r.rating)}</span>
@@ -95,7 +94,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
   <section class="ph-section" id="about">
     <p class="ph-kicker">About</p>
-    <h2>Meet Kev<BrandMark /></h2>
+    <h2>Meet Kev</h2>
     <figure class="ph-photo">
       <img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to film with his camera at an outdoor event" loading="lazy" />
     </figure>
@@ -115,7 +114,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
   <section class="ph-section ph-contact" id="contact">
     <p class="ph-kicker">Contact</p>
-    <h2>Let's tell your story<BrandMark /></h2>
+    <h2>Let's tell your story</h2>
     <p>Every project starts with a free, no-pressure call. {SITE.hours}</p>
     <div class="ph-actions">
       <a href="/start" class="btn btn-primary">Start a project</a>
@@ -132,7 +131,6 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
     html[data-phone-scroll] .phone-home { display: block; }
     html[data-phone-scroll] .desktop-only { display: none !important; }
     /* No menu: logo only up top, no phone bar, no town ticker, no quick links in the footer. */
-    html[data-phone-scroll] .topbar,
     html[data-phone-scroll] #site-nav,
     html[data-phone-scroll] .ticker,
     html[data-phone-scroll] .footer .links-col { display: none !important; }

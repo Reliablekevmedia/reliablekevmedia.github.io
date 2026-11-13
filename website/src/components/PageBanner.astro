@@ -1,7 +1,6 @@
 ---
 // Video or photo strip at the top of an inner page. With `heading`, the page title (h1) sits on the
 // video itself, like the homepage; otherwise the page's own h1 carries the title.
-import BrandMark from './BrandMark.astro';
 interface Props {
   image?: string;
   /** Silent looping video; `image` is its poster and fallback. */
@@ -19,7 +18,7 @@ const { image, video, heading, kicker } = Astro.props;
   {heading && (
     <div class="container banner-text">
       {kicker && <p class="kicker">{kicker}</p>}
-      <h1 class="banner-title">{heading}<BrandMark size="0.3em" /></h1>
+      <h1 class="banner-title">{heading}</h1>
     </div>
   )}
 </section>
