@@ -1,5 +1,5 @@
-// Businesses and organizations Kev has filmed for, shown in the "Trusted by" logo rows
-// (homepage and Work page). Only list clients Kev is comfortable naming publicly.
+// Businesses and organizations Kev has filmed for, shown all at once at the top of the homepage
+// (HomeHero.astro). Only list clients Kev is comfortable naming publicly.
 // public/images/clients/<logo> is the full-color logo with its background removed (source files in
 // brand/client-logos/). w/h is the display size in px, chosen so every logo covers about the same area
 // whatever its shape.

@@ -1,8 +1,6 @@
 ---
 import { FIRST_VIDEO_FREE } from '../data/pricing';
-import { VALUE_POINTS } from '../data/home';
 import PhoneHome from '../components/PhoneHome.astro';
-import ClientLogos from '../components/ClientLogos.astro';
 import Base from '../layouts/Base.astro';
 import HomeHero from '../components/HomeHero.astro';
 import QuoteForm from '../components/QuoteForm.astro';
@@ -24,9 +22,6 @@ const why = [
   },
 ];
 
-// Value points under "Why choose" live in data/home.ts (shared with the phone scroll).
-const reasons = VALUE_POINTS;
-
 // Simple line icons for the service grid, keyed by service id.
 const icons: Record<string, string> = {
   'monthly-content': 'M7 3v3M17 3v3M4 8h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1zm3 7h3v3H8z',
@@ -38,7 +33,6 @@ const icons: Record<string, string> = {
 
 <Base home>
   <HomeHero />
-  <ClientLogos />
 
   <div class="container home desktop-only">
     <div class="content">
@@ -66,9 +60,6 @@ const icons: Record<string, string> = {
             <p>{w.text}</p>
           </>
         ))}
-        <ul class="checks">
-          {reasons.map((r) => <li>{r}</li>)}
-        </ul>
 
         <a href="/meet-kev" class="meet">
           <div class="meet-photo"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to film with his camera at an outdoor event" loading="lazy" /></div>

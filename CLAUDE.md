@@ -38,9 +38,12 @@ There is no separate Drone or Work page any more: both are sections of `/service
 ## Clean, simple, professional (Kev's direction, Nov 13, 2026)
 
 No background videos anywhere: no drone video behind the pages and no video behind the homepage headline (Kev
-found them corny). The homepage hero is text only on the near-black page. The page is near black (`--bg`
+found them corny). No slogans either: the motto "It's not reimagining. It's evolution." was removed everywhere at
+Kev's request. The homepage opens on trust and credentials (`src/components/HomeHero.astro`): "Trusted by local
+businesses across New Jersey", every client logo at once (`src/data/clients.ts`), then Kev's credentials
+(`VALUE_POINTS` in `src/data/home.ts`). The page is near black (`--bg`
 #0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
-free first video). The RK mark appears only on the logo, the homepage headline, the footer and the card page.
+free first video). The RK mark appears only on the logo, the footer and the card page.
 Drone clips still belong in the Services page (`#drone`) as work samples. The old hero montage can be rebuilt with
 `website/scripts/build-hero-reel.sh` (shots in `hero-reel.txt`) only if Kev asks for it back.
 

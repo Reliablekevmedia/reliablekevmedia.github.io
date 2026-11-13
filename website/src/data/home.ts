@@ -21,12 +21,12 @@ export const ONE_ON_ONE_STEPS = [
   },
 ];
 
-// Value points shown under "Why choose" (desktop homepage) and in the phone scroll's About section.
+// Kev's credentials, shown under the client logos at the top of the homepage and in the phone scroll's About section.
 // Add the certifications once Kev has them:
 //   'FAA-certified drone pilot (Part 107)',
 //   'Adobe Certified Professional in video editing',
 export const VALUE_POINTS = [
-  'An assigned creative director for every project',
   'Over 10 years of video production experience',
+  'An assigned creative director for every project',
   'A clear quote before anything is filmed',
 ];

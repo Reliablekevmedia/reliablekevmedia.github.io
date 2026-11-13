@@ -1,6 +1,6 @@
 ---
-// The homepage on a phone: no menu, just one continuous scroll. It opens on the client logos, then the
-// motto video, then every tab's content in menu order (Services, Drone, Work, DIY, About, Contact).
+// The homepage on a phone: no menu, just one continuous scroll. It opens on the homepage opener (client logos
+// and credentials), then every tab's content in menu order (Services, Drone, Work, DIY, About, Contact).
 // It shows only when <html> has data-phone-scroll (set in Base.astro) on a phone-width screen; desktop
 // never sees it. Everything here pulls from the same data as the full pages, so edits show up in both.
 import { SITE, SERVICES } from '../site';
@@ -135,9 +135,6 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
     html[data-phone-scroll] .ticker,
     html[data-phone-scroll] .footer .links-col { display: none !important; }
     html[data-phone-scroll] .header .bar { padding-bottom: 14px; }
-    /* Logos first, then the motto video, then the scroll. */
-    html[data-phone-scroll] main { display: flex; flex-direction: column; }
-    html[data-phone-scroll] main > .clients { order: -1; padding-top: 28px; }
   }
 </style>
 

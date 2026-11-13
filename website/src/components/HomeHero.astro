@@ -1,22 +1,24 @@
 ---
-import BrandMark from './BrandMark.astro';
 import { FIRST_VIDEO_FREE } from '../data/pricing';
-// Homepage opener: the headline on the plain dark page. No background video (Kev's call, Nov 2026: clean,
-// simple and professional). The old montage can be rebuilt with scripts/build-hero-reel.sh if ever wanted again.
+import { CLIENTS } from '../data/clients';
+import { VALUE_POINTS } from '../data/home';
+// Homepage opener, built to earn trust at a glance: every client logo, then Kev's credentials. No slogan and no
+// background video (Kev's direction, Nov 2026: clean, simple and professional; trust and credentials first).
 ---
 
-<section class="hero">
+<section class="hero" aria-labelledby="hero-title">
   <div class="container hero-inner">
     {FIRST_VIDEO_FREE.on && (
       <a href="/services#pricing" class="free-pill"><span class="free-dot" aria-hidden="true"></span>{FIRST_VIDEO_FREE.short}<span aria-hidden="true">→</span></a>
     )}
-    <p class="kicker">Proudly serving New Jersey</p>
-    <p class="headline">It's not reimagining.<br />It's evolution.<BrandMark size="0.28em" /></p>
-    <p class="sub">
-      Video production built on one discipline: telling people's stories with honesty and care. Every project is
-      planned, directed and edited to show the full picture of your business, the people behind it and the community
-      it serves.
-    </p>
+    <p class="kicker">Video production in New Jersey</p>
+    <p id="hero-title" class="headline">Trusted by local businesses across New Jersey</p>
+    <ul class="logos">
+      {CLIENTS.map((c) => (
+        <li><img src={`/images/clients/${c.logo}`} alt={c.name} title={c.name} width={c.w} height={c.h} style={`--w:${c.w};--h:${c.h}`} decoding="async" /></li>
+      ))}
+    </ul>
+    <ul class="creds">{VALUE_POINTS.map((v) => <li>{v}</li>)}</ul>
     <div class="actions">
       <a href="/start" class="btn btn-primary">Start a project</a>
       <a href="/services#work" class="btn">See the work</a>
@@ -25,25 +27,50 @@ import { FIRST_VIDEO_FREE } from '../data/pricing';
 </section>
 
 <style>
-  .hero { padding: clamp(72px, 11vw, 150px) 0 clamp(56px, 8vw, 110px); }
+  .hero { padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 7vw, 88px); text-align: center; }
+  .hero-inner { display: flex; flex-direction: column; align-items: center; }
   .kicker {
-    font-family: var(--font-label); font-size: 0.8rem; letter-spacing: 0.24em; text-transform: uppercase;
-    color: var(--text-muted); margin-bottom: 18px; display: flex; align-items: center; gap: 12px;
+    font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--text-muted); margin: 0 0 12px;
   }
-  .kicker::before { content: ''; width: 28px; height: 2px; background: var(--text); }
   .headline {
-    font-family: var(--font-display);
-    font-size: clamp(2.6rem, 8vw, 5.6rem); line-height: 1; text-transform: uppercase; letter-spacing: 0.06em;
-    font-weight: 500; margin: 0 0 24px;
+    font-family: var(--font-display); font-size: clamp(1.7rem, 4vw, 2.8rem); line-height: 1.12;
+    text-transform: uppercase; letter-spacing: 0.04em; font-weight: 500; margin: 0 auto; max-width: 22ch;
   }
-  .sub { max-width: 52ch; font-size: clamp(1rem, 1.6vw, 1.15rem); color: #d9d2c4; margin-bottom: 28px; }
-  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Every client logo at once, in its own colors, sized so each covers about the same area. */
+  .logos {
+    list-style: none; padding: 0; margin: clamp(28px, 4vw, 44px) auto 0; max-width: 1040px;
+    display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 28px 48px;
+  }
+  .logos li { display: flex; align-items: center; justify-content: center; height: 84px; }
+  .logos img { --s: 0.95; width: calc(var(--w) * var(--s) * 1px); height: calc(var(--h) * var(--s) * 1px); display: block; }
+
+  /* Credentials: plain facts in one quiet row. */
+  .creds {
+    list-style: none; padding: 0; margin: clamp(32px, 5vw, 48px) auto 0;
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 32px;
+  }
+  .creds li { display: flex; align-items: center; gap: 10px; color: #d9d2c4; font-size: 0.98rem; }
+  .creds li::before {
+    content: ''; flex: none; width: 18px; height: 18px; border-radius: 50%;
+    background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23151514' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
+  }
+  .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: clamp(28px, 4vw, 40px); }
 
   /* New-client offer: a cream glass pill above the kicker. */
   .free-pill {
-    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 18px; padding: 9px 16px; border-radius: 999px;
+    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; padding: 9px 16px; border-radius: 999px;
     background: var(--glass-cream); color: #151514; text-decoration: none; font-weight: 600; font-size: 0.92rem;
     box-shadow: 0 8px 24px rgb(0 0 0 / 0.35), inset 0 1px 0 #fff;
   }
   .free-dot { width: 8px; height: 8px; border-radius: 50%; background: #2f9e5b; box-shadow: 0 0 0 4px rgb(47 158 91 / 0.2); }
+
+  @media (max-width: 600px) {
+    .logos { gap: 18px 26px; }
+    .logos li { height: 60px; }
+    .logos img { --s: 0.66; }
+    .creds { flex-direction: column; align-items: flex-start; text-align: left; }
+    .creds li { font-size: 0.94rem; }
+  }
 </style>
