@@ -43,7 +43,9 @@ Kev's request. The homepage opens on trust and credentials (`src/components/Home
 businesses across New Jersey", every client logo at once (`src/data/clients.ts`), then Kev's credentials
 (`VALUE_POINTS` in `src/data/home.ts`). The page is near black (`--bg`
 #0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
-free first video). The RK mark appears only on the logo, the footer and the card page.
+free first video). The RK mark appears only on the logo, the footer, the card page and the opening: on the first page of a visit the RK
+logo shows on black for about a second, then dissolves into the page (Kev's request; `.intro` in `Base.astro` and at the
+end of `global.css`; `?intro=1` replays it; skipped for reduced motion).
 Drone clips still belong in the Services page (`#drone`) as work samples. The old hero montage can be rebuilt with
 `website/scripts/build-hero-reel.sh` (shots in `hero-reel.txt`) only if Kev asks for it back.
 

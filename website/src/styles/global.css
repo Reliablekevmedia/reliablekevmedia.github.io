@@ -212,3 +212,18 @@ html[data-look="black"] .ticker { border-bottom: 1px solid var(--cream); }
 html[data-look="black"] .footer { border-top-color: var(--cream); }
 html[data-look="black"] .content h2 { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
 
+/* Opening (Base.astro): the RK logo fades in on black, holds a moment, then the black dissolves into the page.
+   Shown only when the head script sets html[data-intro] (first page of a visit). About two seconds in all. */
+.intro { display: none; }
+html[data-intro] .intro {
+  display: grid; place-items: center; position: fixed; inset: 0; z-index: 100; pointer-events: none;
+  background: var(--bg); color: var(--cream);
+  animation: intro-out 0.8s ease-in-out 1.25s forwards;
+}
+html[data-intro] .intro .brand-mark {
+  margin: 0; vertical-align: middle; opacity: 0;
+  animation: intro-in 0.7s ease-out 0.1s forwards, intro-grow 0.8s ease-in-out 1.25s forwards;
+}
+@keyframes intro-in { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: none; } }
+@keyframes intro-grow { from { opacity: 1; transform: none; } to { opacity: 1; transform: scale(1.06); } }
+@keyframes intro-out { to { opacity: 0; visibility: hidden; } }

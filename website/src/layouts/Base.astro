@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import Reveal from '../components/Reveal.astro';
+import BrandMark from '../components/BrandMark.astro';
 import AutoplayVideos from '../components/AutoplayVideos.astro';
 import { getCollection } from 'astro:content';
 import { SITE } from '../site';
@@ -53,6 +54,7 @@ const business = {
     <meta property="og:type" content="website" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="preload" as="image" href="/images/rk-monogram.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -62,6 +64,18 @@ const business = {
     {Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(business)} />}
     <script is:inline>
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-reveal');
+      // Opening: the RK logo on black, then it dissolves into the page. Only on the first page of a visit (until the
+      // tab is closed), never for people who ask for less motion; ?intro=1 replays it. The fade is pure CSS, so the
+      // logo always clears by itself, even if a script fails.
+      (function () {
+        try {
+          var replay = new URLSearchParams(location.search).get('intro') === '1';
+          if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          if (sessionStorage.getItem('intro-seen') && !replay) return;
+          sessionStorage.setItem('intro-seen', '1');
+          document.documentElement.dataset.intro = '';
+        } catch (e) {}
+      })();
       // Preview looks: add ?look=black to any page to try the black-and-cream look (?look=gray to go back).
       // The choice carries across pages until the browser tab is closed. Visitors see the gray look.
       (function () {
@@ -89,6 +103,7 @@ const business = {
     </script>
   </head>
   <body id="top">
+    <div class="intro" aria-hidden="true"><BrandMark size="clamp(104px, 20vw, 160px)" /></div>
     {!bare && <Header />}
     <main>
       <slot />
