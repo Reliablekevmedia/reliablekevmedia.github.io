@@ -221,8 +221,8 @@ main a { text-decoration-color: var(--red); text-underline-offset: 3px; }
    screen. Put the class on the element that wraps the media (it must not clip its overflow). */
 .viewfinder { position: relative; }
 .viewfinder::after {
-  --vf-c: rgb(241 234 218 / 0.5); --vf-l: 20px; --vf-w: 1.5px;
-  content: ''; position: absolute; inset: -12px; pointer-events: none;
+  --vf-c: rgb(241 234 218 / 0.85); --vf-l: 28px; --vf-w: 2px;
+  content: ''; position: absolute; inset: -14px; pointer-events: none;
   background:
     linear-gradient(var(--vf-c), var(--vf-c)) top left / var(--vf-l) var(--vf-w),
     linear-gradient(var(--vf-c), var(--vf-c)) top left / var(--vf-w) var(--vf-l),
@@ -234,4 +234,4 @@ main a { text-decoration-color: var(--red); text-underline-offset: 3px; }
     linear-gradient(var(--vf-c), var(--vf-c)) bottom right / var(--vf-w) var(--vf-l);
   background-repeat: no-repeat;
 }
-@media (max-width: 600px) { .viewfinder::after { inset: -8px; --vf-l: 14px; } }
+@media (max-width: 600px) { .viewfinder::after { inset: -9px; --vf-l: 18px; } }

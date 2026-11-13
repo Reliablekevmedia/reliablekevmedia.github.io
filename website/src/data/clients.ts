@@ -23,6 +23,5 @@ export const CLIENTS: Client[] = [
   { name: 'Retro Fitness', logo: 'retro-fitness.png', w: 163, h: 40 },
   { name: 'M&A Auto Spa', logo: 'ma-auto-spa.png', w: 96, h: 67 },
   { name: 'Haus Coffee', logo: 'haus-coffee.png', w: 87, h: 74 },
-  { name: 'RR Luxe', logo: 'rr-luxe.png', w: 80, h: 80 },
   { name: 'Alpha Health', logo: 'alpha-health.png', w: 171, h: 37 },
 ];

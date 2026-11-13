@@ -89,8 +89,12 @@ and cards, the ticker dots, the rule under page titles, the lens's brand ring an
 shared `.btn`/`.glass`/`.checks` rules live in `src/styles/global.css` (the old `--glass-*` names are kept so every
 component picks up the look). Reuse them for anything new. Pages breathe (Kev found them tight): big gaps between sections
 (about 72–112px), and each section opens on a hairline with a short red mark (rules in `src/layouts/Page.astro` and
-`src/pages/index.astro`). Key photos and videos get thin camera-frame corners (`.viewfinder` in `global.css`): the
-featured video, the drone banner and the photos on the About page. Keep these accents few. The RK mark is the letters only, no circle
+`src/pages/index.astro`). Key photos and videos get camera-frame corners (`.viewfinder` in `global.css`): the
+featured video, the drone banner and the photos on the About page. Wide 21:9 stills from Kev's own footage
+(`src/components/FilmStill.astro`, files in `public/images/stills/`) break up long pages: homepage (bar carry, before
+Our Services), Services (before Drone & Aerial and before Pricing) and About (before The foundation). Service titles
+on the Services page carry a thin red line icon (`src/data/icons.ts`, shared with the homepage service grid). Keep
+these accents few. The RK mark is the letters only, no circle
 (`BrandMark` draws a circle only with `ring`).
 
 ## Business card QR code (do not break)

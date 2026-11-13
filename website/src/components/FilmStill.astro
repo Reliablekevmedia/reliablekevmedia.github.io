@@ -1,0 +1,18 @@
+---
+// A wide, cinematic still from Kev's own footage, framed with camera corners: a visual break between sections so
+// long pages have room to breathe. Stills are 21:9 crops in public/images/stills/.
+interface Props {
+  src: string;
+  alt: string;
+}
+const { src, alt } = Astro.props;
+---
+
+<figure class="still viewfinder">
+  <img src={src} alt={alt} loading="lazy" decoding="async" />
+</figure>
+
+<style>
+  .still { margin: clamp(72px, 9vw, 112px) 0; }
+  .still img { width: 100%; aspect-ratio: 21 / 9; object-fit: cover; display: block; }
+</style>
