@@ -1,0 +1,22 @@
+---
+// Short link for Instagram stories, texts and flyers: reliablekevmedia.github.io/free opens the intake form with
+// "My free first video" already ticked (/start?free=1). Kept out of Google and the sitemap.
+const target = new URL('start/', Astro.site).href + '?free=1';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <meta http-equiv="refresh" content="0; url=../start/?free=1" />
+    <link rel="canonical" href={target} />
+    <title>Your first video is free · Reliable Kev Media</title>
+    <meta property="og:title" content="Your first video is free · Reliable Kev Media" />
+    <script is:inline>location.replace('../start/?free=1');</script>
+  </head>
+  <body style="background:#0b0b0a;color:#f1eada;font-family:sans-serif;padding:24px">
+    <p>Opening the free video request. <a href="/start?free=1" style="color:inherit">Continue</a></p>
+  </body>
+</html>

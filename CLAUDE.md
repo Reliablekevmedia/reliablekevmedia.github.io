@@ -46,7 +46,7 @@ the proof right under it: "Trusted by local businesses across New Jersey", every
 (`src/data/clients.ts`) and Kev's credentials (`VALUE_POINTS` in `src/data/home.ts`). While the offer is on, the menu
 button reads "Free First Video", the phone bar "Free video", the Services page opens with an offer strip, and the
 quote form lists "My free first video" first. Offer links go to `/start?free=1`, which ticks that choice on the
-intake form. `FIRST_VIDEO_FREE.on = false` puts everything back to "Start a Project". The page is near black (`--bg`
+intake form. The short link `/free` (`src/pages/free.astro`, for Instagram stories and texts) forwards there. `FIRST_VIDEO_FREE.on = false` puts everything back to "Start a Project". The page is near black (`--bg`
 #0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
 free first video). The RK mark appears only on the logo, the footer, the card page and the opening: on the first page of a visit the RK letters
 show on black for about a second, then dissolves into the page (Kev's request; `.intro` in `Base.astro` and at the
