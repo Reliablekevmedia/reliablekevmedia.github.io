@@ -24,7 +24,7 @@ export const PACKAGES: Package[] = [
     name: 'Single video',
     price: '$150',
     from: false,
-    time: 'About an hour on site', // TODO (Kev): confirm what the $150 single video covers
+    time: 'About an hour on site', // confirmed by Kev, Nov 13, 2026
     summary: 'One short video, filmed and edited for you. The simplest way to begin.',
     includes: ['One short vertical video (up to 60 seconds)', 'Filmed at your location', 'Edited with music, ready for Instagram, TikTok and Reels'],
     short: 'one short vertical video, filmed, edited and ready to publish',

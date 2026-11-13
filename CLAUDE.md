@@ -5,14 +5,13 @@ The business website lives in `website/` (Astro). It is live at https://reliable
 served by GitHub Pages from the `docs/` folder on the `main` branch of `reliablekevmedia/reliablekevmedia.github.io`
 (the GitHub account was renamed from sixthsensestudiosllc in November 2026).
 
-## Old address forwarding (do not break)
+## Business cards: reprinting with the new QR code (decided Nov 13, 2026)
 
-The old address https://sixthsensestudiosllc.github.io/Kevin-Moreno/ is printed on the first business cards (QR
-code to `/Kevin-Moreno/card/`). Plan (NOT DONE YET as of Nov 10, 2026; Kev may reprint instead): reclaim the old
-`sixthsensestudiosllc` GitHub account and give its `Kevin-Moreno` repo `index.html` + `404.html` copied from
-`brand/forwarding/index.html`, which forward every old path to the same page on the new site. Once set up, that
-account and repo must never be deleted. Until the project is renamed to `reliablekevmedia.github.io`, the site is at
-reliablekevmedia.github.io/Reliablekevmedia/.
+The first business cards print the old address (https://sixthsensestudiosllc.github.io/Kevin-Moreno/card/), which no
+longer works since the GitHub account was renamed. Kev chose to reprint the cards with the new QR code
+(`brand/business-card/qr-intake-*.png/svg` → https://reliablekevmedia.github.io/card/) rather than set up forwarding.
+The forwarding page (`brand/forwarding/index.html`) and the old codes (`brand/business-card/old-sixthsense-address/`)
+are kept only for reference; the forwarding plan is no longer planned.
 
 ## Updating the live site
 
@@ -75,8 +74,6 @@ and simple (written so anyone can follow it).
   planning call and no sit-down Q&A built in; those and everything else (brand films, podcasts, monthly content) are a
   custom quote. "How an event day goes" (`EVENT_DAY`) is the default outline for clients without a schedule. All in
   `src/data/pricing.ts`.
-- **$150 single video details**: the Good tier in `src/data/pricing.ts` assumes about an hour on site and one
-  short vertical video (up to 60 seconds). Confirm with Kev and adjust.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.
@@ -114,5 +111,5 @@ these accents few. The RK mark is the letters only, no circle
 Printed business cards point at `/card/` (the project intake, `src/pages/card.astro`). Never rename,
 move or remove that page. `/card/` and the website's `/start/` share one form, `src/components/IntakeForm.astro`.
 The build fails on purpose (`integrations/guard-qr-page.mjs`) if `/card/` or its form is missing.
-QR artwork lives in `brand/business-card/` (new address); the codes printed on the first cards (old address,
-still working through the forwarder) are in `brand/business-card/old-sixthsense-address/`.
+QR artwork lives in `brand/business-card/` (new address, for the reprinted cards); the codes printed on the first
+cards (old address, no longer working) are in `brand/business-card/old-sixthsense-address/`.
