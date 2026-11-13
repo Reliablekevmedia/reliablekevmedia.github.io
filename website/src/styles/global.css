@@ -51,7 +51,7 @@ body {
   color: var(--text);
   font-family: var(--font-body);
   font-size: 17px;
-  line-height: 1.6;
+  line-height: 1.7;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -70,7 +70,7 @@ h1 { font-size: clamp(2.3rem, 6.5vw, 4.6rem); }
 h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
 h3 { font-size: 1.2rem; font-weight: 500; letter-spacing: 0.02em; }
 
-p { margin: 0 0 1em; }
+p { margin: 0 0 1.15em; }
 
 .container {
   width: 100%;
@@ -165,7 +165,7 @@ main figure :is(img, video) { border-radius: var(--media-radius); }
 .lockup-studio::before, .lockup-studio::after { content: ''; height: 4px; background: var(--text); flex: 1; min-width: 24px; }
 
 /* Checklist with filled check circles, used across content pages. */
-.checks { list-style: none; padding: 0; margin: 0.6em 0 1.2em; display: grid; gap: 8px; }
+.checks { list-style: none; padding: 0; margin: 0.8em 0 1.6em; display: grid; gap: 12px; }
 .checks li { position: relative; padding-left: 30px; color: #d9d2c4; }
 .checks li::before {
   content: '✓'; position: absolute; left: 2px; top: 0;
@@ -216,3 +216,22 @@ html[data-intro] .intro .brand-mark {
 
 /* Red accent on underlined links in the page content. */
 main a { text-decoration-color: var(--red); text-underline-offset: 3px; }
+
+/* Viewfinder: thin camera-frame corners just outside a key photo or video, like the frame lines in a camera's
+   screen. Put the class on the element that wraps the media (it must not clip its overflow). */
+.viewfinder { position: relative; }
+.viewfinder::after {
+  --vf-c: rgb(241 234 218 / 0.5); --vf-l: 20px; --vf-w: 1.5px;
+  content: ''; position: absolute; inset: -12px; pointer-events: none;
+  background:
+    linear-gradient(var(--vf-c), var(--vf-c)) top left / var(--vf-l) var(--vf-w),
+    linear-gradient(var(--vf-c), var(--vf-c)) top left / var(--vf-w) var(--vf-l),
+    linear-gradient(var(--vf-c), var(--vf-c)) top right / var(--vf-l) var(--vf-w),
+    linear-gradient(var(--vf-c), var(--vf-c)) top right / var(--vf-w) var(--vf-l),
+    linear-gradient(var(--vf-c), var(--vf-c)) bottom left / var(--vf-l) var(--vf-w),
+    linear-gradient(var(--vf-c), var(--vf-c)) bottom left / var(--vf-w) var(--vf-l),
+    linear-gradient(var(--vf-c), var(--vf-c)) bottom right / var(--vf-l) var(--vf-w),
+    linear-gradient(var(--vf-c), var(--vf-c)) bottom right / var(--vf-w) var(--vf-l);
+  background-repeat: no-repeat;
+}
+@media (max-width: 600px) { .viewfinder::after { inset: -8px; --vf-l: 14px; } }

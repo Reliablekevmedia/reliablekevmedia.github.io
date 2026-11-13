@@ -76,7 +76,7 @@ const faqSchema = {
       street and the community around it. Add it to any shoot, or make it its own piece.
     </p>
     <p>We fly a {GEAR.drone}: small enough to get in close, steady enough for smooth, cinematic shots.</p>
-    <figure class="dclip-hero">
+    <figure class="dclip-hero viewfinder">
       <video src={`/videos/${DRONE_BANNER}.mp4`} poster={`/videos/${DRONE_BANNER}.jpg`} muted loop playsinline preload="none" data-autoplay aria-label="Drone montage of finished homes across North Jersey"></video>
     </figure>
     {droneGroups.map((g) => (
@@ -202,8 +202,8 @@ const faqSchema = {
   }
   .jump a:hover { border-color: var(--red); }
   .service, .faq, .pricing { scroll-margin-top: 110px; }
-  .drone, .work { margin-top: 56px; }
-  .dclip-hero { margin: 20px 0 8px; }
+
+  .dclip-hero { margin: 32px 0 20px; }
   .dclip-hero video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--glass-line); }
   .dclips { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 12px; }
   .dclips figure { margin: 0; min-width: 0; }
@@ -220,7 +220,7 @@ const faqSchema = {
   .free-offer .free-badge { display: inline-block; padding: 4px 12px; border-radius: var(--radius-s); background: var(--red); color: var(--cream) !important; font-family: var(--font-label); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase; }
   .free-head { font-family: var(--font-display); font-size: clamp(1.4rem, 3vw, 1.9rem); text-transform: uppercase; letter-spacing: 0.03em; margin: 10px 0 6px !important; }
   .free-terms { font-size: 0.95rem; max-width: 60ch; margin-bottom: 16px !important; color: #3a3833 !important; }
-  .pricing { margin-top: 56px; }
+
   .rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 24px 0 28px; align-items: start; }
   .rate { padding: 20px; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }
   .rate p { margin: 0; }

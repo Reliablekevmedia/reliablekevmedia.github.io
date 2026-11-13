@@ -8,7 +8,7 @@ const H = heading;
 ---
 
 <figure class="featured">
-  <div class="frame">
+  <div class="viewfinder"><div class="frame">
     <video
       src={`/videos/${item.video}.mp4`}
       poster={`/videos/${item.video}.jpg`}
@@ -17,7 +17,7 @@ const H = heading;
       preload="none"
       aria-label={`${item.client}: ${item.kind}`}
     ></video>
-  </div>
+  </div></div>
   <figcaption>
     <p class="kicker">{item.kind}</p>
     <H class="title">{item.client}</H>
@@ -30,7 +30,7 @@ const H = heading;
   .featured { margin: 24px 0 0; }
   .frame { aspect-ratio: 16 / 9; background: #0a0a0a; border: 1px solid var(--glass-line); overflow: hidden; border-radius: var(--media-radius); }
   .frame video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
-  figcaption { margin-top: 16px; }
+  figcaption { margin-top: 22px; }
   .kicker {
     font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase;
     color: var(--text-muted) !important; margin: 0 0 4px;

@@ -87,7 +87,10 @@ the bottom edge. Red (`--red` #c8232f, hover `--red-bright`) is the accent: prim
 menu button, the thin underline on the current/hovered menu tab, checks, badges, the line on top of cream forms
 and cards, the ticker dots, the rule under page titles, the lens's brand ring and link underlines. Tokens and the
 shared `.btn`/`.glass`/`.checks` rules live in `src/styles/global.css` (the old `--glass-*` names are kept so every
-component picks up the look). Reuse them for anything new. The RK mark is the letters only, no circle
+component picks up the look). Reuse them for anything new. Pages breathe (Kev found them tight): big gaps between sections
+(about 72–112px), and each section opens on a hairline with a short red mark (rules in `src/layouts/Page.astro` and
+`src/pages/index.astro`). Key photos and videos get thin camera-frame corners (`.viewfinder` in `global.css`): the
+featured video, the drone banner and the photos on the About page. Keep these accents few. The RK mark is the letters only, no circle
 (`BrandMark` draws a circle only with `ring`).
 
 ## Business card QR code (do not break)

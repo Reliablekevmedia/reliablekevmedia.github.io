@@ -172,7 +172,7 @@ const sections = [
     font-family: var(--font-label); font-size: 0.74rem; letter-spacing: 0.1em; text-transform: uppercase;
   }
   .toc a:hover { border-color: var(--red); }
-  section { scroll-margin-top: 110px; margin-top: 56px; }
+  section { scroll-margin-top: 110px; margin-top: clamp(72px, 9vw, 112px); }
   section > h2 { margin-top: 0 !important; }
   .steps { list-style: none; padding: 0; margin: 18px 0 0; display: grid; gap: 10px; }
   .steps li { display: grid; grid-template-columns: 170px 1fr; gap: 12px; align-items: baseline; padding: 14px 0; border-top: 1px solid var(--line); }

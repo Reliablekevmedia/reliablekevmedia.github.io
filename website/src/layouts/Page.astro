@@ -36,8 +36,8 @@ const { title, description, crumbs, image, video, quote = true, heading, kicker 
 </Base>
 
 <style>
-  .page { padding-top: clamp(40px, 6vw, 72px); padding-bottom: clamp(56px, 8vw, 96px); }
-  .with-quote { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(32px, 5vw, 64px); align-items: start; }
+  .page { padding-top: clamp(56px, 8vw, 104px); padding-bottom: clamp(96px, 12vw, 160px); }
+  .with-quote { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(40px, 7vw, 104px); align-items: start; }
   .side { position: sticky; top: 108px; display: grid; gap: 20px; }
   @media (max-width: 900px) {
     .with-quote { grid-template-columns: 1fr; }
@@ -45,11 +45,18 @@ const { title, description, crumbs, image, video, quote = true, heading, kicker 
   }
 
   /* Shared content styles for inner pages. */
-  .content :global(h1) { font-size: clamp(1.8rem, 3.6vw, 2.6rem); text-transform: uppercase; font-weight: 600; margin-bottom: 28px; }
+  .content :global(h1) { font-size: clamp(1.8rem, 3.6vw, 2.6rem); text-transform: uppercase; font-weight: 600; margin-bottom: 36px; }
   /* A short rule under the page title sets it apart from the body. */
   .content :global(h1)::after { content: ''; display: block; width: 56px; height: 3px; background: var(--red); margin-top: 22px; }
-  .content :global(h2) { font-size: clamp(1.3rem, 2.4vw, 1.7rem); text-transform: uppercase; font-weight: 600; margin-top: 1.6em; }
+  .content :global(h2) { font-size: clamp(1.35rem, 2.5vw, 1.8rem); text-transform: uppercase; font-weight: 600; margin-top: 1.6em; }
+  /* Page sections: plenty of room above, then a hairline with a short red mark (same as .section-break). */
+  .content > :global(h2), .content > :global(section) > :global(h2) {
+    position: relative; margin-top: clamp(72px, 9vw, 112px); margin-bottom: 0.7em; padding-top: 28px; border-top: 1px solid var(--line);
+  }
+  .content > :global(h2)::before, .content > :global(section) > :global(h2)::before {
+    content: ''; position: absolute; left: 0; top: -1px; width: 44px; height: 2px; background: var(--red);
+  }
   .content :global(h3) { text-transform: uppercase; font-weight: 600; margin-top: 1.4em; }
-  .content :global(p) { color: #d9d2c4; }
+  .content :global(p) { color: #d9d2c4; max-width: 68ch; }
   .content :global(p a) { text-decoration: underline; }
 </style>

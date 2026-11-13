@@ -28,7 +28,7 @@ import { FOUNDED, GEAR } from '../data/business';
       I have never been someone who's comfortable in front of the camera. Even recording myself, I've carried a sense
       of insecurity and self-doubt that I have always struggled with.
     </p>
-    <figure class="single before">
+    <figure class="single before viewfinder">
       <img src="/images/kev-before-front.jpg" alt="Kev four years ago, flexing in his bedroom" loading="lazy" />
     </figure>
     <p>
@@ -36,7 +36,7 @@ import { FOUNDED, GEAR } from '../data/business';
       and trust someone else to capture you.
     </p>
     <blockquote class="kev-pull">Trust yourself, and trust someone to capture you.</blockquote>
-    <figure class="single">
+    <figure class="single viewfinder">
       <img src="/images/kev-before-after.jpg" alt="Kev four years ago and today, side by side" loading="lazy" />
     </figure>
     <p>
@@ -66,7 +66,7 @@ import { FOUNDED, GEAR } from '../data/business';
 
   <h2>Behind the camera</h2>
   <div class="bts">
-    <figure class="bts-wide"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to frame a shot at an outdoor event" loading="lazy" /></figure>
+    <figure class="bts-wide viewfinder"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to frame a shot at an outdoor event" loading="lazy" /></figure>
     <figure><img src="/images/kev-filming-event.jpg" alt="Kev filming dogs and their owners at an outdoor event" loading="lazy" /></figure>
     <figure><img src="/images/kev-fitness-shoot.jpg" alt="Kev with a client on set at a fitness shoot" loading="lazy" /></figure>
     <figure><img src="/images/kev-camera-screen.jpg" alt="A camera screen mid-recording, framing a detail shot" loading="lazy" /></figure>
@@ -118,7 +118,7 @@ import { FOUNDED, GEAR } from '../data/business';
   .meet-kev { max-width: 680px; scroll-margin-top: 110px; }
   .meet-kev p { font-size: 1.08rem; line-height: 1.75; }
   .meet-kev .lead { font-size: clamp(1.2rem, 2.4vw, 1.4rem); color: var(--text) !important; }
-  .single { margin: 32px 0; }
+  .single { margin: 44px 0; }
   .single img { width: 100%; display: block; border: 1px solid var(--line); }
   .before { max-width: 340px; }
   .kev-pull {
@@ -139,10 +139,10 @@ import { FOUNDED, GEAR } from '../data/business';
   .pull figcaption { margin-top: 12px; font-family: var(--font-label); font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text); opacity: 0.85; }
   .photo { aspect-ratio: 16 / 9; background: var(--bg-raised); border: 1px solid var(--glass-line); border-radius: var(--media-radius); display: grid; place-items: center; margin: 28px 0; }
   /* Behind-the-scenes photos: one wide shot, then three tall ones in a row. */
-  .bts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+  .bts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin-top: 28px; }
   .bts figure { margin: 0; }
   .bts img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border: 1px solid var(--line); }
-  .bts .bts-wide { grid-column: 1 / -1; }
+  .bts .bts-wide { grid-column: 1 / -1; margin-bottom: 14px; }
   .bts .bts-wide img { aspect-ratio: 16 / 9; object-position: 50% 60%; }
   @media (max-width: 560px) {
     .bts { grid-template-columns: 1fr 1fr; }
