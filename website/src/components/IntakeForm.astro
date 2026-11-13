@@ -75,6 +75,12 @@ const foundUs = ['Business card', 'Instagram', 'Google', 'Facebook', 'LinkedIn',
 
 <script>
   import '../scripts/formsubmit';
+  // Arriving from a free-video link (/start?free=1): "My free first video" is ticked already.
+  if (new URLSearchParams(location.search).get('free') === '1') {
+    document.querySelectorAll<HTMLInputElement>('input[name="services[]"]').forEach((i) => {
+      if (i.value === 'My free first video') i.checked = true;
+    });
+  }
 </script>
 
 <style>

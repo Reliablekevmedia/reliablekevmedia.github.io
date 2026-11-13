@@ -27,7 +27,7 @@ const why = [
 const icons = ICONS;
 ---
 
-<Base home>
+<Base home description={FIRST_VIDEO_FREE.on ? `New clients receive their first video free. ${SITE.description}` : undefined}>
   <HomeHero />
 
   <div class="container home desktop-only">
@@ -105,7 +105,7 @@ const icons = ICONS;
           <p class="free-badge">New clients</p>
           <h2>{FIRST_VIDEO_FREE.headline}</h2>
           <p>{FIRST_VIDEO_FREE.terms}</p>
-          <a href="/start" class="btn btn-primary">Request your free video</a>
+          <a href="/start?free=1" class="btn btn-primary">Request your free video</a>
         </div>
       </div>
     </section>

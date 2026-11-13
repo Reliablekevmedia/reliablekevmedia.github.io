@@ -41,9 +41,13 @@ only forwards the old `/meet-kev/` link there.
 
 No background videos anywhere: no drone video behind the pages and no video behind the homepage headline (Kev
 found them corny). No slogans either: the motto "It's not reimagining. It's evolution." was removed everywhere at
-Kev's request. The homepage opens on trust and credentials (`src/components/HomeHero.astro`): "Trusted by local
-businesses across New Jersey", every client logo at once (`src/data/clients.ts`), then Kev's credentials
-(`VALUE_POINTS` in `src/data/home.ts`). The page is near black (`--bg`
+Kev's request. The free first video is Kev's lead offer ("how I reel them in"), so it is the biggest thing on the
+homepage: the hero (`src/components/HomeHero.astro`) opens on "Your first video is free" with the main button, then
+the proof right under it: "Trusted by local businesses across New Jersey", every client logo at once
+(`src/data/clients.ts`) and Kev's credentials (`VALUE_POINTS` in `src/data/home.ts`). While the offer is on, the menu
+button reads "Free First Video", the phone bar "Free video", the Services page opens with an offer strip, and the
+quote form lists "My free first video" first. Offer links go to `/start?free=1`, which ticks that choice on the
+intake form. `FIRST_VIDEO_FREE.on = false` puts everything back to "Start a Project". The page is near black (`--bg`
 #0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
 free first video). The RK mark appears only on the logo, the footer, the card page and the opening: on the first page of a visit the RK letters
 show on black for about a second, then dissolves into the page (Kev's request; `.intro` in `Base.astro` and at the

@@ -2,26 +2,40 @@
 import { FIRST_VIDEO_FREE } from '../data/pricing';
 import { CLIENTS } from '../data/clients';
 import { VALUE_POINTS } from '../data/home';
-// Homepage opener, built to earn trust at a glance: every client logo, then Kev's credentials. No slogan and no
-// background video (Kev's direction, Nov 2026: clean, simple and professional; trust and credentials first).
+// Homepage opener. The free first video is the lead offer (Kev, Nov 2026: "the free video is how I reel them in"),
+// so it comes first and biggest, with the main button. Right under it, the proof: every client logo and Kev's
+// credentials. With the offer switched off (FIRST_VIDEO_FREE.on = false), the trust block becomes the opener.
+const offer = FIRST_VIDEO_FREE.on;
 ---
 
 <section class="hero" aria-labelledby="hero-title">
   <div class="container hero-inner">
-    {FIRST_VIDEO_FREE.on && (
-      <a href="/services#pricing" class="free-pill"><span class="free-dot" aria-hidden="true"></span>{FIRST_VIDEO_FREE.short}<span aria-hidden="true">→</span></a>
+    {offer && (
+      <div class="offer">
+        <p class="badge">New clients</p>
+        <h2 id="hero-title" class="offer-head">{FIRST_VIDEO_FREE.headline}</h2>
+        <p class="offer-terms">{FIRST_VIDEO_FREE.terms} There is no contract and no obligation.</p>
+        <div class="actions">
+          <a href="/start?free=1" class="btn btn-primary btn-lg">Request your free video</a>
+          <a href="/services#work" class="btn btn-lg">View our work</a>
+        </div>
+      </div>
     )}
-    <p class="kicker">Video production in New Jersey</p>
-    <p id="hero-title" class="headline">Trusted by local businesses across New Jersey</p>
-    <ul class="logos">
-      {CLIENTS.map((c) => (
-        <li><img src={`/images/clients/${c.logo}`} alt={c.name} title={c.name} width={c.w} height={c.h} style={`--w:${c.w};--h:${c.h}`} decoding="async" /></li>
-      ))}
-    </ul>
-    <ul class="creds">{VALUE_POINTS.map((v) => <li>{v}</li>)}</ul>
-    <div class="actions">
-      <a href="/start" class="btn btn-primary">Start a project</a>
-      <a href="/services#work" class="btn">View our work</a>
+    <div class:list={['trust', { 'after-offer': offer }]}>
+      <p class="kicker">Video production in New Jersey</p>
+      <p id={offer ? undefined : 'hero-title'} class="headline">Trusted by local businesses across New Jersey</p>
+      <ul class="logos">
+        {CLIENTS.map((c) => (
+          <li><img src={`/images/clients/${c.logo}`} alt={c.name} title={c.name} width={c.w} height={c.h} style={`--w:${c.w};--h:${c.h}`} decoding="async" /></li>
+        ))}
+      </ul>
+      <ul class="creds">{VALUE_POINTS.map((v) => <li>{v}</li>)}</ul>
+      {!offer && (
+        <div class="actions">
+          <a href="/start" class="btn btn-primary">Start a project</a>
+          <a href="/services#work" class="btn">View our work</a>
+        </div>
+      )}
     </div>
   </div>
 </section>
@@ -55,14 +69,23 @@ import { VALUE_POINTS } from '../data/home';
   .creds li::before { content: '✓'; flex: none; color: var(--red); font-weight: 700; }
   .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: clamp(28px, 4vw, 40px); }
 
-  /* New-client offer: a slim outlined tag above the kicker, with a red dot. */
-  .free-pill {
-    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; padding: 8px 14px; border-radius: var(--radius-s);
-    border: 1px solid var(--glass-line); color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.92rem;
-    transition: border-color 0.2s;
+  /* The lead offer: the biggest thing on the page. */
+  .offer { display: flex; flex-direction: column; align-items: center; }
+  .badge {
+    display: inline-block; margin: 0 0 18px; padding: 5px 14px; border-radius: var(--radius-s); background: var(--red); color: var(--cream);
+    font-family: var(--font-label); font-size: 0.74rem; letter-spacing: 0.2em; text-transform: uppercase;
   }
-  .free-pill:hover { border-color: var(--red); }
-  .free-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
+  .offer-head {
+    font-family: var(--font-display); font-size: clamp(2.3rem, 6.4vw, 4.6rem); line-height: 1.02; text-transform: uppercase;
+    letter-spacing: 0.04em; font-weight: 600; margin: 0 auto; max-width: 14ch;
+  }
+  .offer-terms { max-width: 58ch; margin: 20px auto 0; color: #d9d2c4; font-size: clamp(1rem, 1.6vw, 1.12rem); }
+  .btn-lg { padding: 1.1em 2em; font-size: 0.9rem; }
+  /* The proof right under it: logos and credentials. */
+  .trust { width: 100%; display: flex; flex-direction: column; align-items: center; }
+  .trust.after-offer { margin-top: clamp(56px, 7vw, 88px); padding-top: clamp(40px, 5vw, 56px); border-top: 1px solid var(--line); position: relative; }
+  .trust.after-offer::before { content: ''; position: absolute; top: -2px; left: 50%; width: 64px; height: 3px; margin-left: -32px; background: var(--red); }
+  .trust.after-offer .headline { font-size: clamp(1.25rem, 2.6vw, 1.8rem); }
 
   @media (max-width: 600px) {
     .logos { gap: 18px 26px; }

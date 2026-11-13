@@ -1,0 +1,1 @@
+import"./formsubmit.DFpaaJP_.js";new URLSearchParams(location.search).get(`free`)===`1`&&document.querySelectorAll(`input[name="services[]"]`).forEach(e=>{e.value===`My free first video`&&(e.checked=!0)});

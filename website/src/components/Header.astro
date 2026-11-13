@@ -2,6 +2,9 @@
 import BrandMark from './BrandMark.astro';
 import { NAV, SITE } from '../site';
 import TownTicker from './TownTicker.astro';
+import { FIRST_VIDEO_FREE } from '../data/pricing';
+// The main button everywhere is the free first video while that offer is on (Kev's lead offer).
+const offer = FIRST_VIDEO_FREE.on;
 
 const path = Astro.url.pathname;
 const isActive = (href: string) => (href === '/' ? path === '/' : path === href || path.startsWith(href + '/'));
@@ -31,7 +34,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
             )}
           </li>
         ))}
-        <li><a href="/start" class="nav-cta" aria-current={isActive('/start') ? 'page' : undefined}>Start a Project</a></li>
+        <li><a href={offer ? '/start?free=1' : '/start'} class="nav-cta" aria-current={isActive('/start') ? 'page' : undefined}>{offer ? 'Free First Video' : 'Start a Project'}</a></li>
       </ul>
       <div class="nav-lens" aria-hidden="true">
         <span class="lens-mount"></span>
@@ -50,7 +53,7 @@ const isActive = (href: string) => (href === '/' ? path === '/' : path === href 
 <!-- Sticky call/quote bar on phones -->
 <div class="mobile-cta">
   {SITE.phone ? <a href={`tel:${SITE.phone}`}>Call now</a> : <a href={`mailto:${SITE.email}`}>Email</a>}
-  <a href="/start" class="primary">Free quote</a>
+  {offer ? <a href="/start?free=1" class="primary">Free video</a> : <a href="/start" class="primary">Free quote</a>}
 </div>
 
 
