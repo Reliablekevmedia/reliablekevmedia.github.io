@@ -82,8 +82,8 @@ const foundUs = ['Business card', 'Instagram', 'Google', 'Facebook', 'LinkedIn',
   .form :is(p, h2, legend, span, small) { color: #111; }
   .form .fine { color: #777; }
   .form h2 { margin: 0; font-size: 1rem; }
-  /* Light frosted-glass panel. */
-  .form { color: #111; padding: clamp(20px, 4vw, 32px); display: grid; gap: 28px; border-radius: 28px; background: linear-gradient(160deg, rgb(255 252 244 / 0.94), rgb(234 226 210 / 0.86)); -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); box-shadow: 0 14px 40px rgb(0 0 0 / 0.4), inset 0 1px 0 #fff; }
+  /* Flat cream panel with a red line along the top. */
+  .form { color: #111; padding: clamp(20px, 4vw, 32px); display: grid; gap: 28px; border-radius: var(--card-radius); background: var(--cream); border-top: 3px solid var(--red); }
   section { display: grid; gap: 14px; }
   section + section { border-top: 1px solid rgb(0 0 0 / 0.08); padding-top: 24px; }
   h2 { display: flex; align-items: baseline; gap: 12px; margin: 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
@@ -94,19 +94,20 @@ const foundUs = ['Business card', 'Instagram', 'Google', 'Facebook', 'LinkedIn',
   .field small { font-size: 0.8rem; }
   .field small a { color: #111; }
   input:not([type='checkbox']):not([type='radio']), textarea, select {
-    font: inherit; font-size: 1rem; color: #111; background: var(--field); border: 1px solid rgb(0 0 0 / 0.1); border-radius: 12px; padding: 12px 14px; width: 100%; box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.06);
+    font: inherit; font-size: 1rem; color: #111; background: var(--field); border: 1px solid rgb(0 0 0 / 0.14); border-radius: var(--radius-s); padding: 12px 14px; width: 100%;
   }
   input:focus, textarea:focus, select:focus { outline: 2px solid #111; outline-offset: 0; }
   fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: 8px; }
   .chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .chip input { position: absolute; opacity: 0; pointer-events: none; }
-  .chip span { display: inline-block; padding: 9px 16px; border: 1px solid rgb(0 0 0 / 0.12); border-radius: 999px; background: rgb(255 255 255 / 0.55); font-size: 0.9rem; cursor: pointer; transition: background 0.15s; }
-  .chip input:checked + span { background: #111; color: var(--cream); border-color: #111; }
+  .chip span { display: inline-block; padding: 9px 16px; border: 1px solid rgb(0 0 0 / 0.16); border-radius: var(--radius-s); background: rgb(255 255 255 / 0.55); font-size: 0.9rem; cursor: pointer; transition: background 0.15s; }
+  .chip input:checked + span { background: var(--red); color: var(--cream); border-color: var(--red); }
   .chip input:focus-visible + span { outline: 2px solid #111; outline-offset: 2px; }
   .submit {
     font: inherit; font-weight: 600; font-size: 0.95rem; letter-spacing: 0.12em; text-transform: uppercase; cursor: pointer;
-    background: #151514; color: var(--cream); border: 0; border-radius: 999px; padding: 16px; box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.18), 0 6px 16px rgb(0 0 0 / 0.25);
+    background: var(--red); color: var(--cream); border: 0; border-radius: var(--radius-s); padding: 16px; transition: background 0.2s;
   }
+  .submit:hover { background: var(--red-bright); }
   .submit:disabled { opacity: 0.5; cursor: wait; }
   .form h2 span { color: #888; }
   .form .chip input:checked + span { color: var(--cream); }

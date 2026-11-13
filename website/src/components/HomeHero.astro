@@ -52,19 +52,17 @@ import { VALUE_POINTS } from '../data/home';
     display: flex; flex-wrap: wrap; justify-content: center; gap: 10px 32px;
   }
   .creds li { display: flex; align-items: center; gap: 10px; color: #d9d2c4; font-size: 0.98rem; }
-  .creds li::before {
-    content: ''; flex: none; width: 18px; height: 18px; border-radius: 50%;
-    background: var(--cream) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 12.5l4 4 8-9' fill='none' stroke='%23151514' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center / 12px no-repeat;
-  }
+  .creds li::before { content: '✓'; flex: none; color: var(--red); font-weight: 700; }
   .actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: clamp(28px, 4vw, 40px); }
 
-  /* New-client offer: a cream glass pill above the kicker. */
+  /* New-client offer: a slim outlined tag above the kicker, with a red dot. */
   .free-pill {
-    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; padding: 9px 16px; border-radius: 999px;
-    background: var(--glass-cream); color: #151514; text-decoration: none; font-weight: 600; font-size: 0.92rem;
-    box-shadow: 0 8px 24px rgb(0 0 0 / 0.35), inset 0 1px 0 #fff;
+    display: inline-flex; align-items: center; gap: 10px; margin-bottom: 22px; padding: 8px 14px; border-radius: var(--radius-s);
+    border: 1px solid var(--glass-line); color: var(--text); text-decoration: none; font-weight: 600; font-size: 0.92rem;
+    transition: border-color 0.2s;
   }
-  .free-dot { width: 8px; height: 8px; border-radius: 50%; background: #2f9e5b; box-shadow: 0 0 0 4px rgb(47 158 91 / 0.2); }
+  .free-pill:hover { border-color: var(--red); }
+  .free-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--red); }
 
   @media (max-width: 600px) {
     .logos { gap: 18px 26px; }

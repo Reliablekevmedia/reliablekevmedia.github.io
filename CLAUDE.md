@@ -44,7 +44,7 @@ businesses across New Jersey", every client logo at once (`src/data/clients.ts`)
 (`VALUE_POINTS` in `src/data/home.ts`). The page is near black (`--bg`
 #0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
 free first video). The RK mark appears only on the logo, the footer, the card page and the opening: on the first page of a visit the RK letters
-(no circle: `ring={false}` on BrandMark) show on black for about a second, then dissolves into the page (Kev's request; `.intro` in `Base.astro` and at the
+show on black for about a second, then dissolves into the page (Kev's request; `.intro` in `Base.astro` and at the
 end of `global.css`; `?intro=1` replays it; skipped for reduced motion).
 Drone clips still belong in the Services page (`#drone`) as work samples. The old hero montage can be rebuilt with
 `website/scripts/build-hero-reel.sh` (shots in `hero-reel.txt`) only if Kev asks for it back.
@@ -70,12 +70,18 @@ Tracker). Keep website promises in line with the Playbook's house rules: 1 revis
 vertical clips, raw footage is an add-on, delivery 2–3 weeks. Do not put deposits, rate card or contract terms on the
 site. Do not claim FAA compliance or Part 107 until Kev is certified.
 
-## Look: Liquid Glass
+## Look: sleek and seamless, with red accents (Kev's direction, Nov 13, 2026)
 
-The site follows Apple's Liquid Glass style (iOS 26). The recipe lives in `src/styles/global.css` (`--glass-*`
-tokens, `.glass`, `.btn`): glass with blur, a light-catching rim and pill/rounded shapes on the navigation layer
-(menu capsule, dropdown, buttons, phone bar, forms); a lighter sheen without blur on content cards (`--card-*`).
-Reuse those tokens for anything new instead of square boxes or solid fills.
+Kev found the Liquid Glass bubble shapes didn't look right, so the site is now flat and sleek: near-black surfaces,
+hairline borders, small corners (`--radius-s` 4px for buttons, inputs, chips and badges; `--card-radius` 6px for cards
+and forms; `--media-radius` 4px for photos and video), no glossy rims, no pill or bubble shapes. The top bar is
+full-width in the page's own black with one hairline under it (no floating capsule); the phone bar is pinned flush to
+the bottom edge. Red (`--red` #c8232f, hover `--red-bright`) is the accent: primary buttons, the "Start a Project"
+menu button, the thin underline on the current/hovered menu tab, checks, badges, the line on top of cream forms
+and cards, the ticker dots, the rule under page titles, the lens's brand ring and link underlines. Tokens and the
+shared `.btn`/`.glass`/`.checks` rules live in `src/styles/global.css` (the old `--glass-*` names are kept so every
+component picks up the look). Reuse them for anything new. The RK mark is the letters only, no circle
+(`BrandMark` draws a circle only with `ring`).
 
 ## Business card QR code (do not break)
 

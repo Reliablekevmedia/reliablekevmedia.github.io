@@ -37,10 +37,10 @@ import { FOUNDED, GEAR } from '../data/business';
   <h2>Behind the camera</h2>
   <p>Want the personal side? <a href="/meet-kev">Read Kev's story</a>, in his own words.</p>
   <div class="bts">
-    <figure class="bts-wide"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to frame a shot at an outdoor event" loading="lazy" /><figcaption>Getting low for the shot at a community event we sponsored.</figcaption></figure>
-    <figure><img src="/images/kev-filming-event.jpg" alt="Kev filming dogs and their owners at an outdoor event" loading="lazy" /><figcaption>Filming the crowd at the same event.</figcaption></figure>
-    <figure><img src="/images/kev-fitness-shoot.jpg" alt="Kev with a client on set at a fitness shoot" loading="lazy" /><figcaption>On set with a client at a fitness shoot.</figcaption></figure>
-    <figure><img src="/images/kev-camera-screen.jpg" alt="A camera screen mid-recording, framing a detail shot" loading="lazy" /><figcaption>Rolling on a detail shot.</figcaption></figure>
+    <figure class="bts-wide"><img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to frame a shot at an outdoor event" loading="lazy" /></figure>
+    <figure><img src="/images/kev-filming-event.jpg" alt="Kev filming dogs and their owners at an outdoor event" loading="lazy" /></figure>
+    <figure><img src="/images/kev-fitness-shoot.jpg" alt="Kev with a client on set at a fitness shoot" loading="lazy" /></figure>
+    <figure><img src="/images/kev-camera-screen.jpg" alt="A camera screen mid-recording, framing a detail shot" loading="lazy" /></figure>
   </div>
 
   <h2>Full context storytelling</h2>
@@ -73,7 +73,6 @@ import { FOUNDED, GEAR } from '../data/business';
   </ul>
   <figure class="clip">
     <video src="/videos/about-flying.mp4" poster="/videos/about-flying.jpg" muted loop playsinline autoplay preload="metadata" data-autoplay aria-label="Flying the drone at an event in Park Ridge"></video>
-    <figcaption>On location: aerial coverage at an event in Park Ridge.</figcaption>
   </figure>
 
   <h2>Our standards for quality</h2>
@@ -88,9 +87,8 @@ import { FOUNDED, GEAR } from '../data/business';
 <style>
   .clip { margin: 20px 0 0; max-width: 640px; }
   .clip video { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block; background: var(--bg-raised); border: 1px solid var(--line); }
-  .clip figcaption { font-size: 0.88rem; color: var(--text-muted); margin-top: 8px; }
   /* Vinny's quote over his photo: full width, darkened toward the left so the words read. */
-  .pull { position: relative; margin: 0 0 40px; min-height: clamp(340px, 46vw, 500px); display: flex; align-items: flex-end; overflow: hidden; border: 1px solid var(--glass-line); border-radius: 26px; }
+  .pull { position: relative; margin: 0 0 40px; min-height: clamp(340px, 46vw, 500px); display: flex; align-items: flex-end; overflow: hidden; border: 1px solid var(--glass-line); border-radius: var(--media-radius); }
   .pull-photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 6%; }
   .pull::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to right, rgb(0 0 0 / 0.85), rgb(0 0 0 / 0.55) 50%, rgb(0 0 0 / 0.1)), linear-gradient(to top, rgb(0 0 0 / 0.6), transparent 60%); }
   .pull-text { position: relative; z-index: 2; padding: clamp(22px, 4vw, 40px); max-width: 36ch; }
@@ -106,7 +104,6 @@ import { FOUNDED, GEAR } from '../data/business';
   .bts img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; display: block; border: 1px solid var(--line); }
   .bts .bts-wide { grid-column: 1 / -1; }
   .bts .bts-wide img { aspect-ratio: 16 / 9; object-position: 50% 60%; }
-  .bts figcaption { font-size: 0.85rem; color: var(--text-muted); margin-top: 6px; }
   @media (max-width: 560px) {
     .bts { grid-template-columns: 1fr 1fr; }
     .bts figure:last-child { grid-column: 1 / -1; }

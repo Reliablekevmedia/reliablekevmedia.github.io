@@ -39,6 +39,6 @@ const links = Object.entries(SITE.socials)
   .socials { list-style: none; display: flex; flex-wrap: wrap; gap: 14px; margin: 0; padding: 0; }
   .socials a { display: grid; place-items: center; }
   .boxed { gap: 6px; }
-  .boxed a { width: 38px; height: 38px; background: var(--glass-cream); color: #151514; border-radius: 50%; box-shadow: inset 0 1px 0 #fff, 0 4px 12px rgb(0 0 0 / 0.3); }
-  .boxed a:hover { opacity: 0.8; }
+  .boxed a { width: 38px; height: 38px; color: var(--text); border: 1px solid var(--glass-line); border-radius: var(--radius-s); transition: border-color 0.2s, color 0.2s; }
+  .boxed a:hover { border-color: var(--red); color: var(--red-bright); }
 </style>

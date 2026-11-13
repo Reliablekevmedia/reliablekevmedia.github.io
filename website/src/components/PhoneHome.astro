@@ -156,7 +156,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
   .ph-sub { margin-top: 28px; }
   .ph-rates { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px; margin-top: 10px; }
-  .ph-rate { padding: 14px 10px; text-align: center; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); border-radius: 16px; }
+  .ph-rate { padding: 14px 10px; text-align: center; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }
   .ph-rate p { margin: 0; }
   .ph-rate-name { font-family: var(--font-label); font-size: 0.66rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-muted) !important; min-height: 3.3em; display: flex; align-items: center; justify-content: center; }
   .ph-rate-price { font-family: var(--font-display); font-size: 1.45rem; color: var(--text) !important; margin: 4px 0 !important; }
@@ -165,7 +165,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
   .ph-rate-price span { display: block; font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.08em; color: var(--text-muted); }
   .ph-rate-price:not(:has(span))::before { content: '\00a0'; display: block; font-size: 0.66rem; } /* keeps prices level with the "from" ones */
   .ph-addon { font-size: 0.9rem; margin: 14px 0 0; }
-  .ph-free { display: inline-block; margin: 6px 0 4px; padding: 8px 14px; border-radius: 999px; background: var(--glass-cream); color: #151514 !important; font-weight: 600; font-size: 0.9rem; }
+  .ph-free { display: inline-block; margin: 6px 0 4px; padding: 8px 14px; border-radius: var(--radius-s); background: var(--red); color: var(--cream) !important; font-weight: 600; font-size: 0.9rem; }
   .ph-list { margin-top: 18px; }
 
   /* Drone clips: swipe sideways, each one snaps into place. */
@@ -193,7 +193,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
   .ph-photo { margin: 0 0 18px; }
   .ph-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 48% 62%; display: block; border: 1px solid var(--glass-line); }
-  .ph-quote { position: relative; margin: 24px 0 0; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; overflow: hidden; border: 1px solid var(--glass-line); border-radius: 24px; }
+  .ph-quote { position: relative; margin: 24px 0 0; min-height: 300px; display: flex; flex-direction: column; justify-content: flex-end; padding: 22px; overflow: hidden; border: 1px solid var(--glass-line); border-radius: var(--media-radius); }
   .ph-quote img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 60% 10%; }
   .ph-quote::before { content: ''; position: absolute; inset: 0; z-index: 1; background: linear-gradient(to top, rgb(0 0 0 / 0.9), rgb(0 0 0 / 0.3) 70%); }
   .ph-quote blockquote, .ph-quote figcaption { position: relative; z-index: 2; margin: 0; }

@@ -10,7 +10,7 @@ const hasSocials = Object.values(SITE.socials).some(Boolean);
   <div class="container cols">
     <div class="about">
       <a href="/" class="logo">
-        <BrandMark size="38px" class="logo-mark" />
+        <BrandMark size="28px" class="logo-mark" />
         <span class="logo-text">
           <span class="logo-name">Reliable Kev</span>
           <span class="logo-studio">Media</span>
@@ -48,11 +48,11 @@ const hasSocials = Object.values(SITE.socials).some(Boolean);
     </div>
   </div>
   <div class="legal">
-    <div class="container legal-row"><BrandMark size="1.6em" /><span>{SITE.name} © All Rights Reserved - {new Date().getFullYear()}</span></div>
+    <div class="container legal-row"><BrandMark size="1.2em" /><span>{SITE.name} © All Rights Reserved - {new Date().getFullYear()}</span></div>
   </div>
 </footer>
 
-<a href="#top" class="to-top glass" aria-label="Back to top">↑</a>
+<a href="#top" class="to-top" aria-label="Back to top">↑</a>
 
 <style>
   .footer {
@@ -80,15 +80,18 @@ const hasSocials = Object.values(SITE.socials).some(Boolean);
   .links li a::before { content: '›'; margin-right: 8px; }
   .footer a { text-decoration: none; }
   .links a { display: block; padding: 4px 0; }
-  .footer a:hover { color: var(--text-muted); }
+  .footer a:hover { color: var(--red-bright); }
 
   .legal { color: var(--text-muted); border-top: 1px solid rgb(241 234 218 / 0.08); text-align: center; padding: 14px 0; font-size: 0.82rem; }
 
   .to-top {
-    position: fixed; right: 16px; bottom: calc(84px + env(safe-area-inset-bottom)); z-index: 15;
+    position: fixed; right: 16px; bottom: calc(80px + env(safe-area-inset-bottom)); z-index: 15;
     width: 44px; height: 44px; display: grid; place-items: center;
-    color: var(--text); text-decoration: none; border-radius: 50%; font-size: 1.1rem;
+    color: var(--text); text-decoration: none; border-radius: var(--radius-s); font-size: 1.1rem;
+    background: var(--glass-fill-bar); border: 1px solid var(--glass-line);
+    -webkit-backdrop-filter: var(--glass-blur); backdrop-filter: var(--glass-blur); transition: border-color 0.2s;
   }
+  .to-top:hover { border-color: var(--red); }
 
   @media (max-width: 860px) {
     .cols { grid-template-columns: 1fr 1fr; }

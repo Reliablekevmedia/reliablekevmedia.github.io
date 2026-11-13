@@ -1,14 +1,14 @@
 ---
-// The circled RK monogram, used like a small ® after big titles, beside the logo, in dividers and the footer.
+// The RK monogram (letters only, no circle; Kev's call), used beside the logo, in the footer and the opening.
 // The monogram (public/images/rk-monogram.png, white on transparent) is used as a mask, so the mark
 // takes the color of the text around it. `size` is relative to that text.
 interface Props {
   size?: string;
   class?: string;
-  /** Draw the circle around the letters (default). Without it, the letters fill the whole size. */
+  /** Draw a circle around the letters. Off by default: the letters fill the whole size. */
   ring?: boolean;
 }
-const { size = '0.32em', class: cls, ring = true } = Astro.props;
+const { size = '0.32em', class: cls, ring = false } = Astro.props;
 const id = `rk-${Math.random().toString(36).slice(2, 8)}`;
 ---
 
