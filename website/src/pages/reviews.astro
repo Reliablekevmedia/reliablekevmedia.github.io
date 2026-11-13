@@ -8,11 +8,11 @@ const stars = (n: number) => '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math
 ---
 
 <Page title="Reviews" description={`What clients say about ${SITE.name}.`}>
-  <h1>Our reviews: video content, events and podcasts</h1>
+  <h1>Client reviews</h1>
   <div class="intro">
     <p>
-      The best proof is what clients say after the cameras are off. Here's what local businesses and organizations in{' '}
-      {SITE.area} say about working with {SITE.name}.
+      The most meaningful measure of our work is what clients say once filming is complete. Below is what local
+      businesses and organizations in {SITE.area} say about working with {SITE.name}.
     </p>
   </div>
 
@@ -33,7 +33,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math
     </>
   ) : (
     <div class="empty">
-      <p>Reviews are on the way. Worked with us? We'd love to hear how it went.</p>
+      <p>Client reviews will be posted here soon. If you have worked with us, we would appreciate your feedback.</p>
     </div>
   )}
 

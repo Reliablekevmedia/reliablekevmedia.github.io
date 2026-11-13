@@ -19,17 +19,17 @@ const droneGroups = [
   { title: 'Events', clips: DRONE_CLIPS.filter((c) => c.section === 'event') },
 ].filter((g) => g.clips.length);
 const droneUses = [
-  'Towns and public projects: parks, downtowns, road work and new buildings',
-  'Contractors and trades: roofs, siding, hardscapes and job-site progress, before and after',
-  'Businesses and real estate: your building, your lot and the neighborhood around it',
-  'Events: festivals, parades, openings and fundraisers, where the size of the crowd tells the story',
+  'Municipalities and public projects: parks, downtowns, roadwork and new construction',
+  'Contractors and trades: roofing, siding, hardscaping and job-site progress, before and after',
+  'Businesses and real estate: your building, your property and the surrounding neighborhood',
+  'Events: festivals, parades, openings and fundraisers, where the scale of the crowd tells the story',
 ];
 
 // Example clips shown under a service (public/videos/<name>.mp4 + .jpg).
 const clips: Record<string, { name: string; caption: string }> = {
   events: {
     name: 'event-brand-image',
-    caption: 'Vendor brand shot at a Kentucky Derby garden party, Park Ridge. Event coverage that also gives every vendor a piece of content of their own.',
+    caption: 'A vendor brand shot at a Kentucky Derby garden party in Park Ridge. Event coverage can also provide each vendor with content of its own.',
   },
 };
 
@@ -40,11 +40,11 @@ const faqSchema = {
 };
 ---
 
-<Page title="Services" description={`Monthly content, podcasts, events coverage and brand films in ${SITE.area}.`}>
+<Page title="Services" description={`Monthly content, podcasts, event coverage and brand films in ${SITE.area}.`}>
   <h1>Video services in North Jersey</h1>
   <p>
-    Everything we make is built to do one thing: help people trust you before they ever call. Pick one service or
-    combine them. Every project starts with a free planning call.
+    Everything we produce serves one purpose: to help prospective clients trust your business before they make
+    contact. Choose a single service or combine several. Every project begins with a complimentary consultation.
   </p>
   <ul class="jump">
     {SERVICES.map((s) => <li><a href={`#${s.id}`}>{s.title}</a></li>)}
@@ -58,7 +58,7 @@ const faqSchema = {
     <section id={s.id} class="service">
       <h2><svg class="sec-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={ICONS[s.id]} /></svg>{s.title}</h2>
       <p>{s.short}</p>
-      <p class="label">What's included:</p>
+      <p class="label">Included:</p>
       <ul class="checks">
         {s.points.map((p) => <li>{p}</li>)}
       </ul>
@@ -76,10 +76,10 @@ const faqSchema = {
   <section id="drone" class="service drone">
     <h2><svg class="sec-icon" viewBox="0 0 24 24" aria-hidden="true"><path d={ICONS.drone} /></svg>Drone &amp; Aerial</h2>
     <p>
-      Some stories only make sense from above. Drone footage shows the full picture: the project, the property, the
-      street and the community around it. Add it to any shoot, or make it its own piece.
+      Some stories are best told from above. Aerial footage presents the complete picture: the project, the property,
+      the street and the surrounding community. It can be added to any production or commissioned on its own.
     </p>
-    <p>We fly a {GEAR.drone}: small enough to get in close, steady enough for smooth, cinematic shots.</p>
+    <p>We operate a {GEAR.drone}, compact enough for close work and stable enough for smooth, cinematic footage.</p>
     <figure class="dclip-hero viewfinder">
       <video src={`/videos/${DRONE_BANNER}.mp4`} poster={`/videos/${DRONE_BANNER}.jpg`} muted loop playsinline preload="none" data-autoplay aria-label="Drone montage of finished homes across North Jersey"></video>
     </figure>
@@ -96,13 +96,13 @@ const faqSchema = {
         </div>
       </>
     ))}
-    <p class="label">What drone footage is good for:</p>
+    <p class="label">Applications for drone footage:</p>
     <ul class="checks">{droneUses.map((u) => <li>{u}</li>)}</ul>
   </section>
 
   <section id="work" class="service work">
     <h2>Our Work</h2>
-    <p>Real businesses, real towns. Every project here was filmed on location in North Jersey.</p>
+    <p>Every project shown here was filmed on location in North Jersey for local businesses and organizations.</p>
     {FEATURED.map((f) => <FeaturedVideo item={f} heading="h3" />)}
   </section>
 
@@ -111,15 +111,15 @@ const faqSchema = {
   <section id="pricing" class="pricing">
     <h2>Pricing</h2>
     <p>
-      One short video, or a half or full day covering your event. Every price includes the edit. Anything else gets a
-      custom quote.
+      Choose a single short video, or half-day or full-day coverage of your event. All prices include editing. All
+      other projects are priced by custom quote.
     </p>
     {FIRST_VIDEO_FREE.on && (
       <div class="free-offer">
         <p class="free-badge">New clients</p>
         <p class="free-head">{FIRST_VIDEO_FREE.headline}</p>
         <p class="free-terms">{FIRST_VIDEO_FREE.terms}</p>
-        <a href="/start" class="btn btn-primary">Claim your free video</a>
+        <a href="/start" class="btn btn-primary">Request your free video</a>
       </div>
     )}
     <div class="rates">
@@ -160,7 +160,7 @@ const faqSchema = {
         <p class="custom-title">{CUSTOM_QUOTE.title}</p>
         <p>{CUSTOM_QUOTE.text}</p>
       </div>
-      <a href="/start" class="btn">Get a custom quote</a>
+      <a href="/start" class="btn">Request a custom quote</a>
     </div>
 
     <p class="label">Every project includes:</p>
@@ -177,12 +177,12 @@ const faqSchema = {
 
   </section>
 
-  <h2>Not sure which one fits?</h2>
+  <h2>Not sure which service fits?</h2>
   <p>
-    Most clients mix them: a podcast episode that feeds a month of clips, or event coverage that turns into a brand
-    film. Tell us about your business and we'll put together a plan.
+    Many clients combine services: a podcast episode can supply a month of clips, and event coverage can become a
+    brand film. Tell us about your business and we will prepare a plan.
   </p>
-  <a href="/start" class="btn btn-primary">Get a free quote</a>
+  <a href="/start" class="btn btn-primary">Request a free quote</a>
 
   <section id="faq" class="faq">
     <h2>Frequently asked questions</h2>

@@ -26,7 +26,7 @@ export const ONE_ON_ONE_STEPS = [
 //   'FAA-certified drone pilot (Part 107)',
 //   'Adobe Certified Professional in video editing',
 export const VALUE_POINTS = [
-  'Over 10 years of video production experience',
-  'An assigned creative director for every project',
-  'A clear quote before anything is filmed',
+  'More than 10 years of video production experience',
+  'A dedicated creative director for every project',
+  'A detailed quote before any filming begins',
 ];

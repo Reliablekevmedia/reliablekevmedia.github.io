@@ -51,6 +51,13 @@ end of `global.css`; `?intro=1` replays it; skipped for reduced motion).
 Drone clips still belong in the Services page (`#drone`) as work samples. The old hero montage can be rebuilt with
 `website/scripts/build-hero-reel.sh` (shots in `hero-reel.txt`) only if Kev asks for it back.
 
+## Voice: formal and professional (Kev's direction, Nov 13, 2026)
+
+Site copy is formal: no contractions, no casual phrases ("no-pressure", "straight number", "just ask"); "complimentary
+consultation" for the first call; "event coverage", "clients", "municipalities". Two exceptions on purpose: Kev's
+own story in the Meet Kev section of the About page stays in his first-person voice, and the DIY page stays plain
+and simple (written so anyone can follow it).
+
 ## Waiting on Kev
 
 - **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the

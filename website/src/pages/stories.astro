@@ -12,8 +12,8 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'n
 <Page title="Blog" description={`Stories from the towns and businesses of ${SITE.area}.`}>
   <h1>Local stories blog</h1>
   <p>
-    Stories from the towns and the businesses in them, plus tips on getting more out of video for your business.{' '}
-    <a href="/start">Contact us today</a> to schedule a free call.
+    Stories from the towns of North Jersey and the businesses within them, along with guidance on making the most of
+    video for your business. <a href="/start">Contact us</a> to schedule a complimentary consultation.
   </p>
 
   {posts.length ? (
@@ -34,7 +34,7 @@ const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'n
     </ul>
   ) : (
     <div class="empty">
-      <p>The first stories are being written now.</p>
+      <p>The first articles are in progress.</p>
     </div>
   )}
 </Page>

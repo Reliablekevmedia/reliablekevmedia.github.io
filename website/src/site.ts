@@ -1,12 +1,12 @@
 // One place for business details. Anything marked TODO still needs real info.
 export const SITE = {
   name: 'Reliable Kev Media',
-  tagline: 'Video content, events coverage and podcasts. Full context storytelling for North Jersey.',
+  tagline: 'Video content, event coverage and podcasts. Full-context storytelling for North Jersey.',
   description:
-    'Reliable Kev Media films towns, local businesses and trade companies across North Jersey. Video that builds trust: the work, the people and the town around it.',
+    'Reliable Kev Media is a video production company serving municipalities, local businesses and trade companies across North Jersey, producing video that builds trust by showing the work, the people and the community behind every business.',
   email: 'sixthsensestudiosllc@gmail.com',
   phone: '(973) 820-5511',
-  hours: 'By appointment. We come to you.', // no storefront
+  hours: 'By appointment. We film on location.', // no storefront
   area: 'North Jersey',
   // Leave a URL empty to hide that icon.
   socials: {
@@ -24,46 +24,46 @@ export const SERVICES = [
   {
     id: 'monthly-content',
     title: 'Monthly Content',
-    slide: 'Monthly content that keeps you top of mind',
-    short: 'Short-form clips every month, batched into shoot days so it never eats your week.',
+    slide: 'Monthly content that keeps your business top of mind',
+    short: 'A consistent schedule of short-form video each month, filmed in planned shoot days to minimize disruption to your business.',
     points: [
-      'A plan for the month before anything is filmed',
-      'Batched shoot days, minimal disruption to your business',
-      'Edited clips delivered ready to post',
+      'A content plan prepared before each month of filming',
+      'Scheduled shoot days with minimal disruption to your operations',
+      'Edited clips delivered ready to publish',
     ],
   },
   {
     id: 'podcast',
     title: 'Podcast / Q&A',
     inline: 'podcasts and Q&As', // how it reads mid-sentence
-    slide: 'Your story, in your words',
-    short: 'A podcast-style conversation or Q&A, filmed at your business or a local partner venue, then cut into clips.',
+    slide: 'Your story, in your own words',
+    short: 'A podcast-style conversation or Q&A, filmed at your business or a partner venue and edited into a full episode and short clips.',
     points: [
-      'Filmed where you work, or at a local coffee and cocktail bar we partner with',
-      'Full episode plus short clips from every recording',
-      'Relaxed and conversational, no camera experience needed',
+      'Filmed at your place of business or at a local partner venue',
+      'A full episode and short clips from every recording',
+      'A guided, conversational format; no on-camera experience required',
     ],
   },
   {
     id: 'events',
-    title: 'Events Coverage',
-    slide: 'Events coverage your town will remember',
-    short: 'Openings, festivals, town events and ribbon cuttings, captured from start to finish.',
+    title: 'Event Coverage',
+    slide: 'Event coverage your community will remember',
+    short: 'Professional coverage of grand openings, festivals, community events and ribbon cuttings, from start to finish.',
     points: [
-      'Grand openings, festivals, fundraisers and town events',
-      'A recap edit that captures the energy of the day',
-      'Photos and clips for social, press and next year',
+      'Grand openings, festivals, fundraisers and municipal events',
+      'A recap edit that conveys the atmosphere of the day',
+      'Clips for social media, the press and future promotion',
     ],
   },
   {
     id: 'projects',
     title: 'Brand Films & Projects',
-    slide: 'Brand films with a beginning, a middle and an end',
-    short: 'Brand films, launches and one-off pieces that show the whole picture.',
+    slide: 'Brand films with a clear beginning, middle and end',
+    short: 'Brand films, launches and special projects that present the complete picture of your business.',
     points: [
-      'Brand films and about-us videos',
-      'Launches, job-site and before-and-after pieces',
-      'Public project updates for towns and municipalities',
+      'Brand films and company overview videos',
+      'Launches, job-site documentation and before-and-after features',
+      'Public project updates for municipalities',
     ],
   },
 ];

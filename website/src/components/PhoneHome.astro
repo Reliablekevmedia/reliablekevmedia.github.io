@@ -22,7 +22,7 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 <div class="phone-home">
   <section class="ph-section" id="services">
     <p class="ph-kicker">Services</p>
-    <h2>What we make</h2>
+    <h2>Our services</h2>
     <div class="ph-cards">
       {SERVICES.map((s) => (
         <article class="ph-card reveal">
@@ -44,14 +44,14 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
         </div>
       ))}
     </div>
-    <p class="ph-addon">{ADD_ONS.map((a) => <>Add {a.name.toLowerCase()} {a.from && 'from '}{a.price}.</>)} Anything else, like brand films, podcasts or monthly content, gets a custom quote.</p>
+    <p class="ph-addon">{ADD_ONS.map((a) => <>Add {a.name.toLowerCase()} {a.from && 'from '}{a.price}.</>)} All other projects, including brand films, podcasts and monthly content, are priced by custom quote.</p>
     <ul class="checks ph-list">{RATE_INCLUDES.map((i) => <li>{i}</li>)}</ul>
   </section>
 
   <section class="ph-section" id="drone">
     <p class="ph-kicker">Drone</p>
     <h2>From above</h2>
-    <p>Homes, job sites, downtowns and events across New Jersey. Swipe through a few flights.</p>
+    <p>Homes, job sites, downtowns and events across New Jersey. Swipe to view a selection of flights.</p>
     <div class="ph-swipe">
       {clips.map((c) => (
         <figure>
@@ -99,9 +99,9 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
       <img src="/images/kev-filming-kneeling.jpg" alt="Kev kneeling to film with his camera at an outdoor event" loading="lazy" />
     </figure>
     <p>
-      {SITE.name} has been filming across New Jersey since {FOUNDED}. We did not come out of film school or an
-      agency. What we bring is the ability to sit with someone, understand what matters to them and tell that story
-      clearly: the business, the people behind it and the town around it.
+      {SITE.name} has served New Jersey since {FOUNDED}. We were not built in a film school or an agency. We offer the
+      ability to sit with a client, understand what matters to them and tell that story with clarity: the business,
+      the people behind it and the town around it.
     </p>
     <ul class="checks ph-list">{VALUE_POINTS.map((v) => <li>{v}</li>)}</ul>
     <figure class="ph-quote">
@@ -114,8 +114,8 @@ const stars = (n: number) => '★'.repeat(Math.round(n));
 
   <section class="ph-section ph-contact" id="contact">
     <p class="ph-kicker">Contact</p>
-    <h2>Let's tell your story</h2>
-    <p>Every project starts with a free, no-pressure call. {SITE.hours}</p>
+    <h2>Tell your story with us</h2>
+    <p>Every project begins with a complimentary consultation, with no obligation. {SITE.hours}</p>
     <div class="ph-actions">
       <a href="/start" class="btn btn-primary">Start a project</a>
       {SITE.phone && <a href={`tel:${SITE.phone}`} class="btn">Call {SITE.phone}</a>}

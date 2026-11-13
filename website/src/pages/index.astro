@@ -16,11 +16,11 @@ import { SERVICES, SITE } from '../site';
 const why = [
   {
     title: 'Local trust and full context',
-    text: 'We tell the whole story, starting with the place your business calls home: the street, the neighborhood and the town around it. Then we show the people who run it, the work behind it and the impact it has on the customers and community it serves. Neighbors choose local, and they want to see who they are hiring before they call.',
+    text: 'We tell the complete story, beginning with the place your business calls home: the street, the neighborhood and the town around it. We then show the people who run it, the work behind it and the impact it has on the customers and community it serves. Residents prefer to support local businesses, and they want to know whom they are hiring before they call.',
   },
   {
-    title: 'Built around your week',
-    text: 'Shoot days are planned and batched, so filming never takes over your business. You get a steady stream of content without the hassle.',
+    title: 'Built around your schedule',
+    text: 'Shoot days are planned and scheduled in advance, so filming never disrupts your operations. The result is a steady supply of content with minimal demands on your time.',
   },
 ];
 
@@ -35,8 +35,9 @@ const icons = ICONS;
       <section>
         <h1>Serving all of New Jersey</h1>
         <p>
-          Reliable Kev Media is a New Jersey video production studio. We tell the full story of your business: the
-          work, the people behind it and the community it belongs to, so people trust you before they ever call.
+          Reliable Kev Media is a New Jersey video production company. We tell the complete story of your business,
+          including the work, the people behind it and the community it serves, so that prospective clients trust you
+          before they make the first call.
         </p>
       </section>
 
@@ -44,12 +45,12 @@ const icons = ICONS;
         <section>
           <h2>Featured work</h2>
           <FeaturedVideo item={FEATURED[0]} heading="h3" />
-          <p class="more-work"><a href="/services#work">See more of our work</a></p>
+          <p class="more-work"><a href="/services#work">View more of our work</a></p>
         </section>
       )}
 
       <section>
-        <h2>Why choose Reliable Kev Media for your video?</h2>
+        <h2>Why choose Reliable Kev Media</h2>
         {why.map((w) => (
           <>
             <h3>{w.title}</h3>
@@ -62,8 +63,8 @@ const icons = ICONS;
           <div>
             <h3>Meet Kev</h3>
             <p>
-              Founded by Kev. The team that plans your project is the team that films and edits it, so your story
-              stays in the same hands from start to finish. <span class="more">Read Kev's story</span>
+              Reliable Kev Media was founded by Kev. The team that plans your project also films and edits it, so
+              your story remains in the same hands from start to finish. <span class="more">Read Kev's story</span>
             </p>
           </div>
         </a>
@@ -104,7 +105,7 @@ const icons = ICONS;
           <p class="free-badge">New clients</p>
           <h2>{FIRST_VIDEO_FREE.headline}</h2>
           <p>{FIRST_VIDEO_FREE.terms}</p>
-          <a href="/start" class="btn btn-primary">Claim your free video</a>
+          <a href="/start" class="btn btn-primary">Request your free video</a>
         </div>
       </div>
     </section>

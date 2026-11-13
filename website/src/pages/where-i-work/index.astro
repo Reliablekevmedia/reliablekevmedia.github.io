@@ -10,8 +10,9 @@ const towns = (await getCollection('towns')).sort((a, b) => a.data.name.localeCo
 <Page title="Service Areas" description="Video production across North Jersey.">
   <h1>Service areas across North Jersey</h1>
   <p>
-    We film towns, downtowns, local businesses and trade companies across North Jersey. Every story is tied to the town
-    it was made in. Find yours below. Don't see it? <a href="/start">Reach out anyway.</a>
+    We serve municipalities, downtowns, local businesses and trade companies across North Jersey. Every story is
+    connected to the community where it was filmed. Find your town below. If it is not listed, please
+    <a href="/start">contact us</a>.
   </p>
 
   {counties.map((c) => {

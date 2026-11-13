@@ -15,6 +15,6 @@ export const FEATURED: FeaturedVideo[] = [
     person: 'Dr. Nicole Waterhouse, Nurse Practitioner',
     kind: 'Website hero video',
     summary:
-      "An on-camera introduction for Alpha Health's health optimization center. Dr. Waterhouse explains her focus, who she serves and the journey her patients take, giving new visitors a clear sense of the practice and the person behind it before they ever book a visit.",
+      "An on-camera introduction for Alpha Health's health optimization center. Dr. Waterhouse explains her focus, the patients she serves and the journey they take, giving new visitors a clear understanding of the practice and the person behind it before they book a visit.",
   },
 ];

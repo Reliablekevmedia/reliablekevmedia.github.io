@@ -7,54 +7,54 @@ const [drone] = ADD_ONS;
 // Questions people ask before booking. Shown on the Services page (/services#faq).
 export const FAQ = [
   ...(FIRST_VIDEO_FREE.on
-    ? [{ q: 'Is my first video really free?', a: `Yes. ${FIRST_VIDEO_FREE.terms} No contract and no catch. It is the easiest way to see how we work.` }]
+    ? [{ q: 'Is my first video really free?', a: `Yes. ${FIRST_VIDEO_FREE.terms} There is no contract and no obligation. It is the simplest way to experience how we work.` }]
     : []),
   {
-    q: 'How long have you been doing this?',
-    a: `Since ${FOUNDED}. Reliable Kev Media has spent the last few years filming towns, local businesses and trade companies across North Jersey.`,
+    q: 'How long have you been in business?',
+    a: `Since ${FOUNDED}. Reliable Kev Media has spent the past several years filming municipalities, local businesses and trade companies across North Jersey.`,
   },
   {
-    q: 'How long until I get my video?',
-    a: `Most projects are delivered in ${TURNAROUND}, depending on the scope of work. Bigger projects get a timeline agreed before we start.`,
+    q: 'When will I receive my video?',
+    a: `Most projects are delivered within ${TURNAROUND}, depending on the scope of work. Larger projects receive an agreed timeline before production begins.`,
   },
   {
     q: 'How much does it cost?',
-    a: `A single video is ${single.price}: ${single.short}. For events, a half day (up to 4 hours) starts at ${half.price} and includes ${half.short}. A full day (up to 8 hours) starts at ${full.price} and includes ${full.short}. Drone footage can be added from ${drone.price}. Everything else, like brand films, a sit-down story with the owner, the podcast and monthly content, gets a custom quote. You always get a clear price before anything is filmed.`,
+    a: `A single video is ${single.price}: ${single.short}. For events, a half day (up to 4 hours) starts at ${half.price} and includes ${half.short}. A full day (up to 8 hours) starts at ${full.price} and includes ${full.short}. Drone footage can be added from ${drone.price}. All other projects, including brand films, sit-down interviews with owners, podcasts and monthly content, are priced by custom quote. You will always receive a clear price before any filming begins.`,
   },
   {
-    q: "What's the difference between a package and a custom quote?",
-    a: 'A package (a single video, or a half or full day at your event) is for when you want us to come film: clear deliverables and a clear price. A custom quote is for everything else, like brand films, a sit-down story with the owner, the podcast and monthly content, which take more planning, directing and editing.',
+    q: 'What is the difference between a package and a custom quote?',
+    a: 'A package (a single video, or half-day or full-day event coverage) is designed for clients who need filming with defined deliverables and a set price. A custom quote covers all other work, such as brand films, sit-down interviews with owners, podcasts and monthly content, which require additional planning, direction and editing.',
   },
   {
-    q: 'Do I get the raw footage?',
-    a: 'Your price includes the edited videos listed. Raw footage is not included, but it can be added to any project. Just ask and we will include it in your quote.',
+    q: 'Do I receive the raw footage?',
+    a: 'Your price includes the edited videos listed. Raw footage is not included, but it can be added to any project on request and will be reflected in your quote.',
   },
   {
-    q: 'Can I get my video faster?',
-    a: `Every project gets the same care, so edited videos are delivered in ${TURNAROUND}. Rush delivery is not offered.`,
+    q: 'Can my video be delivered sooner?',
+    a: `Every project receives the same level of care, so edited videos are delivered within ${TURNAROUND}. Rush delivery is not available.`,
   },
   {
     q: 'Can I add more videos or hours?',
-    a: 'Yes. Anything beyond what is included, like extra videos, extra hours or extra revisions, is quoted before any work begins, so you always know the price up front.',
+    a: 'Yes. Any work beyond the included scope, such as additional videos, hours or revisions, is quoted before it begins, so you always know the price in advance.',
   },
   {
-    q: 'What gear do you use?',
-    a: `${GEAR.cameras} with ${GEAR.support.toLowerCase()}, plus a ${GEAR.drone} for aerial shots. Two cameras means interviews and podcasts are covered from two angles.`,
+    q: 'What equipment do you use?',
+    a: `${GEAR.cameras} with ${GEAR.support.toLowerCase()}, as well as a ${GEAR.drone} for aerial footage. Two cameras allow interviews and podcasts to be filmed from two angles.`,
   },
   {
     q: 'Where do you film?',
-    a: 'All over North Jersey: Bergen, Passaic, Essex, Morris and Hudson County. If you are a little outside that, ask.',
+    a: 'Throughout North Jersey, including Bergen, Passaic, Essex, Morris and Hudson counties. If your location is slightly outside this area, please contact us.',
   },
   {
     q: 'Do I need to be comfortable on camera?',
-    a: 'No. We direct the shoot and keep it relaxed, so you can just talk about what you know. No script and no camera experience needed.',
+    a: 'No. We direct every shoot and keep the process relaxed, so you can simply speak about what you know. No script or on-camera experience is required.',
   },
   {
-    q: 'What happens after I reach out?',
-    a: 'We start with a free planning call. We learn about your business and what you want people to know, then send you a plan and a price.',
+    q: 'What happens after I contact you?',
+    a: 'We begin with a complimentary consultation to learn about your business and what you would like people to know. We then provide a plan and a price.',
   },
   {
     q: 'Can I combine services?',
-    a: 'Yes, and most clients do. A podcast episode can feed a month of clips, and event coverage can turn into a brand film. Drone footage can be added to any of them.',
+    a: 'Yes, and many clients do. A podcast episode can supply a month of clips, and event coverage can become a brand film. Drone footage can be added to any service.',
   },
 ];
