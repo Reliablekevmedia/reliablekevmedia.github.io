@@ -2,7 +2,7 @@
 import Page from '../layouts/Page.astro';
 import { SERVICES, SITE } from '../site';
 import { FAQ } from '../data/faq';
-import { ADD_ONS, FIRST_VIDEO_FREE, NOT_INCLUDED, PACKAGES, RATE_INCLUDES, RATE_TERMS } from '../data/pricing';
+import { ADD_ONS, CUSTOM_QUOTE, EVENT_DAY, FIRST_VIDEO_FREE, NOT_INCLUDED, PACKAGES, RATE_INCLUDES, RATE_TERMS } from '../data/pricing';
 import { DRONE_BANNER, DRONE_CLIPS } from '../data/drone';
 import { GEAR } from '../data/business';
 import { FEATURED } from '../data/featured';
@@ -105,8 +105,8 @@ const faqSchema = {
   <section id="pricing" class="pricing">
     <h2>Pricing</h2>
     <p>
-      Three ways to start, from one short video to a full day telling your story. Every price includes the edit, and
-      every project gets a clear quote after a free planning call, before anything is filmed.
+      One short video, or a half or full day covering your event. Every price includes the edit. Anything else gets a
+      custom quote.
     </p>
     {FIRST_VIDEO_FREE.on && (
       <div class="free-offer">
@@ -129,14 +129,6 @@ const faqSchema = {
               {r.includes.map((i) => <li>{i}</li>)}
             </ul>
           )}
-          {r.choice && (
-            <>
-              <p class="rate-choice">Pick your edit:</p>
-              <ul>
-                {r.choice.map((c, i) => <li>{i ? <><em>or</em> {c}</> : c}</li>)}
-              </ul>
-            </>
-          )}
         </div>
       ))}
     </div>
@@ -147,6 +139,23 @@ const faqSchema = {
         <p class="addon-note">{a.note}</p>
       </div>
     ))}
+
+    <h3>How an event day goes</h3>
+    <p>{EVENT_DAY.intro}</p>
+    <ol class="event-day">
+      {EVENT_DAY.steps.map((s) => (
+        <li><strong>{s.step}</strong><span>{s.text}</span></li>
+      ))}
+    </ol>
+
+    <div class="custom">
+      <div>
+        <p class="rate-name">Custom quote</p>
+        <p class="custom-title">{CUSTOM_QUOTE.title}</p>
+        <p>{CUSTOM_QUOTE.text}</p>
+      </div>
+      <a href="/start" class="btn">Get a custom quote</a>
+    </div>
 
     <p class="label">Every project includes:</p>
     <ul class="checks">
@@ -160,17 +169,6 @@ const faqSchema = {
       {RATE_TERMS.map((t) => <li>{t}</li>)}
     </ul>
 
-    <h3>Package or custom project?</h3>
-    <div class="compare">
-      <div>
-        <p class="rate-name">Package</p>
-        <p>You want us to <strong>come film</strong>: a single video, an event, a property, your business and a few questions with you. Little planning, clear deliverables, a clear price.</p>
-      </div>
-      <div>
-        <p class="rate-name">Custom quote</p>
-        <p>You want help <strong>telling your story</strong>: brand films, podcasts and Q&As, monthly content. Planned, directed and built with you, priced by the project.</p>
-      </div>
-    </div>
   </section>
 
   <h2>Not sure which one fits?</h2>
@@ -250,11 +248,21 @@ const faqSchema = {
   .rate ul { list-style: none; padding: 0; margin: 0; font-size: 0.88rem; color: #c9c9c9; }
   .rate li { padding: 5px 0; border-top: 1px solid var(--line); }
   .rate li em { font-style: normal; color: var(--text-muted); text-transform: uppercase; font-size: 0.72rem; letter-spacing: 0.12em; margin-right: 4px; }
-  .rate-choice { font-weight: 600; color: var(--text) !important; font-size: 0.88rem; margin-top: 12px !important; padding-bottom: 4px; }
-  .compare { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 12px; }
-  .compare > div { padding: 18px 20px; border: 1px solid var(--glass-line); border-radius: var(--card-radius); background: var(--card-fill); box-shadow: var(--card-shadow); }
-  .compare p { margin: 0 0 6px; font-size: 0.94rem; }
-  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; } }
+  /* How an event day goes: four numbered steps. */
+  .event-day { list-style: none; counter-reset: step; padding: 0; margin: 14px 0 28px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+  .event-day li { counter-increment: step; padding-top: 12px; border-top: 2px solid var(--red); }
+  .event-day li::before { content: '0' counter(step); display: block; font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.16em; color: var(--text-muted); margin-bottom: 4px; }
+  .event-day strong { display: block; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.92rem; margin-bottom: 4px; }
+  .event-day span { color: #d9d2c4; font-size: 0.92rem; }
+  @media (max-width: 760px) { .event-day { grid-template-columns: 1fr 1fr; } }
+  /* Custom quote: everything that isn't a package. */
+  .custom {
+    display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; margin: 0 0 32px; padding: 20px 22px;
+    border: 1px solid var(--glass-line); border-left: 3px solid var(--red); border-radius: var(--card-radius); background: var(--card-fill);
+  }
+  .custom > div { flex: 1 1 320px; }
+  .custom p { margin: 0; }
+  .custom-title { font-family: var(--font-display); font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.03em; color: var(--text) !important; margin: 4px 0 6px !important; }
   .terms { margin: 18px 0 0; padding-left: 1.1em; color: var(--text-muted); font-size: 0.92rem; }
   .terms li { margin-bottom: 4px; }
   @media (max-width: 700px) { .rates { grid-template-columns: 1fr; } }

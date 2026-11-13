@@ -19,11 +19,11 @@ export const FAQ = [
   },
   {
     q: 'How much does it cost?',
-    a: `A single short video is ${single.price}, filmed and edited, ready to post. A half day (up to 4 hours) starts at ${half.price} and includes your choice of one long-form YouTube video or three short clips. A full day story (up to 8 hours) starts at ${full.price} and includes a planning call, a sit-down Q&A with you, one long-form video and three short clips. Drone footage can be added from ${drone.price}. Every project gets a clear quote after a free planning call, before anything is filmed. Brand films, the podcast and monthly content are quoted by the project.`,
+    a: `A single video is ${single.price}: ${single.short}. For events, a half day (up to 4 hours) starts at ${half.price} and includes ${half.short}. A full day (up to 8 hours) starts at ${full.price} and includes ${full.short}. Drone footage can be added from ${drone.price}. Everything else, like brand films, a sit-down story with the owner, the podcast and monthly content, gets a custom quote. You always get a clear price before anything is filmed.`,
   },
   {
     q: "What's the difference between a package and a custom quote?",
-    a: 'A package (a single video, a half day or a full day story) is for when you want us to come film: an event, a property, or your business and a few questions with you. A custom quote is for full storytelling projects like brand films, the podcast and monthly content, which take more planning, directing and editing.',
+    a: 'A package (a single video, or a half or full day at your event) is for when you want us to come film: clear deliverables and a clear price. A custom quote is for everything else, like brand films, a sit-down story with the owner, the podcast and monthly content, which take more planning, directing and editing.',
   },
   {
     q: 'Do I get the raw footage?',

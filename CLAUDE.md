@@ -58,6 +58,11 @@ Drone clips still belong in the Services page (`#drone`) as work samples. The ol
 - **Free first video terms**: `FIRST_VIDEO_FREE` in `src/data/pricing.ts` (homepage pill, pricing box, FAQ,
   phone scroll, intake form choice). Terms are a draft: one short vertical video up to 60 s, one per business,
   North Jersey. Confirm with Kev; `on: false` turns the offer off everywhere.
+- **Event packages (decided Nov 13, 2026)**: the half and full day are shoot rates for general events, priced as before
+  (from $500 / from $1,100). Half day: 5 short vertical clips. Full day: a 2–3 minute highlight video + 6 clips. No
+  planning call and no sit-down Q&A built in; those and everything else (brand films, podcasts, monthly content) are a
+  custom quote. "How an event day goes" (`EVENT_DAY`) is the default outline for clients without a schedule. All in
+  `src/data/pricing.ts`.
 - **$150 single video details**: the Good tier in `src/data/pricing.ts` assumes about an hour on site and one
   short vertical video (up to 60 seconds). Confirm with Kev and adjust.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).

@@ -1,11 +1,9 @@
 // Pricing (all-in: filming plus edited video). Shown on the Services page, in the FAQ and in the phone scroll.
-export const EDITS = {
-  long: 'One long-form video (up to 10 minutes) for YouTube',
-  clips: 'Three short clips (30–60 seconds, vertical) for Instagram, TikTok and Reels',
-};
+// Kev's direction (Nov 13, 2026): the half and full day are shoot rates for general events: no planning call and no
+// sit-down Q&A built in (an event space may not want one). Anything else (brand films, a sit-down story with the
+// owner, podcasts, monthly content) is a custom quote. Deliverables below confirmed by Kev.
 
-// Good / Better / Best packages. `from: true` shows the price as a starting point ("from $500"): every
-// project still gets a clear quote after a free planning call.
+// Good / Better / Best. `from: true` shows the price as a starting point ("from $500").
 export interface Package {
   tier: 'Good' | 'Better' | 'Best';
   name: string;
@@ -14,8 +12,11 @@ export interface Package {
   time: string;
   summary: string;
   includes: string[];
-  choice?: string[]; // the client picks one
+  /** What you get, in a few words (FAQ). */
+  short: string;
 }
+
+const CLIPS = (n: string) => `${n} short vertical clips (up to 60 seconds) for Instagram, TikTok and Reels`;
 
 export const PACKAGES: Package[] = [
   {
@@ -26,30 +27,50 @@ export const PACKAGES: Package[] = [
     time: 'About an hour on site', // TODO (Kev): confirm what the $150 single video covers
     summary: 'One short video, filmed and edited for you. The easiest way to get started.',
     includes: ['One short vertical video (up to 60 seconds)', 'Filmed at your location', 'Edited with music, ready for Instagram, TikTok and Reels'],
+    short: 'one short vertical video, filmed and edited, ready to post',
   },
   {
     tier: 'Better',
-    name: 'Half day',
+    name: 'Half day event',
     price: '$500',
     from: true,
     time: 'Up to 4 hours on site',
-    summary: 'We come out and capture what is happening: your event, your property, your space, your work.',
-    includes: ['Filming at one location'],
-    choice: [EDITS.long, EDITS.clips],
+    summary: 'Coverage of your event: the space, the people and the moments that matter.',
+    includes: ['Filming at one location', CLIPS('Five')],
+    short: 'five short vertical clips',
   },
   {
     tier: 'Best',
-    name: 'Full day story',
+    name: 'Full day event',
     price: '$1,100',
     from: true,
     time: 'Up to 8 hours on site',
-    summary: 'A little planning up front, then we film your business and sit down with you to tell your story.',
-    includes: ['A short planning call before the shoot', 'Filming your business at one location', 'A sit-down Q&A with the owner', EDITS.long, EDITS.clips],
+    summary: 'All-day coverage of your event, from setup to the last moments.',
+    includes: ['Filming at one location', 'One highlight video (2–3 minutes) for YouTube, Facebook or your website', CLIPS('Six')],
+    short: 'a 2–3 minute highlight video and six short vertical clips',
   },
 ];
 
+// How an event day goes. Most clients don't have a set schedule, so this is the general outline we cover by default.
+export const EVENT_DAY = {
+  intro:
+    "No set schedule? Most clients don't have one, and that's fine. Send us your start and end times and anything that can't be missed, and we cover the day in this order:",
+  steps: [
+    { step: 'Before doors', text: 'The setup, the space and the details, before anyone arrives.' },
+    { step: 'Arrivals', text: 'Guests coming in, greetings and the crowd building.' },
+    { step: 'Main moments', text: 'Speeches, ribbon cuttings, performances and anything you flag, as they happen.' },
+    { step: 'Wrap-up', text: 'The last moments and the room as the event winds down.' },
+  ],
+};
+
+// Everything that isn't a package.
+export const CUSTOM_QUOTE = {
+  title: 'Everything else',
+  text: 'Brand films, a sit-down story with the owner, podcasts and Q&As, monthly content, and shoots with more than one location or day. Planned with you and priced by the project.',
+};
+
 export const ADD_ONS = [
-  { name: 'Drone footage', price: '$300', from: true, note: 'Aerial footage of your property, building or event, added to a half or full day.' },
+  { name: 'Drone footage', price: '$300', from: true, note: 'Aerial footage of your venue or event, added to a half or full day.' },
 ];
 
 export const RATE_INCLUDES = [
@@ -62,6 +83,7 @@ export const RATE_INCLUDES = [
 
 export const NOT_INCLUDED = [
   'Scripts, storyboards or multi-day shoots',
+  'Sit-down interviews or Q&As (part of a custom quote)',
   'Voiceover or motion graphics',
   'Raw footage (available as an add-on)',
   'More than one location, or more videos than listed',
@@ -69,7 +91,7 @@ export const NOT_INCLUDED = [
 ];
 
 export const RATE_TERMS = [
-  'Prices shown are where projects start. After a free planning call you get a clear quote before anything is filmed.',
+  'Prices shown are where projects start. You get a clear quote before anything is filmed.',
   'Anything beyond what is listed is quoted before work begins.',
   'Rush delivery is not offered.',
 ];
