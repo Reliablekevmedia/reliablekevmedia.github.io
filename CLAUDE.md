@@ -51,6 +51,9 @@ and under ~8 MB so it autoplays quickly. It opens on the bar-carry shot (Kev's r
   North Jersey. Confirm with Kev; `on: false` turns the offer off everywhere.
 - **$150 single video details**: the Good tier in `src/data/pricing.ts` assumes about an hour on site and one
   short vertical video (up to 60 seconds). Confirm with Kev and adjust.
+- **Clean homepage go-ahead**: a calmer homepage is preview-only (`?clean=1` on a device, `?clean=0` off; set in
+  `src/layouts/Base.astro`, rules at the end of `src/styles/global.css`, `.clean-out`/`.clean-in` in `src/pages/index.astro`).
+  If Kev approves, make it permanent by deleting the `.clean-out` parts and the switch.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.

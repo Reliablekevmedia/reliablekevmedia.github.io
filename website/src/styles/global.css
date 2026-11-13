@@ -211,3 +211,20 @@ html[data-look="black"] .header { border-bottom: 1px solid var(--cream); }
 html[data-look="black"] .ticker { border-bottom: 1px solid var(--cream); }
 html[data-look="black"] .footer { border-top-color: var(--cream); }
 html[data-look="black"] .content h2 { padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+
+/* Cleaner homepage preview (?clean=1, see Base.astro). `.clean-out` hides in the preview, `.clean-in` shows only there. */
+.clean-in { display: none !important; }
+html[data-clean] .clean-in { display: revert !important; }
+html[data-clean] .clean-out { display: none !important; }
+html[data-clean] .topbar,
+html[data-clean] .bg-photos,
+html[data-clean] .brand-divider { display: none !important; }
+/* RK mark only on the logo, the homepage headline and the footer. */
+html[data-clean] main .brand-mark { display: none !important; }
+html[data-clean] main .hero .brand-mark, html[data-clean] main .lockup-mark { display: inline-block !important; }
+.preview-bar { text-align: center; padding: 10px 0 0; }
+.preview-badge {
+  display: inline-block; white-space: nowrap; padding: 8px 14px; border-radius: 999px;
+  font-family: var(--font-label); font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
+  background: var(--glass-cream); color: #151514; box-shadow: 0 6px 18px rgb(0 0 0 / 0.35);
+}

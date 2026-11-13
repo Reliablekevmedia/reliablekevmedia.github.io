@@ -87,9 +87,19 @@ const business = {
         } catch (e) {}
         if (on && document.documentElement.hasAttribute('data-home')) document.documentElement.dataset.phoneScroll = '';
       })();
+      // Cleaner-homepage preview: ?clean=1 turns it on for this device, ?clean=0 turns it off. Visitors never see it.
+      (function () {
+        try {
+          var q = new URLSearchParams(location.search).get('clean');
+          if (q === '1') localStorage.setItem('clean-preview', '1');
+          if (q === '0') localStorage.removeItem('clean-preview');
+          if (localStorage.getItem('clean-preview') === '1') document.documentElement.dataset.clean = '';
+        } catch (e) {}
+      })();
     </script>
   </head>
   <body id="top">
+    <div class="preview-bar clean-in"><a href="?clean=0" class="preview-badge">Clean preview · tap to turn off</a></div>
     {!bare && <BackgroundPhotos />}
     {!bare && <Header />}
     <main>

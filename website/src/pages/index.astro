@@ -1,4 +1,5 @@
 ---
+import { FIRST_VIDEO_FREE } from '../data/pricing';
 import { VALUE_POINTS } from '../data/home';
 import PhoneHome from '../components/PhoneHome.astro';
 import ClientLogos from '../components/ClientLogos.astro';
@@ -54,13 +55,17 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
     <div class="content">
       <section>
         <h1>Serving all of New Jersey<BrandMark /></h1>
-        <p>
+        <p class="clean-in">
+          Reliable Kev Media is a New Jersey video production studio. We tell the full story of your business: the
+          work, the people behind it and the community it belongs to, so people trust you before they ever call.
+        </p>
+        <p class="clean-out">
           Reliable Kev Media is a North Jersey video production studio. We produce
           {SERVICES.map((s, i) => <>{i === SERVICES.length - 1 ? ' and ' : i ? ', ' : ' '}<a href={`/services#${s.id}`}>{s.inline ?? s.title.toLowerCase()}</a></>)}{' '}
           for towns, downtowns, local businesses and trade companies throughout
           {counties.map((c, i) => <>{i === counties.length - 1 ? ' and ' : i ? ', ' : ' '}<a href={`/where-i-work/${c.id}`}>{c.data.name}</a></>)}.
         </p>
-        <p>
+        <p class="clean-out">
           Our approach is full context storytelling. We invest the time, care and thought to understand your story, then
           direct and shape it on camera: the work, the people behind it and the community it belongs to. The result is
           video that earns trust before the first phone call.
@@ -102,7 +107,7 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
       </section>
 
       {SERVICES.map((s) => (
-        <section id={s.id}>
+        <section id={s.id} class="clean-out">
           <h2>{s.title}</h2>
           {SERVICE_PHOTOS[s.id] && (
             <figure class="service-photo">
@@ -120,7 +125,7 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
 
       <BrandDivider />
 
-      <section>
+      <section class="clean-out">
         <h2>Serving North Jersey</h2>
         <p>
           Every piece of work is tied to the town it was made in. We currently work in
@@ -153,7 +158,20 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
     </div>
   </section>
 
-  <section class="platforms desktop-only" aria-label="Where your videos go">
+  {FIRST_VIDEO_FREE.on && (
+    <section class="free-band clean-in desktop-only">
+      <div class="container">
+        <div class="free-card">
+          <p class="free-badge">New clients</p>
+          <h2>{FIRST_VIDEO_FREE.headline}</h2>
+          <p>{FIRST_VIDEO_FREE.terms}</p>
+          <a href="/start" class="btn btn-primary">Claim your free video</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="platforms desktop-only clean-out" aria-label="Where your videos go">
     <div class="container">
       <p class="eyebrow">Made for</p>
       <ul>
@@ -162,7 +180,7 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
     </div>
   </section>
 
-  <div class="desktop-only"><AreaMap /></div>
+  <div class="desktop-only clean-out"><AreaMap /></div>
   <PhoneHome />
 </Base>
 
@@ -220,4 +238,18 @@ const platforms = ['Instagram', 'TikTok', 'YouTube', 'Facebook', 'LinkedIn', 'Yo
   @media (max-width: 520px) {
     .meet { grid-template-columns: 1fr; }
   }
+  .free-band { padding: 8px 0 clamp(56px, 8vw, 96px); }
+  .free-card {
+    max-width: 760px; margin: 0 auto; text-align: center; padding: clamp(26px, 4vw, 40px); border-radius: 28px;
+    background: var(--glass-cream); color: #151514; box-shadow: 0 14px 40px rgb(0 0 0 / 0.35), inset 0 1px 0 #fff;
+  }
+  .free-card h2 { color: #151514; text-transform: uppercase; font-weight: 600; font-size: clamp(1.5rem, 3.4vw, 2.2rem); margin: 12px 0 8px; }
+  .free-card p { color: #3a3833; margin: 0 auto 18px; max-width: 56ch; }
+  .free-card .free-badge {
+    display: inline-block; margin: 0; padding: 4px 12px; border-radius: 999px; background: #151514; color: var(--cream);
+    font-family: var(--font-label); font-size: 0.68rem; letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  .free-card .btn-primary { background: #151514; color: var(--cream); }
+  .free-card .btn-primary::before { opacity: 0.25; }
+  :global(html[data-clean]) .content > section:not(:first-child) { margin-top: 56px; }
 </style>
