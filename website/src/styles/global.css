@@ -250,11 +250,13 @@ html[data-intro] .intro-photo { animation: intro-fade-in 0.8s ease 1.4s forwards
 }
 .intro-quote span::before { content: ''; width: 26px; height: 2px; background: var(--red); }
 html[data-intro] .intro-quote { animation: intro-fade-in 0.8s ease 2.1s forwards; }
-/* Phone held upright (photos stacked): the quote sits low on the screen, clear of both faces. */
+/* Phone held upright (photos stacked). The top photo gets 60% of the screen so the whole face fits on every phone
+   height, and the quote sits on the line between the two photos, below the chin and above the second face. */
 @media (max-aspect-ratio: 3/4) {
-  .intro-photo.p1 { object-position: 50% 30%; } /* the whole face, from the cap to the chin */
+  .intro-photos { grid-template-rows: 3fr 2fr; }
+  .intro-photo.p1 { object-position: 50% 45%; }
   .intro-photo.p2 { object-position: 60% 0%; }
-  .intro-quote { bottom: calc(60px + env(safe-area-inset-bottom)); top: auto; text-shadow: 0 2px 6px rgb(0 0 0 / 0.9), 0 0 28px rgb(0 0 0 / 0.9); }
+  .intro-quote { bottom: auto; top: calc(60% - 14px); transform: translateY(-50%); text-shadow: 0 2px 6px rgb(0 0 0 / 0.9), 0 0 28px rgb(0 0 0 / 0.9); }
 }
 .intro-skip-hint {
   position: absolute; left: 0; right: 0; bottom: calc(18px + env(safe-area-inset-bottom)); z-index: 3; margin: 0; text-align: center;

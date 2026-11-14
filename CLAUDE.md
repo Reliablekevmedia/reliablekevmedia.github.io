@@ -52,7 +52,8 @@ free first video). The RK mark appears only on the logo, the footer, the card pa
 day on a device, never on a refresh (`.intro` in `Base.astro`, styles at the end of `global.css`; `?intro=1` plays it
 once more and is then removed from the address; skipped for reduced motion): the RK letters on black, then the page.
 On the homepage it is a short story (Kev's idea, from the Arcade app): RK letters, then Kev's before and after photos
-side by side in one frame (stacked on a phone held upright), in color with the exposure dimmed
+side by side in one frame (stacked on a phone held upright: the top photo gets 60% of the screen so the whole face
+fits on every iPhone height, and the quote sits mid-screen on the line between the photos), in color with the exposure dimmed
 (`public/images/intro/`: `kev-then.jpg` cut from `kev-before-after.jpg`, and `kev-now.jpg`, Kev smiling with his
 Canon; give replaced images a new file name so phones do not keep showing a cached copy), under his quote "You deserve to be heard.", then the page (about
 6 s; both photos appear at the same moment as one still frame, no zoom; any tap, scroll or key skips it).
