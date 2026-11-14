@@ -7,7 +7,7 @@ const [drone] = ADD_ONS;
 // Questions people ask before booking. Shown on the Services page (/services#faq).
 export const FAQ = [
   ...(FIRST_VIDEO_FREE.on
-    ? [{ q: 'Is my first video really free?', a: `Yes. ${FIRST_VIDEO_FREE.terms} There is no contract and no obligation. It is the simplest way to experience how we work.` }]
+    ? [{ q: 'Is my first video really free?', a: `Yes. ${FIRST_VIDEO_FREE.terms} It is the simplest way to see the quality of our work before you invest.` }]
     : []),
   {
     q: 'How long have you been in business?',

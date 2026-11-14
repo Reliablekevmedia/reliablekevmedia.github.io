@@ -102,7 +102,7 @@ export const FIRST_VIDEO_FREE = {
   on: true,
   headline: 'Your first video is free',
   short: 'New clients: your first video is free.',
-  // Kev (Nov 13, 2026): open to anyone, not only businesses. No planning session is included, which is worded as a
-  // plus (nothing to prepare) so it never reads as a catch.
-  terms: 'One short vertical video (up to 60 seconds), open to anyone new to Reliable Kev Media. It is simple by design, with nothing to plan or prepare: we arrive, film on location in North Jersey and deliver the edit with music and captions, ready to publish. One per client.',
+  // Kev (Nov 14, 2026): open to anyone new, minimal planning, and say why we offer it: the local market is crowded and
+  // people are skeptical of marketing, so the work is offered as proof before anyone pays.
+  terms: 'North Jersey is a competitive market, and we understand that marketing is often met with skepticism. That is why every new client receives their first video free: one short vertical video (up to 60 seconds), filmed on location with minimal planning and edited with music and captions, ready to publish. One per client, with no contract and no obligation.',
 };
