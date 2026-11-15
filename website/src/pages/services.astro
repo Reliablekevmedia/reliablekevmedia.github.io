@@ -7,6 +7,8 @@ import { DRONE_BANNER, DRONE_CLIPS } from '../data/drone';
 import { GEAR } from '../data/business';
 import { FEATURED } from '../data/featured';
 import FeaturedVideo from '../components/FeaturedVideo.astro';
+import ReelGrid from '../components/ReelGrid.astro';
+import { REELS } from '../data/reels';
 import FilmStill from '../components/FilmStill.astro';
 import { ICONS } from '../data/icons';
 
@@ -111,6 +113,12 @@ const faqSchema = {
     <h2>Our Work</h2>
     <p>Every project shown here was filmed on location in North Jersey for local businesses and organizations.</p>
     {FEATURED.map((f) => <FeaturedVideo item={f} heading="h3" />)}
+    {[...new Set(REELS.map((r) => r.town))].map((town) => (
+      <>
+        <h3 class="reel-town">{town}, NJ</h3>
+        <ReelGrid reels={REELS.filter((r) => r.town === town)} />
+      </>
+    ))}
   </section>
 
   <FilmStill src="/images/stills/event-crowd.jpg" alt="Guests gathered on the patio at an outdoor event" />
@@ -215,6 +223,7 @@ const faqSchema = {
   }
   .jump a:hover { border-color: var(--red); }
   .service, .faq, .pricing { scroll-margin-top: 110px; }
+  .reel-town { margin-top: 56px !important; }
   /* The free first video, offered right at the top of the page. */
   .offer-strip {
     display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; margin: 28px 0 8px; padding: 16px 20px;

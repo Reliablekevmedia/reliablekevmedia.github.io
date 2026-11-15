@@ -4,6 +4,8 @@ import Page from '../../../layouts/Page.astro';
 import { SERVICES } from '../../../site';
 import ClipCards from '../../../components/ClipCards.astro';
 import { DRONE_CLIPS } from '../../../data/drone';
+import ReelGrid from '../../../components/ReelGrid.astro';
+import { REELS } from '../../../data/reels';
 
 export async function getStaticPaths() {
   const towns = await getCollection('towns');
@@ -20,6 +22,7 @@ const stories = (await getCollection('stories', (s) => s.data.town.id === town.i
 );
 const name = town.data.name;
 const hasClips = DRONE_CLIPS.some((c) => c.shape === 'wide' && c.town === name);
+const reels = REELS.filter((r) => r.town === name);
 ---
 
 <Page
@@ -54,7 +57,8 @@ const hasClips = DRONE_CLIPS.some((c) => c.shape === 'wide' && c.town === name);
     </>
   ))}
 
-  {(work.length > 0 || hasClips) && <h2>Work in {name}</h2>}
+  {(work.length > 0 || hasClips || reels.length > 0) && <h2>Work in {name}</h2>}
+  <ReelGrid reels={reels} />
   {work.length > 0 && (
     <ul class="checks">
       {work.map((w) => <li><a href={`/work/${w.id}`}>{w.data.client}</a>: {w.data.businessType}</li>)}

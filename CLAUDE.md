@@ -31,6 +31,11 @@ to write a small 1080p `public/videos/<name>.mp4` plus a `<name>.jpg` poster sti
 `website/src/data/drone.ts` (`DRONE_CLIPS`); it then shows in the Drone & Aerial section of the Services page
 (grouped by its `section`). Never commit raw footage; keep each clip a few MB.
 
+Finished vertical client videos with sound (like the Fair Lawn Main Street pieces from the "MainStreet" release) are
+not drone clips: encode them to 720x1280 with audio (30 fps, CRF 29, AAC 96k, faststart, plus a .jpg poster) and list
+them in `src/data/reels.ts` (`REELS`). They show in Our Work on the Services page, grouped by town, and on that
+town's page (`src/components/ReelGrid.astro`). Landscape finished pieces go in `src/data/featured.ts` instead.
+
 There is no separate Drone or Work page any more: both are sections of `/services` (`#drone`, `#work`).
 `src/pages/drone.astro` and `work.astro` only forward old links there; keep them so saved links don't break.
 Likewise Meet Kev is a section of the About page (`/about#meet-kev`, Kev's first-person story); `src/pages/meet-kev.astro`
@@ -81,6 +86,8 @@ and simple (written so anyone can follow it).
   planning call and no sit-down Q&A built in; those and everything else (brand films, podcasts, monthly content) are a
   custom quote. "How an event day goes" (`EVENT_DAY`) is the default outline for clients without a schedule. All in
   `src/data/pricing.ts`.
+- **Art in the Park credit**: the Art in the Park reel (`src/data/reels.ts`) shows One Brick Media branding, so it is
+  credited "with One Brick Media". Confirm with Kev how he wants it credited.
 - **Phone scroll go-ahead**: on phones the homepage can be one menu-free scroll (`src/components/PhoneHome.astro`).
   It is preview-only (a phone that opened the site with `?phone=1`) until Kev approves; then set
   `PHONE_SCROLL_LIVE = true` in `src/layouts/Base.astro`.
