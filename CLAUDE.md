@@ -72,6 +72,14 @@ consultation" for the first call; "event coverage", "clients", "municipalities".
 own story in the Meet Kev section of the About page stays in his first-person voice, and the DIY page stays plain
 and simple (written so anyone can follow it).
 
+## Search wording (Kev's request, Nov 15, 2026)
+
+Kev wants the site found for "video production", "documentary", "North Jersey" and "local". These words live in the
+page titles and descriptions (`title`/`description` props on each page; the homepage search title is
+`Reliable Kev Media | ${SITE.tagline}`, while its share title for iMessage stays just the name), the homepage and
+Services headings, `SITE.description` (also the Google business data in `Base.astro`) and the town and county pages
+("Video Production in <Town>, NJ"). Keep them when rewording, written naturally and formally.
+
 ## Waiting on Kev
 
 - **Certifications**: when Kev is an FAA-certified drone pilot (Part 107) and Adobe certified, add them to the

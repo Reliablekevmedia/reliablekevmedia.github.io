@@ -9,7 +9,7 @@ const posts = (await getCollection('stories', (s) => !s.data.draft)).sort(
 const fmt = (d: Date) => d.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
 ---
 
-<Page title="Blog" description={`Stories from the towns and businesses of ${SITE.area}.`}>
+<Page title="Local Stories Blog" description="Stories from the towns and local businesses of North Jersey, and guidance on video production for your business.">
   <h1>Local stories blog</h1>
   <p>
     Stories from the towns of North Jersey and the businesses within them, along with guidance on making the most of

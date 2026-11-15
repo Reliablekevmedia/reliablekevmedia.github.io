@@ -1,9 +1,10 @@
 // One place for business details. Anything marked TODO still needs real info.
 export const SITE = {
   name: 'Reliable Kev Media',
-  tagline: 'Video content, event coverage and podcasts. Full-context storytelling for North Jersey.',
+  // Search-engine wording (Kev, Nov 2026): video production, documentary, North Jersey, local.
+  tagline: 'Local Video Production in North Jersey',
   description:
-    'Reliable Kev Media is a video production company serving municipalities, local businesses and trade companies across North Jersey, producing video that builds trust by showing the work, the people and the community behind every business.',
+    'Reliable Kev Media is a local, documentary-style video production company in North Jersey. We film local businesses, events, municipalities and trade companies, showing the work, the people and the community behind every story.',
   email: 'sixthsensestudiosllc@gmail.com',
   phone: '(973) 820-5511',
   hours: 'By appointment. We film on location.', // no storefront
@@ -59,9 +60,9 @@ export const SERVICES = [
     id: 'projects',
     title: 'Brand Films & Projects',
     slide: 'Brand films with a clear beginning, middle and end',
-    short: 'Brand films, launches and special projects that present the complete picture of your business.',
+    short: 'Documentary-style brand films, launches and special projects that present the complete picture of your business.',
     points: [
-      'Brand films and company overview videos',
+      'Documentary-style brand films and company overview videos',
       'Launches, job-site documentation and before-and-after features',
       'Public project updates for municipalities',
     ],

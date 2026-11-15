@@ -7,7 +7,7 @@ const average = REVIEWS.length ? REVIEWS.reduce((sum, r) => sum + r.rating, 0) /
 const stars = (n: number) => '★'.repeat(Math.round(n)) + '☆'.repeat(5 - Math.round(n));
 ---
 
-<Page title="Reviews" description={`What clients say about ${SITE.name}.`}>
+<Page title="Client Reviews" description={`What local businesses and organizations in North Jersey say about ${SITE.name}, a documentary-style video production company.`}>
   <h1>Client reviews</h1>
   <div class="intro">
     <p>
