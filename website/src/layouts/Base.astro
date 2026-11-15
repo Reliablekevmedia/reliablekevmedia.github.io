@@ -66,9 +66,10 @@ const business = {
     {Astro.url.pathname === '/' && <script type="application/ld+json" set:html={JSON.stringify(business)} />}
     <script is:inline>
       if (!matchMedia('(prefers-reduced-motion: reduce)').matches) document.documentElement.classList.add('js-reveal');
-      // Opening: plays at most once a day on a device (refreshing or browsing never replays it), and never for people
-      // who ask for less motion. ?intro=1 plays it once more on demand; the address is then cleaned up, so a refresh
-      // does not replay it. The fade is pure CSS, so it always clears by itself, even if a script fails.
+      // Opening: plays once per visit, i.e. whenever the site is opened fresh (a new tab, or a link tapped in Instagram,
+      // Messages or email), but never on a refresh or while browsing from page to page in the same visit, and never for
+      // people who ask for less motion. ?intro=1 plays it once more on demand; the address is then cleaned up, so a
+      // refresh does not replay it. The fade is pure CSS, so it always clears by itself, even if a script fails.
       (function () {
         try {
           var params = new URLSearchParams(location.search);
@@ -79,9 +80,8 @@ const business = {
             history.replaceState(null, '', location.pathname + (qs ? '?' + qs : '') + location.hash);
           }
           if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-          var last = Number(localStorage.getItem('intro-seen-at')) || 0;
-          if (!replay && Date.now() - last < 24 * 60 * 60 * 1000) return;
-          localStorage.setItem('intro-seen-at', String(Date.now()));
+          if (!replay && sessionStorage.getItem('intro-seen')) return;
+          sessionStorage.setItem('intro-seen', '1');
           document.documentElement.dataset.intro = '';
         } catch (e) {}
       })();

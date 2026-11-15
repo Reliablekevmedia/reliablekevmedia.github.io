@@ -48,8 +48,8 @@ button reads "Free First Video", the phone bar "Free video", the Services page o
 quote form lists "My free first video" first. Offer links go to `/start?free=1`, which ticks that choice on the
 intake form. The short link `/free` (`src/pages/free.astro`, for Instagram stories and texts) forwards there. `FIRST_VIDEO_FREE.on = false` puts everything back to "Start a Project". The page is near black (`--bg`
 #0b0b0a fading to `--charcoal` #1c1b19), not gray. Keep the homepage short (intro, featured work, why choose, services,
-free first video). The RK mark appears only on the logo, the footer, the card page and the opening. The opening plays at most once a
-day on a device, never on a refresh (`.intro` in `Base.astro`, styles at the end of `global.css`; `?intro=1` plays it
+free first video). The RK mark appears only on the logo, the footer, the card page and the opening. The opening plays once per visit
+(each fresh open: new tab, or a link tapped in Instagram or Messages), never on a refresh or page to page (`.intro` in `Base.astro`, styles at the end of `global.css`; `?intro=1` plays it
 once more and is then removed from the address; skipped for reduced motion): the RK letters on black, then the page.
 On the homepage it is a short story (Kev's idea, from the Arcade app): RK letters, then Kev's before and after photos
 side by side in one frame (stacked on a phone held upright: the top photo gets 60% of the screen so the whole face
